@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class menu {
+public class Menu {
     public static float saldo;
     public static int opcao;
 
