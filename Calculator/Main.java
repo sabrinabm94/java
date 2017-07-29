@@ -1,121 +1,116 @@
 import java.util.Scanner;
 
 public class Main {
-	public static float numeroA;
-	public static float numeroB;
+	public static float numberA;
+	public static float numberB;
 	
 	public static void main(String[] args) {
-		int opcao = 0;
-		imprimirMenu(opcao);
+		int option = 0;
+		showMenu(option);
 	}
 	
-	public static void imprimirMenu(int opcao){
-		System.out.println("|=====================|");
-        System.out.println("| Operações matemáticas |");
-        System.out.println("|=====================|");
-        System.out.println("| 1 ----> Somar       |");
-        System.out.println("| 2 ----> Subtrair    |");
-        System.out.println("| 3 ----> multiplicar |");
-        System.out.println("| 4 ----> dividir     |");
-        System.out.println("| 5 ----> potência    |");
-        System.out.println("| 6 ----> sair        |");
-        System.out.println("|=====================|");
-        System.out.print("Escolha a opção desejada: ");
-    	Scanner leia = new Scanner(System.in);
-		opcao = leia.nextInt();
-		menuOpcao(opcao);
+	public static void showMenu(int option){
+		System.out.println("|======================|");
+		System.out.println("|   Math operations    |");
+		System.out.println("|======================|");
+		System.out.println("| 1 --> Summation      |");
+		System.out.println("| 2 --> Subtraction    |");
+		System.out.println("| 3 --> Multiplication |");
+		System.out.println("| 4 --> Division       |");
+		System.out.println("| 5 --> Cubed          |");
+		System.out.println("| 6 --> Exit           |");
+		System.out.println("|======================|");
+		System.out.print("Choose the desired option: ");
+		Scanner enter = new Scanner(System.in);
+		option = enter.nextInt();
+		menuOption(option);
 	}
 	
-	public static void menuOpcao(int opcao){
-		switch(opcao){
-		case 1: 
-			useSomar(numeroA, numeroB);
+	public static void menuOption(int option){
+		switch(option){
+			case 1: 
+			useSummation(numberA, numberB);
 			break;
-		case 2: 
-			 useSubtrair(numeroA, numeroB);
+			case 2: 
+			useSubtraction(numberA, numberB);
 			break;
-		case 3: 
-			 useMultiplicar(numeroA, numeroB);
+			case 3: 
+			userMultiplication(numberA, numberB);
 			break;
-		case 4: 
-			 useDividir(numeroA, numeroB);
+			case 4: 
+			useDivision(numberA, numberB);
 			break;
-		case 5: 
-			usePotencia(numeroA, numeroB);
+			case 5: 
+			useCubed(numberA, numberB);
 			break;
-		case 6: 
-			 System.out.println("Fim de jogo");
-			 break;
+			case 6: 
+			System.out.println("End of the game");
+			break;
 		}
 		
-		if (opcao != 1 && opcao !=2 && opcao !=3 && opcao != 4 && opcao != 5 && opcao != 6) {
-			 System.out.println("Opção inválida, tente novamente");
-			 imprimirMenu(0);
+		if (option != 1 && option !=2 && option !=3 && option != 4 && option != 5 && option != 6) {
+			System.out.println("Invalid option, try again");
+			showMenu(0);
 		}
 	}
-    
-	public static void useSomar(float numeroA, float numeroB){
-		System.out.println("Operação de Soma: ");
+
+	public static void useSummation(float numberA, float numberB){
+		System.out.println("Summation");
 		somar Soma = new somar();
 		Scanner entrada = new Scanner(System.in); 
-		System.out.print("Operação de Soma ");
-        System.out.print("Digite o valor A: ");
-        numeroA = entrada.nextInt();
-        System.out.print("Digite o valor B: ");
-        numeroB = entrada.nextInt();
-        System.out.print("Resultado: " + Soma.somar(numeroA, numeroB));
-        imprimirMenu(0);
+		System.out.print("Enter the number A: ");
+		numberA = entrada.nextInt();
+		System.out.print("Enter the number B: ");
+		numberB = entrada.nextInt();
+		System.out.print("Result: " + Sum.summation(numberA, numberB));
+		showMenu(0);
 	}
 	
-	public static void useSubtrair(float numeroA, float numeroB){
-		System.out.println("Operação de Subtrair: ");
+	public static void useSubtraction(float numberA, float numberB){
+		System.out.println("Subtraction");
 		subtrair Subtracao = new subtrair();
 		Scanner entrada2 = new Scanner(System.in);
-		System.out.print("Subtracao ");
-        System.out.print("Digite o valor A: ");
-        numeroA = entrada2.nextInt();
-        System.out.print("Digite o valor B: ");
-        numeroB = entrada2.nextInt();
-        System.out.print("Resultado: " + Subtracao.subtrair(numeroA, numeroB));
-        imprimirMenu(0);
+		System.out.print("Enter the number A: ");
+		numberA = entrada2.nextInt();
+		System.out.print("Enter the number B: ");
+		numberB = entrada2.nextInt();
+		System.out.print("Result: " + Subtract.subtraction(numberA, numberB));
+		showMenu(0);
 	}
 	
-	public static void useMultiplicar(float numeroA, float numeroB){
-		System.out.println("Operação de Multiplicar: ");
+	public static void userMultiplication(float numberA, float numberB){
+		System.out.println("Multiplication");
 		multiplicar Multiplicacao = new multiplicar();
 		Scanner entrada3 = new Scanner(System.in); 
-		System.out.print("Multiplicação ");
-        System.out.print("Digite o valor A: ");
-        numeroA = entrada3.nextInt();
-        System.out.print("Digite o valor B: ");
-        numeroB = entrada3.nextInt();
-        System.out.print("Resultado: " + Multiplicacao.multiplicar(numeroA, numeroB));
-        imprimirMenu(0);
+		System.out.print("Enter the number A: ");
+		numberA = entrada3.nextInt();
+		System.out.print("Enter the number B: ");
+		numberB = entrada3.nextInt();
+		System.out.print("Result: " + Multiply.multiplication(numberA, numberB));
+		showMenu(0);
 	}
 	
-	public static void useDividir(float numeroA, float numeroB){
-		System.out.println("Operação de Dividir: ");
-        dividir Divisao = new dividir();
+	public static void useDivision(float numberA, float numberB){
+		System.out.println("Division");
+		dividir Divisao = new dividir();
 		Scanner entrada4 = new Scanner(System.in); 
-		System.out.print("Divisão ");
-        System.out.print("Digite o valor A: ");
-       numeroA = entrada4.nextInt();
-        System.out.print("Digite o valor B: ");
-        numeroB = entrada4.nextInt();
-        System.out.print("Resultado: " + Divisao.dividir(numeroA, numeroB));
-        imprimirMenu(0);
+		System.out.print("Enter the number A: ");
+		numberA = entrada4.nextInt();
+		System.out.print("Enter the number B: ");
+		numberB = entrada4.nextInt();
+		System.out.print("Result: " + Divide.division(numberA, numberB));
+		showMenu(0);
 	}
 	
-	public static void usePotencia(float numeroA, float numeroB){
-		System.out.println("Operação de Potência: ");
+	public static void useCubed(float numberA, float numberB){
+		System.out.println("Cubed");
 		potencia Potencia = new potencia();
 		Scanner entrada5 = new Scanner(System.in); 
-		System.out.print("Potência ");
-        System.out.print("Digite o valor A: ");
-        numeroA = entrada5.nextInt();
-        System.out.print("Digite o valor B: ");
-        numeroB = entrada5.nextInt();
-        System.out.print("Resultado: " + Potencia.potencia(numeroA, numeroB));
-        imprimirMenu(0);
+		System.out.print("Enter the number A: ");
+		numberA = entrada5.nextInt();
+		System.out.print("Enter the number B: ");
+		numberB = entrada5.nextInt();
+		System.out.print("Result: " + Cube.cubed(numberA, numberB));
+		showMenu(0);
 	}
 }
