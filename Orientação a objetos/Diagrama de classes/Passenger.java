@@ -1,5 +1,5 @@
 package java;
-	
+
 public class Passenger {
 	private String firstname;
 	private String lastname;
