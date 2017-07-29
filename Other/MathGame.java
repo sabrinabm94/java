@@ -31,11 +31,8 @@ public class MathGame {
 				System.out.println("End game!");
 				break;
 			}
-		}while(option != 2);
+		} while(option != 2);
 	}
-	// Funcao pede pro usuario escolher a difficulty
-	// e direciona para as question da phase 1 da
-	// difficulty selecionada
 	public static void chooseDificult() {
 		Scanner enter = new Scanner(System.in);
 		System.out.print("\nChoose the difficulty: 1 - easy 2 - average 3 - difficult: ");
@@ -55,7 +52,6 @@ public class MathGame {
 		}
 	}
 	public static void questiondifficulty1phase1(){
-		// phase1 - Soma e subtracao de numeros ate 100
 		String[] operators = {"-","+"};
 		String operation = " ";
 		int result = 0;
@@ -63,16 +59,11 @@ public class MathGame {
 		int[] value1 = new int[20];
 		int[] value2 = new int[20];
 		Scanner enter = new Scanner(System.in);
-		// Gera dois vetores de numeros inteiros que
-		// serao usados nas contas
 		for (int counter = 0; counter < 20; counter ++){
 			value1[counter] = (int)(Math.random() * 100);
 			value2[counter] = (int)(Math.random() * 100);
 		}
-		// Seleciona umas das operacoes e faz a pergunta
-		// para a operation escolhida
 		for(int counter = 0; counter < 20; counter ++){
-			//operation seleciona um dos operators do vetor operators
 			operation = operators[(int)(Math.random() * 2)];
 			if ( operation == "-"){
 				System.out.print ("Answer how much is " + value1[counter] + operation + value2[counter] + ": ");
@@ -82,7 +73,7 @@ public class MathGame {
 					hit = true;
 				}else{
 					hit = false;
-					errorCounter ++; // incrementa a contagem de erros
+					errorCounter ++;
 				}
 				pointsCalculo();
 			}else if( operation == "+"){
