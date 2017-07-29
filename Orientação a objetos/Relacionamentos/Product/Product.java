@@ -1,4 +1,4 @@
-package relacionamentos;
+package relationship;
 
 public class Product {
 	private String name;
