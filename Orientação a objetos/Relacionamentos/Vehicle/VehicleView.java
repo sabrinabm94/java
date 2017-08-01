@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class VehicleView {	
 	public void show(Vehicle vehicle) {
-		System.out.println("--------------------------");
+		System.out.println("================================");
 		System.out.println("LicenseNumber: "  + licenceNumber);
 		System.out.println("Name: "  + vehicle.getName());
 		System.out.println("Brand: " + vehicle.getBrand());
@@ -13,6 +13,6 @@ public class VehicleView {
 		System.out.println("Color: " + vehicle.getColor());
 		System.out.println("Mileage: " + vehicle.getMileage());
 		System.out.println("Value: " + vehicle.getValue());
-		System.out.println("--------------------------");
+		System.out.println("================================");
 	}
 }
