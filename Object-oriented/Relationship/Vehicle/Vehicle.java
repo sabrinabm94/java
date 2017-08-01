@@ -10,7 +10,7 @@ public class Vehicle {
 	private double mileage;
 	private double value;
 	
-	public int getLicenseNumber() {
+	public int getByLicenseNumber() {
 		return licenseNumber;
 	}
 

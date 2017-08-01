@@ -1,10 +1,9 @@
-import java.util.Scanner;
 //package Vehicle;
 
 public class VehicleView {	
 	public void show(Vehicle vehicle) {
 		System.out.println("================================");
-		System.out.println("LicenseNumber: "  + licenceNumber);
+		System.out.println("LicenseNumber: "  + vehicle.getByLicenseNumber());
 		System.out.println("Name: "  + vehicle.getName());
 		System.out.println("Brand: " + vehicle.getBrand());
 		System.out.println("Manufacture year: " + vehicle.getManufactureYear());
