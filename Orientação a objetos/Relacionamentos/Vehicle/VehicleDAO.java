@@ -1,8 +1,7 @@
 //package Vehicle;
 
 public class VehicleDAO {
-
-	public Vehicle setData () {
+	public Vehicle getByLicenseNumber(int licenseNumber) {
 		Vehicle vehicle = new Vehicle();
 		vehicle.setLicenseNumber(105);
 		vehicle.setName("Fusca");
