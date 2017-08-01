@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 //package Vehicle;
 
 public class VehicleView {	
