@@ -3,7 +3,7 @@ import java.util.Scanner;
 //package Vehicle;
 
 public class VehicleView {	
-	public void show(Vehicle vehicle,  int licenceNumberSearch) {
+	public void show(Vehicle vehicle) {
 		System.out.println("--------------------------");
 		System.out.println("LicenseNumber: "  + licenceNumber);
 		System.out.println("Name: "  + vehicle.getName());
