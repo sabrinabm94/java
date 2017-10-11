@@ -9,7 +9,7 @@ public class BankMenu {
         System.out.println("Choose one of the options below: ");
         System.out.println("0. End");
         System.out.println("1. Deposit");
-        System.out.println("2. Sake");
+        System.out.println("2. Cash withdrawal");
         System.out.println("3. Balance consulte");
         System.out.println("Option:");
     }
@@ -24,14 +24,14 @@ public class BankMenu {
         balance = balance + depositValue;
     }
 
-    public static void saque(){
+    public static void cashWithdrawal(){
         System.out.println("You entered the serve method");
-        float sakeValue;
+        float cashWithdrawalValue;
         Scanner enter = new Scanner(System.in);
-        System.out.print("Enter the value to sake: ");
-        sakeValue = enter.nextFloat();
-        System.out.println("The value of the sake was: " + sakeValue);
-        balance = balance - sakeValue;
+        System.out.print("Enter the value to cash withdrawal: ");
+        cashWithdrawalValue = enter.nextFloat();
+        System.out.println("The value of the cash withdrawal was: " + cashWithdrawalValue);
+        balance = balance - cashWithdrawalValue;
     }
 
     public static void consultation(){
@@ -52,7 +52,7 @@ public class BankMenu {
             break;
 
             case 2:
-            saque();
+            cashWithdrawal();
             break;
 
             case 3:
