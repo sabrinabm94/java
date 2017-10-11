@@ -522,7 +522,7 @@ public class MathGame {
 		System.out.println(":::::::::::::::::::::::::::::::::::::::");
 		System.out.println(":::::::::::::Developed by::::::::::::::");
 		System.out.println(":::: ELI FLORENCIO PEREIRA ::::::::::::");
-		System.out.println(":::: SABRINA BOEING::::::::::::::::::::");
+		System.out.println(":::: SABRINA BOING ::::::::::::::::::::");
 		System.out.println(":::::::::::::::::::::::::::::::::::::::");
 	}
 	public static void gameOver(){
