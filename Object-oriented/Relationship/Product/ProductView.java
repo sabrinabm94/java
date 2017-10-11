@@ -1,6 +1,3 @@
-//é responsável por exibir os dados na tela
-//ligado a classe produto pois o recebe como parâmetro
-
 package relationship;
 
 public class ProductView {	
