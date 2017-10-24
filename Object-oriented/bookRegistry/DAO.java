@@ -18,12 +18,12 @@ public class DAO implements Register {
 		collection = new Collection();
 		collection.setName("Livros lidos");
 		collection.setDescription("Minha lista de livros lidos");
-		Collections.add(Collection);
+		collections.add(collection);
 		
 		collection = new Collection();
 		collection.setName("Lista de desejos");
-		Collection.setDescription("Minha lista de livros desejados");
-		Collections.add(Collection);
+		collection.setDescription("Minha lista de livros desejados");
+		collections.add(collection);
 	}
 	
 	@Override
@@ -45,5 +45,13 @@ public class DAO implements Register {
 		book.setStartsRanking(1);
 		books.add(book);
 		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro será cadastrado
+	}
+
+	public void selectListWishList() {
+		//implementar adicionar na tabela do livro a id da lista de desejos
+	}
+
+	public void selectListBooksRead() {
+		//implementar adicionar na tabela do livro a id da lista de livros lidos
 	}
 }

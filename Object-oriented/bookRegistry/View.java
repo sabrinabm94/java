@@ -19,9 +19,9 @@ public class View {
 		System.out.println("                    "); 
 	}
 	
-	public void showListData(Collection list) { //mostrar informação de uma lista específica
-		System.out.println("Name : " + list.getName());
-		System.out.println("Description : " + list.getDescription());
+	public void showListData(Collection collection) { //mostrar informação de uma lista específica
+		System.out.println("Name : " + collection.getName());
+		System.out.println("Description : " + collection.getDescription());
 		System.out.println("                    "); 
 	}
 	
@@ -37,23 +37,30 @@ public class View {
 		} 
 	}
 	
-	public void showAllListsData(ArrayList <Collection> lists) { //listar todas as listas cadastradas
-		for(int i = 0; i < lists.size(); i++){
-			System.out.println("List number: " + i);
-			System.out.println("Name : " + lists.get(i).getName());
-			System.out.println("Description : " + lists.get(i).getDescription());
+	public void showAllListsData(ArrayList <Collection> collections) { //listar todas as listas cadastradas
+		for(int i = 0; i < collections.size(); i++){
+			System.out.println("Collection number: " + i);
+			System.out.println("Name : " + collections.get(i).getName());
+			System.out.println("Description : " + collections.get(i).getDescription());
 			System.out.println("                    "); 
 		} 
 	}
 	
-	public void showBooksOnList(Collection collection) { //listar os livros por lista: lista[0/1]> book[0/n]
-			System.out.println("Book number: " + i);
-			System.out.println("Name : " + collection.get(i).getName());
-			System.out.println("Author : " + collection.get(i).getAuthor());
-			System.out.println("Year : " + collection.get(i).getYear());
-			System.out.println("Description : " + collection.get(i).getDescription());
-			System.out.println("Stars Ranking : " + collection.get(i).getStartsRanking());
-			System.out.println("                    "); 
-		} 
-	}
+	public void showBooksOnList(ArrayList <Collection> collections) { //listar os livros por lista: lista[0/1]> book[0/n]		
+		for(Collection c: collections){
+			System.out.println("Collection number: ");
+			System.out.println("Name : " + c.getName());
+			System.out.println("Description : " + c.getDescription());
+			
+			for(Book b: c.getBooks()){
+				System.out.println("Book number: ");
+				System.out.println("Name : " +b.getName());
+				System.out.println("Author : " + b.getAuthor());
+				System.out.println("Year : " + b.getYear());
+				System.out.println("Description : " + b.getDescription());
+				System.out.println("Stars Ranking : " + b.getStartsRanking());
+				System.out.println("                    "); 
+			}
+		}
+	} 
 }

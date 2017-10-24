@@ -37,4 +37,11 @@ public class Client {
 	public String getPassword() {
 		return password;
 	}
+	
+	public void userValidation(String user) {
+		if (user.matches ("[!#@$%¨&*0-9].*")) {
+			System.out.println("Caracteres inválidos, tente novamente!");
+			user = "";
+		}
+	}
 }
