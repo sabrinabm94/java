@@ -1,6 +1,7 @@
 package bookRegistry;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DAO implements Register {	
 	@Override
@@ -9,12 +10,20 @@ public class DAO implements Register {
 		client.setName("Katerina Silva");
 		client.setUser("katerina123");
 		client.setDescription("Uma menina apaixonada por livros");
+		client.setPassword("12345");
+		clients.add(client);
+		
+		client = new Client();
+		client.setName("Rebeca da Costa");
+		client.setUser("rebecaLindinha");
+		client.setDescription("Viciada em livros");
+		client.setPassword("12345");
 		clients.add(client);
 		//pensar em como agrupar por cliente os livros e as listas, separando de cara um.
 	}
 	
 	@Override
-	public void addDataList(ArrayList <Collection> collections, Collection collection) {
+	public void addDataCollection(ArrayList <Collection> collections, Collection collection) {
 		collection = new Collection();
 		collection.setName("Livros lidos");
 		collection.setDescription("Minha lista de livros lidos");
@@ -32,19 +41,25 @@ public class DAO implements Register {
 		book.setName("A lagoa azul");
 		book.setAuthor("Fulano Ciclano");
 		book.setYear(1990);
-		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessão da tarde");
+		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessï¿½o da tarde");
 		book.setStartsRanking(5);
+		book.setReleaseDate(new Date (1990, 05, 20));
+		book.setEdition(3);
+		book.setIsbn(11111);
 		books.add(book);
-		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irá ser cadastrado
+		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irï¿½ ser cadastrado
 		
 		book = new Book();
 		book.setName("A menina que roubava livros");
 		book.setAuthor("Fulano Beltrano");
 		book.setYear(2010);
-		book.setDescription("Uma história muito chata");
+		book.setDescription("Uma histï¿½ria muito chata");
 		book.setStartsRanking(1);
+		book.setReleaseDate(new Date (1995, 03, 12));
+		book.setEdition(8);
+		book.setIsbn(22222);
 		books.add(book);
-		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro será cadastrado
+		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro serï¿½ cadastrado
 	}
 
 	public void selectListWishList() {
@@ -53,5 +68,27 @@ public class DAO implements Register {
 
 	public void selectListBooksRead() {
 		//implementar adicionar na tabela do livro a id da lista de livros lidos
+	}
+
+	@Override
+	public void addDataAuthor(ArrayList<Author> authors, Author author) {
+		author = new Author();
+		author.setName("Carmem Miranda");
+		authors.add(author);
+		
+		author = new Author();
+		author.setName("Zezé Di Camargo e Luciano");
+		authors.add(author);
+	}
+
+	@Override
+	public void addDataPublisher(ArrayList<Publisher> publishers, Publisher publisher) {
+		publisher = new Publisher();
+		publisher.setName("Editora Brasil");
+		publishers.add(publisher);
+		
+		publisher = new Publisher();
+		publisher.setName("Editora Palmeiras");
+		publishers.add(publisher);
 	}
 }

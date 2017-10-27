@@ -1,25 +1,30 @@
 package bookRegistry;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class View {
-	public void showClientData(Client client) { //mostrar informações de um cliente específico
+	public void showClientData(Client client) { //mostrar informaï¿½ï¿½es de um cliente especï¿½fico
 		System.out.println("Name : " + client.getName());
 		System.out.println("User : " + client.getUser());
+		System.out.println("Password : " + client.getPassword());
 		System.out.println("Description : " + client.getDescription());
 		System.out.println("                    "); 
 	}
 	
-	public void showBookData(Book book) { //mostrar informação de um livro específico
+	public void showBookData(Book book) { //mostrar informaï¿½ï¿½o de um livro especï¿½fico
 		System.out.println("Name : " + book.getName());
 		System.out.println("Author : " + book.getAuthor());
 		System.out.println("Year : " + book.getYear());
 		System.out.println("Description : " + book.getDescription());
 		System.out.println("Stars Ranking : " + book.getStartsRanking());
+		System.out.println("Release Date : " + book.getReleaseDate());
+		System.out.println("Edition : " + book.getEdition());
+		System.out.println("Isbn : " + book.getIsbn());
 		System.out.println("                    "); 
 	}
 	
-	public void showListData(Collection collection) { //mostrar informação de uma lista específica
+	public void showListData(Collection collection) { //mostrar informaï¿½ï¿½o de uma lista especï¿½fica
 		System.out.println("Name : " + collection.getName());
 		System.out.println("Description : " + collection.getDescription());
 		System.out.println("                    "); 
@@ -33,6 +38,9 @@ public class View {
 			System.out.println("Year : " + books.get(i).getYear());
 			System.out.println("Description : " + books.get(i).getDescription());
 			System.out.println("Stars Ranking : " + books.get(i).getStartsRanking());
+			System.out.println("Release Date : " + books.get(i).getReleaseDate());
+			System.out.println("Edition : " + books.get(i).getEdition());
+			System.out.println("Isbn : " + books.get(i).getIsbn());
 			System.out.println("                    "); 
 		} 
 	}
@@ -59,8 +67,35 @@ public class View {
 				System.out.println("Year : " + b.getYear());
 				System.out.println("Description : " + b.getDescription());
 				System.out.println("Stars Ranking : " + b.getStartsRanking());
+				System.out.println("Release Date : " + b.getReleaseDate());
+				System.out.println("Edition : " + b.getEdition());
+				System.out.println("Isbn : " + b.getIsbn());
 				System.out.println("                    "); 
 			}
 		}
 	} 
+	
+	public void showDataAuthor(Author author) { 
+		System.out.println("Name : " + author.getName());
+		System.out.println("                    "); 
+	}
+	
+	public void showAllDataAuthor(ArrayList <Author> authors) { 
+		for(int i = 0; i < authors.size(); i++){
+			System.out.println("Name : " + authors.get(i).getName());
+			System.out.println("                    "); 
+		} 
+	}
+	
+	public void showDataPublisher(Publisher publisher) { 
+		System.out.println("Name : " + publisher.getName());
+		System.out.println("                    "); 
+	}
+	
+	public void showAllDataPublisher(ArrayList <Publisher> publishers) {
+		for(int i = 0; i < publishers.size(); i++){
+			System.out.println("Name : " + publishers.get(i).getName());
+			System.out.println("                    "); 
+		} 
+	}
 }
