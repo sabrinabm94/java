@@ -41,25 +41,25 @@ public class DAO implements Register {
 		book.setName("A lagoa azul");
 		book.setAuthor("Fulano Ciclano");
 		book.setYear(1990);
-		book.setDescription("Sobre sobre o filme que passava todas as tardes na sess�o da tarde");
+		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessï¿½o da tarde");
 		book.setStartsRanking(5);
 		book.setReleaseDate(new Date (1990, 05, 20));
 		book.setEdition(3);
 		book.setIsbn(11111);
 		books.add(book);
-		selectListWishList(); //adicionar no banco um id da lista no qual esse livro ir� ser cadastrado
+		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irï¿½ ser cadastrado
 		
 		book = new Book();
 		book.setName("A menina que roubava livros");
 		book.setAuthor("Fulano Beltrano");
 		book.setYear(2010);
-		book.setDescription("Uma hist�ria muito chata");
+		book.setDescription("Uma histï¿½ria muito chata");
 		book.setStartsRanking(1);
 		book.setReleaseDate(new Date (1995, 03, 12));
 		book.setEdition(8);
 		book.setIsbn(22222);
 		books.add(book);
-		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro ser� cadastrado
+		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro serï¿½ cadastrado
 	}
 
 	public void selectListWishList() {
@@ -77,11 +77,7 @@ public class DAO implements Register {
 		authors.add(author);
 		
 		author = new Author();
-<<<<<<< HEAD
-		author.setName("Zez� Di Camargo e Luciano");
-=======
 		author.setName("Zezé Di Camargo e Luciano");
->>>>>>> b175442ccc05a5cfb9ed7d0c0879b556fd78e85f
 		authors.add(author);
 	}
 
