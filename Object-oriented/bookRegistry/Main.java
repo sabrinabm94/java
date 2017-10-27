@@ -1,4 +1,4 @@
-package bookRegistry;
+//package bookRegistry;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class Main {
 		dao.addDataList(collections, collection);
 		dao.addDataBook(books, book);
 		
-		//fazer um menu para mostrar as views de acordo com as opções, fazer por último antes garantir que tudo está funcionando okay
+		//fazer um menu para mostrar as views de acordo com as opï¿½ï¿½es, fazer por ï¿½ltimo antes garantir que tudo estï¿½ funcionando okay
 		View view = new View();
 		view.showClientData(client);
 		view.showBookData(book);

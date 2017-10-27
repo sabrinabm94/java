@@ -1,16 +1,16 @@
-package bookRegistry;
+//package bookRegistry;
 
 import java.util.ArrayList;
 
 public class View {
-	public void showClientData(Client client) { //mostrar informações de um cliente específico
+	public void showClientData(Client client) { //mostrar informaï¿½ï¿½es de um cliente especï¿½fico
 		System.out.println("Name : " + client.getName());
 		System.out.println("User : " + client.getUser());
 		System.out.println("Description : " + client.getDescription());
 		System.out.println("                    "); 
 	}
 	
-	public void showBookData(Book book) { //mostrar informação de um livro específico
+	public void showBookData(Book book) { //mostrar informaï¿½ï¿½o de um livro especï¿½fico
 		System.out.println("Name : " + book.getName());
 		System.out.println("Author : " + book.getAuthor());
 		System.out.println("Year : " + book.getYear());
@@ -19,7 +19,7 @@ public class View {
 		System.out.println("                    "); 
 	}
 	
-	public void showListData(Collection collection) { //mostrar informação de uma lista específica
+	public void showListData(Collection collection) { //mostrar informaï¿½ï¿½o de uma lista especï¿½fica
 		System.out.println("Name : " + collection.getName());
 		System.out.println("Description : " + collection.getDescription());
 		System.out.println("                    "); 

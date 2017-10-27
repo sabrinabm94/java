@@ -1,10 +1,11 @@
-package bookRegistry;
+//package bookRegistry;
 
 public class Client {
 	private String name;
-	private String user; //pensar em função para validar caracteres especiais
+	private String user; //pensar em funï¿½ï¿½o para validar caracteres especiais
 	private String description;
 	private String password;
+	private int birtDate;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -38,9 +39,17 @@ public class Client {
 		return password;
 	}
 	
+	public void setBirtDate(int birtDate) {
+		this.birtDate = birtDate;
+	}
+	
+	public int getBirtDate() {
+		return birtDate;
+	}
+	
 	public void userValidation(String user) {
-		if (user.matches ("[!#@$%¨&*0-9].*")) {
-			System.out.println("Caracteres inválidos, tente novamente!");
+		if (user.matches ("[!#@$%ï¿½&*0-9].*")) {
+			System.out.println("Caracteres invï¿½lidos, tente novamente!");
 			user = "";
 		}
 	}

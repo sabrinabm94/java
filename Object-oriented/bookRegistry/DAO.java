@@ -1,4 +1,4 @@
-package bookRegistry;
+//package bookRegistry;
 
 import java.util.ArrayList;
 
@@ -32,19 +32,19 @@ public class DAO implements Register {
 		book.setName("A lagoa azul");
 		book.setAuthor("Fulano Ciclano");
 		book.setYear(1990);
-		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessão da tarde");
+		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessï¿½o da tarde");
 		book.setStartsRanking(5);
 		books.add(book);
-		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irá ser cadastrado
+		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irï¿½ ser cadastrado
 		
 		book = new Book();
 		book.setName("A menina que roubava livros");
 		book.setAuthor("Fulano Beltrano");
 		book.setYear(2010);
-		book.setDescription("Uma história muito chata");
+		book.setDescription("Uma histï¿½ria muito chata");
 		book.setStartsRanking(1);
 		books.add(book);
-		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro será cadastrado
+		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro serï¿½ cadastrado
 	}
 
 	public void selectListWishList() {
@@ -53,5 +53,27 @@ public class DAO implements Register {
 
 	public void selectListBooksRead() {
 		//implementar adicionar na tabela do livro a id da lista de livros lidos
+	}
+
+	@Override
+	public void addDataAuthor(ArrayList<Author> authors, Author author) {
+		author = new Author();
+		author.setName("Carmem Miranda");
+		authors.add(author);
+		
+		author = new Author();
+		author.setName("ZezÃ© Di Camargo e Luciano");
+		authors.add(author);
+	}
+
+	@Override
+	public void addDataPublisher(ArrayList<Publisher> publishers, Publisher publisher) {
+		publisher = new Publisher();
+		publisher.setName("Editora Brasil");
+		publishers.add(publisher);
+		
+		publisher = new Publisher();
+		publisher.setName("Editora Palmeiras");
+		publishers.add(publisher);
 	}
 }

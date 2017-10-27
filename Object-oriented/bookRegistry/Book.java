@@ -1,4 +1,4 @@
-package bookRegistry;
+//package bookRegistry;
 
 public class Book {
 	private String name;
@@ -6,6 +6,9 @@ public class Book {
 	private int year;
 	private String description;
 	private int startsRanking;
+	private int releaseDate;
+	private int edition;
+	private int isbn;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -45,5 +48,29 @@ public class Book {
 	
 	public int getStartsRanking() {
 		return startsRanking;
+	}
+	
+	public void setReleaseDate(int releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+	
+	public int getReleaseDate() {
+		return releaseDate;
+	}
+	
+	public void setEdition(int edition) {
+		this.edition = edition;
+	}
+	
+	public int getEdition() {
+		return releaseDate;
+	}
+	
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
+	}
+	
+	public int getIsbn() {
+		return isbn;
 	}
 }
