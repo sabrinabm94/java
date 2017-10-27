@@ -1,4 +1,4 @@
-package bookRegistry;
+//package bookRegistry;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,7 +77,11 @@ public class DAO implements Register {
 		authors.add(author);
 		
 		author = new Author();
+<<<<<<< HEAD
 		author.setName("Zezé Di Camargo e Luciano");
+=======
+		author.setName("ZezÃ© Di Camargo e Luciano");
+>>>>>>> b175442ccc05a5cfb9ed7d0c0879b556fd78e85f
 		authors.add(author);
 	}
 
