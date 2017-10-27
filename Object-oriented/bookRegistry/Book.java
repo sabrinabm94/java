@@ -8,11 +8,7 @@ public class Book {
 	private int year;
 	private String description;
 	private int startsRanking;
-<<<<<<< HEAD
 	private Date releaseDate;
-=======
-	private int releaseDate;
->>>>>>> b175442ccc05a5cfb9ed7d0c0879b556fd78e85f
 	private int edition;
 	private int isbn;
 	
@@ -56,8 +52,6 @@ public class Book {
 		return startsRanking;
 	}
 	
-<<<<<<< HEAD
-=======
 	public void setReleaseDate(int releaseDate) {
 		this.releaseDate = releaseDate;
 	}
@@ -65,14 +59,12 @@ public class Book {
 	public int getReleaseDate() {
 		return releaseDate;
 	}
->>>>>>> b175442ccc05a5cfb9ed7d0c0879b556fd78e85f
 	
 	public void setEdition(int edition) {
 		this.edition = edition;
 	}
 	
 	public int getEdition() {
-<<<<<<< HEAD
 		return edition;
 	}
 	
@@ -83,12 +75,7 @@ public class Book {
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-
-=======
-		return releaseDate;
-	}
 	
->>>>>>> b175442ccc05a5cfb9ed7d0c0879b556fd78e85f
 	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
