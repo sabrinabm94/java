@@ -5,21 +5,25 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class UI extends JFrame {
+	private JLabel statusLabel;
+	private JButton loginButton;
+	
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("books registry");
 		setSize(300, 400);
 		setResizable(true);
 		layoutA();
+		loginPainel();
 	}
 	
-	//configura a janela, adiciona labels, botoes...
 	private void layoutA() {
 		JPanel painel = new JPanel(); //para evitar os recursos concorrerem
 		painel.setLayout(null);
@@ -49,11 +53,48 @@ public class UI extends JFrame {
 					label.setForeground(Color.WHITE);
 				}
 			}
-			
-			//classe anonima, sem nome
 		});
 		
 		painel.add(botao);
 		add(painel);
 	}
+	
+	//painel de login
+	private void loginPainel() {
+		JPanel loginPainel = new JPanel(); 
+		Client client = new Client();
+		getLoginButton().addActionListener(e -> doLogin(client));
+	}
+	
+	public JButton getLoginButton() {
+		return loginButton;
+	}
+	
+	private void doLogin(Client client) {
+		if(client.getUser().length() < 1){
+			setErrorMessage("Favor informar o usuário.");
+		}else if(client.getPassword().length() < 1){
+			setErrorMessage("Favor informar a senha.");
+		}else if(client.getPassword().length() < 6){
+			setErrorMessage("A senha deve conter no mínimo 6 caracteres.");
+		}else if ("usuario".equals(client.getUser())
+		   && "senha123".equals(client.getPassword())){
+			setSuccessMessage("Seja bem vindos!");
+		}else{
+			setErrorMessage("O usuário ou a senha está incorreto");
+		}
+	}
+
+	private void setErrorMessage(String msg) {
+		statusLabel.setText(msg);
+		statusLabel.setForeground(Color.RED);
+	}
+
+	private void setSuccessMessage(String msg){
+		statusLabel.setText(msg);
+		statusLabel.setForeground(Color.BLUE);
+	}
+	//fim painel de login
 }
+
+

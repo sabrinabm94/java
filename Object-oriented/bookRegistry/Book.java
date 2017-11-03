@@ -52,14 +52,6 @@ public class Book {
 		return startsRanking;
 	}
 	
-	public void setReleaseDate(int releaseDate) {
-		this.releaseDate = releaseDate;
-	}
-	
-	public int getReleaseDate() {
-		return releaseDate;
-	}
-	
 	public void setEdition(int edition) {
 		this.edition = edition;
 	}

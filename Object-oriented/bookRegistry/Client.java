@@ -52,5 +52,7 @@ public class Client {
 			System.out.println("Caracteres inv�lidos, tente novamente!");
 			user = "";
 		}
+		
+		//retirar
 	}
 }
