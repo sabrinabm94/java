@@ -1,11 +1,16 @@
 package bookRegistry;
 
+import java.util.Date;
+
 public class Book {
 	private String name;
 	private String author;
 	private int year;
 	private String description;
 	private int startsRanking;
+	private Date releaseDate;
+	private int edition;
+	private int isbn;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -45,5 +50,29 @@ public class Book {
 	
 	public int getStartsRanking() {
 		return startsRanking;
+	}
+	
+	public void setEdition(int edition) {
+		this.edition = edition;
+	}
+	
+	public int getEdition() {
+		return edition;
+	}
+	
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+	
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
+	}
+	
+	public int getIsbn() {
+		return isbn;
 	}
 }
