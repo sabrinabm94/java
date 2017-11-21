@@ -1,100 +1,124 @@
 package bookRegistry;
 
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Date;
 
 
 public class DAO implements Register {	
+	
+	private Connection connection;
+
 	@Override
-	public void addDataClient(ArrayList <Client> clients, Client client) {
-		client = new Client();
-		client.setName("Katerina Silva");
-		client.setUser("katerina123");
-		client.setDescription("Uma menina apaixonada por livros");
-		client.setPassword("12345");
-		clients.add(client);
+	public void addDataClient(Client client) {
+
+		Connection mConn = (new ConnectionFactory()).getConnection();
 		
-		client = new Client();
-		client.setName("Rebeca da Costa");
-		client.setUser("rebecaLindinha");
-		client.setDescription("Viciada em livros");
-		client.setPassword("12345");
-		clients.add(client);
-		//pensar em como agrupar por cliente os livros e as listas, separando de cara um.
+		String sql = "insert into Client(nameClient, userClient, descriptionClient, passwordClient, birtDate) "
+			    + "values(?,?,?,?,?);";
+		
+		try {
+			PreparedStatement stmt = mConn.prepareStatement(sql);
+			stmt.setString(1, client.getName()); 
+			stmt.setString(2, client.getUser());
+			stmt.setString(3, client.getDescription()); 
+			stmt.setString(4, client.getPassword());
+			stmt.setDate(5, client.getBirtDate());
+			stmt.execute();
+			stmt.close();
+			System.out.println("Gravado client");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
-	public void addDataCollection(ArrayList <Collection> collections, Collection collection) {
-		collection = new Collection();
-		collection.setName("Livros lidos");
-		collection.setDescription("Minha lista de livros lidos");
-		collections.add(collection);
+	public void addDataCollection(Collection collection) {
 		
-		collection = new Collection();
-		collection.setName("Lista de desejos");
-		collection.setDescription("Minha lista de livros desejados");
-		collections.add(collection);
+		Connection mConn = (new ConnectionFactory()).getConnection();
+		
+		String sql = "insert into Collection(nameCollection, descriptionCollection, sizeCollection) "
+			    + "values(?,?,?);";
+		
+		try {
+			PreparedStatement stmt = mConn.prepareStatement(sql);
+			stmt.setString(1, collection.getName()); 
+			stmt.setString(2, collection.getDescription());
+			stmt.setInt(3, collection.getSize()); 
+			stmt.execute();
+			stmt.close();
+			System.out.println("Gravado collection");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
-	public void addDataBook(ArrayList <Book> books, Book book) {
-		book = new Book();
-		book.setName("A lagoa azul");
-		book.setAuthor("Fulano Ciclano");
-		book.setYear(1990);
-		book.setDescription("Sobre sobre o filme que passava todas as tardes na sessï¿½o da tarde");
-		book.setStartsRanking(5);
-		book.setReleaseDate(new Date (1990, 05, 20));
-		book.setEdition(3);
-		book.setIsbn(11111);
-		books.add(book);
-		selectListWishList(); //adicionar no banco um id da lista no qual esse livro irï¿½ ser cadastrado
+	public void addDataBook(Book book) {
 		
-		book = new Book();
-		book.setName("A menina que roubava livros");
-		book.setAuthor("Fulano Beltrano");
-		book.setYear(2010);
-		book.setDescription("Uma histï¿½ria muito chata");
-		book.setStartsRanking(1);
-		book.setReleaseDate(new Date (1995, 03, 12));
-		book.setEdition(8);
-		book.setIsbn(22222);
-		books.add(book);
-		selectListBooksRead(); //adicionar no banco um id da lista no qual esse livro serï¿½ cadastrado
-	}
+		Connection mConn = (new ConnectionFactory()).getConnection();
 
-	public void selectListWishList() {
-		//implementar adicionar na tabela do livro a id da lista de desejos
-	}
+		String sql = "insert into Book(isbn, nameBook, yearBook, descriptonBook, idAuthorBook, startsRanking, releaseDataBook, editionBook, idCollection) "
+			    + "values(?,?,?,?,?,?,?);";
 
-	public void selectListBooksRead() {
-		//implementar adicionar na tabela do livro a id da lista de livros lidos
+		try {
+			PreparedStatement stmt = mConn.prepareStatement(sql);
+			stmt.setInt(1, book.getIsbn());
+			stmt.setString(2, book.getName()); 
+			stmt.setInt(3, book.getYear()); 		
+			stmt.setString(4, book.getDescription());
+			stmt.setString(5, book.getAuthor());
+			stmt.setInt(6, book.getStartsRanking());
+			stmt.setDate(7, book.getReleaseDate());
+			stmt.setInt(8, book.getEdition());
+			stmt.setInt(9, book.getCollection());
+			System.out.println("Gravado book");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public void addDataAuthor(ArrayList<Author> authors, Author author) {
-		author = new Author();
-		author.setName("Carmem Miranda");
-		authors.add(author);
+	public void addDataAuthor(Author author) {
 		
-		author = new Author();
-		author.setName("Zezé Di Camargo e Luciano");
-		authors.add(author);
+		Connection mConn = (new ConnectionFactory()).getConnection();
+
+		String sql = "insert into Author(nameAuthor) "
+			    + "values(?);";
+
+		try {
+			PreparedStatement stmt = mConn.prepareStatement(sql);
+			stmt.setString(1, author.getName()); 
+			stmt.execute();
+			stmt.close();
+			System.out.println("Gravado author");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public void addDataPublisher(ArrayList<Publisher> publishers, Publisher publisher) {
-		publisher = new Publisher();
-		publisher.setName("Editora Brasil");
-		publishers.add(publisher);
+	public void addDataPublisher(Publisher publisher) {
 		
-		publisher = new Publisher();
-		publisher.setName("Editora Palmeiras");
-		publishers.add(publisher);
-	}
-	
-	public void dbConnection() {
-		daConnection = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new ConnectionFactory()).getConnection();
+
+		String sql = "insert into Publisher(namePublisher) "
+			    + "values(?);";
+
+		try {
+			PreparedStatement stmt = mConn.prepareStatement(sql);
+			stmt.setString(1, publisher.getName()); 
+			stmt.execute();
+			stmt.close();
+			System.out.println("Gravado publisher");
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

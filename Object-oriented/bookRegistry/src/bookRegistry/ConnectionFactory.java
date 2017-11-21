@@ -11,7 +11,7 @@ public class ConnectionFactory {
             return DriverManager.getConnection(
                     "jdbc:mysql://localhost/bookregistry?autoReconnect=true&useSSL=false", // link de conexão
                     "root", // usuario
-                    "univille");// senha
+                    "root");// senha:univille
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

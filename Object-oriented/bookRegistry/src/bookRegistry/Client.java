@@ -1,11 +1,13 @@
 package bookRegistry;
 
+import java.sql.Date;
+
 public class Client {
 	private String name;
-	private String user; //pensar em fun��o para validar caracteres especiais
+	private String user; //pensar em funo para validar caracteres especiais
 	private String description;
 	private String password;
-	private int birtDate;
+	private Date birtDate;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -39,11 +41,11 @@ public class Client {
 		return password;
 	}
 	
-	public void setBirtDate(int birtDate) {
+	public void setBirtDate(Date birtDate) {
 		this.birtDate = birtDate;
 	}
 	
-	public int getBirtDate() {
+	public Date getBirtDate() {
 		return birtDate;
 	}
 	

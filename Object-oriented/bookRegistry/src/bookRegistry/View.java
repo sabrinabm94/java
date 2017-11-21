@@ -1,101 +1,88 @@
 package bookRegistry;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
-public class View {
-	public void showClientData(Client client) { //mostrar informa��es de um cliente espec�fico
-		System.out.println("Name : " + client.getName());
-		System.out.println("User : " + client.getUser());
-		System.out.println("Password : " + client.getPassword());
-		System.out.println("Description : " + client.getDescription());
-		System.out.println("                    "); 
+public class View  {
+	private JFrame frame;
+	private JTextField userTextField;
+	private JPasswordField passwordField;
+	private JButton loginButton;
+	private JLabel statusLabel;
+	
+	public LoginView(){
+		frame = new JFrame("Login");
+		frame.getContentPane().setLayout(new BorderLayout());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400, 250);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		frame.setResizable(false);
+		
+		JPanel panel = new JPanel();
+		
+		panel.setBorder( new EmptyBorder(10,10,10,10));
+		panel.setLayout(null);
+		
+
+		JLabel labelUser = new JLabel("Usuário",JLabel.RIGHT);
+		labelUser.setBounds(0,10,100,30);
+		JLabel labelPass = new JLabel("Senha",JLabel.RIGHT);
+		labelPass.setBounds(0,60,100,30);
+		
+		userTextField = new JTextField(20);
+		userTextField.setBounds(110,10,200,30);
+		passwordField = new JPasswordField(20);
+		passwordField.setBounds(110,60,200,30);
+		loginButton = new JButton("Login");
+		loginButton.setBounds(110,140,200,30);
+		statusLabel = new JLabel();
+		statusLabel.setBounds(80,100,300,30);
+
+		panel.add(labelUser);
+		panel.add(labelPass);
+		panel.add(userTextField);
+		panel.add(passwordField);
+		panel.add(loginButton);
+		panel.add(statusLabel);
+		frame.add(panel);
 	}
 	
-	public void showBookData(Book book) { //mostrar informa��o de um livro espec�fico
-		System.out.println("Name : " + book.getName());
-		System.out.println("Author : " + book.getAuthor());
-		System.out.println("Year : " + book.getYear());
-		System.out.println("Description : " + book.getDescription());
-		System.out.println("Stars Ranking : " + book.getStartsRanking());
-		System.out.println("Release Date : " + book.getReleaseDate());
-		System.out.println("Edition : " + book.getEdition());
-		System.out.println("Isbn : " + book.getIsbn());
-		System.out.println("                    "); 
+	public JButton getLoginButton(){
+		return loginButton;
 	}
 	
-	public void showListData(Collection collection) { //mostrar informa��o de uma lista espec�fica
-		System.out.println("Name : " + collection.getName());
-		System.out.println("Description : " + collection.getDescription());
-		System.out.println("                    "); 
+	public String getUser(){
+		return userTextField.getText();
 	}
 	
-	public void showAllBooksData(ArrayList <Book> books) { //listar todos os livros cadastrados
-		for(int i = 0; i < books.size(); i++){
-			System.out.println("Book number: " + i);
-			System.out.println("Name : " + books.get(i).getName());
-			System.out.println("Author : " + books.get(i).getAuthor());
-			System.out.println("Year : " + books.get(i).getYear());
-			System.out.println("Description : " + books.get(i).getDescription());
-			System.out.println("Stars Ranking : " + books.get(i).getStartsRanking());
-			System.out.println("Release Date : " + books.get(i).getReleaseDate());
-			System.out.println("Edition : " + books.get(i).getEdition());
-			System.out.println("Isbn : " + books.get(i).getIsbn());
-			System.out.println("                    "); 
-		} 
+	public String getPassword(){
+		return passwordField.getText();
 	}
 	
-	public void showAllListsData(ArrayList <Collection> collections) { //listar todas as listas cadastradas
-		for(int i = 0; i < collections.size(); i++){
-			System.out.println("Collection number: " + i);
-			System.out.println("Name : " + collections.get(i).getName());
-			System.out.println("Description : " + collections.get(i).getDescription());
-			System.out.println("                    "); 
-		} 
+	public void setErrorMessage(String msg){
+		statusLabel.setText(msg);
+		statusLabel.setForeground(Color.RED);
 	}
 	
-	public void showBooksOnList(ArrayList <Collection> collections) { //listar os livros por lista: lista[0/1]> book[0/n]		
-		for(Collection c: collections){
-			System.out.println("Collection number: ");
-			System.out.println("Name : " + c.getName());
-			System.out.println("Description : " + c.getDescription());
-			
-			for(Book b: c.getBooks()){
-				System.out.println("Book number: ");
-				System.out.println("Name : " +b.getName());
-				System.out.println("Author : " + b.getAuthor());
-				System.out.println("Year : " + b.getYear());
-				System.out.println("Description : " + b.getDescription());
-				System.out.println("Stars Ranking : " + b.getStartsRanking());
-				System.out.println("Release Date : " + b.getReleaseDate());
-				System.out.println("Edition : " + b.getEdition());
-				System.out.println("Isbn : " + b.getIsbn());
-				System.out.println("                    "); 
-			}
-		}
-	} 
-	
-	public void showDataAuthor(Author author) { 
-		System.out.println("Name : " + author.getName());
-		System.out.println("                    "); 
-	}
-	
-	public void showAllDataAuthor(ArrayList <Author> authors) { 
-		for(int i = 0; i < authors.size(); i++){
-			System.out.println("Name : " + authors.get(i).getName());
-			System.out.println("                    "); 
-		} 
-	}
-	
-	public void showDataPublisher(Publisher publisher) { 
-		System.out.println("Name : " + publisher.getName());
-		System.out.println("                    "); 
-	}
-	
-	public void showAllDataPublisher(ArrayList <Publisher> publishers) {
-		for(int i = 0; i < publishers.size(); i++){
-			System.out.println("Name : " + publishers.get(i).getName());
-			System.out.println("                    "); 
-		} 
+	public void setSuccessMessage(String msg){
+		statusLabel.setText(msg);
+		statusLabel.setForeground(Color.BLUE);
 	}
 }

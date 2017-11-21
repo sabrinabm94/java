@@ -11,6 +11,7 @@ public class Book {
 	private Date releaseDate;
 	private int edition;
 	private int isbn;
+	private int collection;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -74,5 +75,13 @@ public class Book {
 	
 	public int getIsbn() {
 		return isbn;
+	}
+
+	public void setCollection(int collection) {
+		this.collection = collection;
+	}
+	
+	public int getCollection() {
+		return collection;
 	}
 }
