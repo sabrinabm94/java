@@ -1,5 +1,8 @@
 package bookRegistry;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -216,14 +219,12 @@ public class Controller {
 	//metodo size collection
 
 	//select informações clients
-	// pegar o valor do userCLient da tela de login
-	public void returInfoClient(view) {
+	private String userClient; // pegar essa variavel da tela de login
+	public void returInfoClient(String userClient) {
 		
 		Connection mConn = (new ConnectionFactory()).getConnection();
 
-		String sql = "SELECT nameClient, userClient, descriptionClient, passwordClient, birtDate 
-					  FROM Client WHERE userClient LIKE '"
-					  +userClient+"%';"
+		String sql = "SELECT nameClient, userClient, descriptionClient, passwordClient, birtDate FROM Client WHERE userClient LIKE '" + userClient + "%';";
 
 		// nameClient = "SELECT nameClient FROM Client WHERE userClient LIKE 'userClient%';";
 		// userClient = "SELECT userClient FROM Client WHERE userClient LIKE 'userClient%';";
@@ -237,12 +238,11 @@ public class Controller {
 			// PreparedStatement stmt = mConn.prepareStatement(userClient);
 			// PreparedStatement stmt = mConn.prepareStatement(passwordClient);
 			// PreparedStatement stmt = mConn.prepareStatement(birDate);
-			stmt.setString(1, view.userClient);
 			stmt.execute();
 			stmt.close();
 			System.out.println("retornando informações author");
 			System.out.println(sql);
-			connection.close();
+			mConn.close();
 
 			//addClientInfoTela(nameClient, userClient, descriptionClient, passwordClient, birDate);
 			addClientInfoTela(stmt);
@@ -250,6 +250,11 @@ public class Controller {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void addClientInfoTela(PreparedStatement stmt) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	//select informações livro
