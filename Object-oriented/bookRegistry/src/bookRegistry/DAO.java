@@ -3,10 +3,28 @@ package bookRegistry;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class DAO implements Register {	
+	private Client client;
+	private Collection collection;
+	private Book book;
+	private Author author;
+	private Publisher publisher;
+	private DAO dao;
+	private View view;
+	
+	client = new Client();
+	collection = new Collection();
+	book = new Book();
+	author = new Author();
+	publisher = new Publisher();
+
+	view = new View();
+	dao = new DAO();
+
 	
 	private Connection connection;
 

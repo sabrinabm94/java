@@ -26,7 +26,7 @@ public class View  {
 	private JButton loginButton;
 	private JLabel statusLabel;
 	
-	public LoginView(){
+	public void LoginView(){
 		frame = new JFrame("Login");
 		frame.getContentPane().setLayout(new BorderLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
