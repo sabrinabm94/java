@@ -81,6 +81,7 @@ public class View {
 	}
 	
 	//VERIFICAR TODOS OS getDate e getInt O PORQUE ESTÁ DANDO ERRO!!!!
+	//APÓS FAZER AS TELAS TROCAR O RETURN PARA O CAMPO DA TELA
 	
 	//cadastro author
 	public String getNameAuthorRegistry(){
