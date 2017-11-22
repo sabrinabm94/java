@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Book {
 	private String name;
-	private String author;
 	private int year;
 	private String description;
 	private int startsRanking;
@@ -12,6 +11,7 @@ public class Book {
 	private int edition;
 	private int isbn;
 	private int collection;
+	private int idAuthor;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -21,12 +21,12 @@ public class Book {
 		return name;
 	}
 	
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
 	}
 	
-	public String getAuthor() {
-		return author;
+	public int getAuthor() {
+		return idAuthor;
 	}
 	
 	public void setYear(int year) {

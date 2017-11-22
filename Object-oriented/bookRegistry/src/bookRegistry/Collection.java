@@ -32,7 +32,7 @@ public class Collection {
 		return description;
 	}
 	
-	public void setSize() {
+	public void setSize(int size) {
 		this.size = size;
 	}
 	
