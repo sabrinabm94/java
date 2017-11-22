@@ -43,7 +43,7 @@ public class DAO implements Register {
 			stmt.setString(4, book.getDescription());
 			stmt.setInt(5, book.getAuthor());
 			stmt.setInt(6, book.getStartsRanking());
-			stmt.setDate(7, (java.sql.Date) book.getReleaseDate());  //erro
+			stmt.setDate(7, book.getReleaseDate());  //erro
 			stmt.setInt(8, book.getEdition());
 			stmt.setInt(9, book.getCollection());
 			System.out.println("Gravado book");
