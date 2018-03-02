@@ -8,15 +8,16 @@ public class Airplane {
 		return code;
 	}
 	
-	public int setCode() {
-		return code;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	
 	public String getModel() {
 		return model;
 	}
 	
-	public String setModel() {
-		return model;
+	public void setModel(long model) {
+		this.model = model;
 	}
+	
 }
