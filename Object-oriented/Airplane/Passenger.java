@@ -5,27 +5,31 @@ public class Passenger {
 	private String lastname;
 	private int age;
 	
-	public String GetFirstname() {
+	public String GetFirstName() {
 		return firstname;
 	}
 	
-	public String SetFirstname() {
-		return firstname;
+	public void setFirstName(long firstname) {
+		this.firstname = firstname;
 	}
 	
-	public String Getlastname() {
+	public String GetLastName() {
 		return lastname;
 	}
 	
-	public String Setlastname() {
+	public String SetLastName() {
 		return lastname;
 	}
 	
-	public int Getage() {
+	public void setLastName(long lastname) {
+		this.lastname = lasttname;
+	}
+	
+	public int getAge() {
 		return age;
 	}
 	
-	public int Setage() {
-		return age;
+	public void setAge(long age) {
+		this.age = age;
 	}
 }
