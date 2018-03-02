@@ -14,30 +14,31 @@ public class Flight {
 		return number;
 	}
 	
-	public int setNumber() {
-		return number;
+	public void setNumber(int number) {
+		this.number = number;
 	}
-	
-	public String setStatus() {
-		return status;
-	}
-	
+		
 	public String getStatus() {
 		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	public Date getDate() {
 		return date;
 	}
 	
-	public Date setDate() {
-		return date;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	public List<Passenger> getPassenger() {
 		return null;
 	}
 	
+	//verificar
 	public List<Passenger> setPassenger() {
 		return null;
 	}
