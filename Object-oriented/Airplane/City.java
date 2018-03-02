@@ -10,22 +10,23 @@ public class City {
 		return name;
 	}
 	
-	public String setName() {
-		return name;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getCountry() {
 		return country;
 	}
 	
-	public String setCountry() {
-		return country;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	public List<Airport> getAirport() {
 		return null;
 	}
 	
+	//verificar	
 	public List<Airport> setAirport() {
 		return null;
 	}
