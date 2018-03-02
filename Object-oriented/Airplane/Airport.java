@@ -10,15 +10,15 @@ public class Airport {
 		return name;
 	}
 	
-	public String setName() {
-		return name;
+	public void setName(long name) {
+		this.name = name;
 	}
 	
 	public int getCode() {
 		return code;
 	}
 	
-	public int setCode() {
-		return code;
+	public void setCode(int code) {
+		this.code = code;
 	}
 }
