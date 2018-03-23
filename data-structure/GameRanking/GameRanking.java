@@ -4,7 +4,7 @@ public class GameRanking {
 	
 	//constructor
 	public GameRanking() {
-		Ranking = new GameEntry[10]; //set of 10 positions to array
+		Ranking = new GameEntry[10]; //set 10 positions in array
 		Ranking[0] = new GameEntry("Sabrina", 10);
 	}
 	
