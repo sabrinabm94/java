@@ -19,5 +19,6 @@ public class Client {
 		respost.close();
 		keybord.close();
 		client.close();
+		System.out.println("Cliente desconectou!");
 	}
 }
