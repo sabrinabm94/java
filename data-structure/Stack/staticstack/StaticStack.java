@@ -1,8 +1,10 @@
-package stack;
-public class Stack {
+package staticstack;
+public class StaticStack {
 	private int top;
+	private int capacity = 5;
 	private Object stack[];
-	public Stack(int capacity) {
+	public StaticStack(int capacity){
+		System.out.println("Static Stack was created.");
 		stack = new Object[capacity];
 		top = 0;		
 	}
@@ -27,11 +29,6 @@ public class Stack {
 			return null;
 		}
 	}
-	public void clear() {
-		while(isEmpty() == false){
-			pop();
-		}
-	}
 	public boolean isFull() {
 		if(top == stack.length){
 			return true;
@@ -45,6 +42,11 @@ public class Stack {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	public void clear() {
+		while(isEmpty() == false){
+			pop();
 		}
 	}
 }
