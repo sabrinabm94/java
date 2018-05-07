@@ -22,11 +22,13 @@ public class StaticQueue {
 	}
 	public Object remove() {
 		if(!isEmpty()) {
-			Object value = queue[head];
+			Object o = queue[head];
 			if(head == tail) { //tratamento para filas com somente um elemento que será removido e a fila ficará vazia
 				head = tail = -1; //retorna para fora do índice
 			} else {
 				head = (head + 1) % queue.length; //incremento normal
+				System.out.println("Removing the element: " + o);
+				return o;
 			}
 		}
 	}
