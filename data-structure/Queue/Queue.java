@@ -1,12 +1,20 @@
 package fila;
 
+<<<<<<< HEAD
 public class Queue {
+=======
+public class StaticQueue {
+>>>>>>> b2a68d0b0b97b240e5497ba8415e00ea3289bd31
 	private int inicio;
 	private int fim;
 	private int head;
 	private int tail;
 	private Object queue[];
+<<<<<<< HEAD
 	public Queue(int capacity) {
+=======
+	public StaticQueue(int capacity) {
+>>>>>>> b2a68d0b0b97b240e5497ba8415e00ea3289bd31
 		queue = new Object[capacity];
 		head = tail = -1; //fora do intervalo de índices
 	}
@@ -27,6 +35,7 @@ public class Queue {
 				head = tail = -1; //retorna para fora do índice
 			} else {
 				head = (head + 1) % queue.length; //incremento normal
+<<<<<<< HEAD
 			}
 			System.out.println("Removing the element: " + o);
 			return o;
@@ -41,6 +50,11 @@ public class Queue {
 				System.out.println("Value " + queue[i]);
 			}
 			System.out.println("Value " + queue[i]);
+=======
+				System.out.println("Removing the element: " + o);
+				return o;
+			}
+>>>>>>> b2a68d0b0b97b240e5497ba8415e00ea3289bd31
 		}
 	}
 	public boolean isFull() { //se o proximo elemento em relação a cabeça for cauda
