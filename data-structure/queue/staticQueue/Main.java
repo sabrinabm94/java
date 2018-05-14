@@ -9,10 +9,10 @@ public class Main {
 			queue.add(44.5);
 			queue.add(33.33);
 			queue.add(20.9);
-			queue.show();
+			queue.list();
 			queue.remove();
 			queue.remove();
-			queue.show();
+			queue.list();
 			queue.clear(); //remove one per one items in stack
 	}
 }
