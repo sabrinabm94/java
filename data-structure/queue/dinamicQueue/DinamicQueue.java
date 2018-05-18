@@ -5,70 +5,51 @@ public class DinamicQueue {
 	private Element tail; //elementos encadeados
 	public DinamicQueue() {
 		head = tail = null;
-		int length = 0;
 	}
-	public void add(Object value) {
-		Element element = new Element();
-		element.setValue(value);
-		element.setNext(tail);
-		head = element;
-		lenght++;
-		System.out.println("Additing value " + value);
-		if(!this.isFull()) {
-			tail = (tail + 1) % queue.length; 
-			queue[tail] = o; 
-			if(head == null) {
-				head = tail; 
-			}
+	public boolean isEmpty() {
+		return head == null && tail == null;
+	}
+	public boolean isFull() {
+		return false;
+	}
+	public void add(Object value) throws Exception {
+		Element o = new Element(value);
+		System.out.println("Addited: " + value);
+		Element e = new Element(value);
+		if(tail != null) {
+			tail.setNext(e);
+		}
+		tail = e;
+		if(head == null) {
+			head = e;
 		}
 	}
-	public Object remove() {
-		if(!isEmpty()) {
-			Object o = head;
-			if(head == tail) { 
-				head = tail = null;
-			} else {
-				head = (head + 1) % queue.length; 
-			}
-			System.out.println("Removing the element: " + o);
-			return o;
-		} else {
-			return null;
+	public Object remove() throws Exception {
+		if(this.isEmpty()) {
+			throw new Exception ("The Queue is empty!");
 		}
+		Object o = head.getValue();
+		head = head.getNext();
+		if(head == null) {
+			tail = null;
+		}
+		System.out.println("Removed: " + o);
+		return o;
 	}
-	public void runThrough(){ 
-		Element element = head;
-		while(element != null){
-			System.out.println("Value of node: " + element.getValue());
-			element = element.getNext();
+	public void clear() {
+		while (!this.isEmpty()) {
+			try {
+				this.remove();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	public void list() {
-		if(!this.isEmpty()) {
-			int i = head;
-			for(i = head; i!= tail; i = (i+1) % queue.length) {
-				System.out.println("Value " + queue[i]);
-			}
-			System.out.println("Value " + queue[i]);
-		}
-	}
-	public boolean isFull() { 
-		if((tail + 1) % queue.length == head) {
-			return true;
-		} else {
-			return false;
-		}   
-	}
-	public boolean isEmpty() { 
-		if(head == null && tail == null) { 
-			return true;
-		} else {
-			return false;
-		}
-	}
-	public void clear() {
-		while(!isEmpty()) { 
-			remove();
+		Element e = head;
+		while (e != null) {
+			System.out.println("Value: " + e.getValue());
+			e = e.getNext();
 		}
 	}
 }
