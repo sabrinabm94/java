@@ -2,7 +2,7 @@ package fila;
 
 public class DinamicQueue {
 	private Element head;
-	private Element tail; //elementos encadeados
+	private Element tail;
 	public DinamicQueue() {
 		head = tail = null;
 	}
