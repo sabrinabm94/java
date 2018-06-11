@@ -1,48 +1,30 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
-public class Test {	
-	public static void main(String[] args) {		
+public class Main {	
+	public static void main(String[] args) throws Exception {		
 		Scanner scanner = new Scanner(System.in);		
-		List list = new List();		
+		Queue queue = new Queue();		
 		String value = null;
 		String respost = null;		
 		do{			
-			System.out.println("Select the option\n
-				1->Insert First:\n
-				2->Insert Last:\n
-				3->List:\n
-				4->Remove first:\n
-				5->Remove last:\n
-				6->Clear:\n
-				7->Listing:\n
-				8->Exit:\n"
-			);		
+			System.out.println("Select the option\n 1->Insert First:\n 2->Insert Last:\n3->List:\n 4->Remove first:\n 5->Remove last:\n 6->Clear:\n 7->Listing:\n 8->Exit:\n");		
 			respost = scanner.next();			
 			if(respost.equals("1")){
 				System.out.println("Enter with the value: ");
 				value = scanner.next();
-				try {
-					list.addFirst(value);
-				} 
-				catch (ExistentValueException e) {					
-					e.printStackTrace();
-				}
+				queue.addFirst(value);
 			}				
 			else if(respost.equals("2")){
 				System.out.println("Enter with the value: ");
 				value = scanner.next();
-				try {
-					list.addLast(value);
-				} 
-				catch (ExistentValueException e) {					
-					e.printStackTrace();
-				}			
+				queue.addLast(value);		
 			}					
 			else if(respost.equals("3")){
 				ArrayList<String> myList = new ArrayList<String>();
 				try {
-					myList = list.myList();
+					myList = queue.List();
 				} 
 				catch (EmptyListException e) {
 					e.printStackTrace();					
@@ -54,16 +36,16 @@ public class Test {
 				System.out.println();
 			}
 			else if(respost.equals("4")){
-				list.removeFirst();		
+				queue.removeFirst();		
 			}
 			else if(respost.equals("5")){
-				list.removeLast();	
+				queue.removeLast();	
 			}
 			else if(respost.equals("6")){
-				list.clear();
+				queue.clear();
 			}
 			else if(respost.equals("7")){
-				list.listing();		
+				queue.listing();		
 			}
 			else {
 				System.out.println("Invalid option");

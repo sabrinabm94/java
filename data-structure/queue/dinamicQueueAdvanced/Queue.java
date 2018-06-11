@@ -13,8 +13,8 @@ public class Queue {
 	}
 	public ArrayList<String> List() throws EmptyListException { //exception
 		ArrayList<String> list = new ArrayList<String>();		
-		if(first == null)
-			throw new EmptyListException("The queue is empty!");		
+		if(head == null)
+			throw new EmptyListException("The list is empty!");		
 		else{
 			Element aux = getFirst();			
 			while(aux != null){
@@ -39,8 +39,8 @@ public class Queue {
 		}
 	}
 	public void addLast(String value) throws Exception {
-		System.out.println("Addited in last: " + o);
-		Element e = new Element(o);
+		System.out.println("Addited in last: " + value);
+		Element e = new Element(value);
 		e.setPrev(tail); 
 		
 		if(tail != null) {
