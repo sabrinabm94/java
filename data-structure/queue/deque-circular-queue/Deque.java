@@ -1,8 +1,8 @@
 import java.util.ArrayList;
-public class Queue {
+public class Deque {
 	private Element head;
-	private Element tail; 	
-	public Queue() {
+	private Element tail; 
+	public Deque() {
 		head = tail = null;
 	}
 	public boolean isEmpty() {
@@ -11,36 +11,36 @@ public class Queue {
 	public boolean isFull() {
 		return false;
 	}
-	public ArrayList<String> List() throws EmptyListException { //exception
-		ArrayList<String> list = new ArrayList<String>();		
+	public ArrayList<Integer> List() throws EmptyListException { //generics and exception
+		ArrayList<Integer> list = new ArrayList<Integer>();		
 		if(head == null)
 			throw new EmptyListException("The list is empty!");		
 		else{
-			Element aux = getFirst();			
-			while(aux != null){
-				String vl = aux.getValue(); 
-				list.add(vl);
-				aux = aux.getNext();
+			Element elementFirst = getFirst();			
+			while(elementFirst != null){
+				int value = elementFirst.getValue(); 
+				list.add(value);
+				elementFirst = elementFirst.getNext();
 			}
 			return list;
 		}		
 	}
-	public void addFirst(String o) throws Exception {		
+	public void addFirst(Object o) {
 		System.out.println("Addited in first: " + o);
 		Element e = new Element(o);
-		e.setNext(head);
+		e.setNext(head); 
 		
 		if(head != null) {
-			head.setPrev(e);
+			head.setPrev(e);  
 		}
-		head = e;
+		head = e; 
 		if(tail == null) {
-			tail = e;
+			tail = e; 
 		}
 	}
-	public void addLast(String value) throws Exception {
-		System.out.println("Addited in last: " + value);
-		Element e = new Element(value);
+	public void addLast(Object o) throws Exception {
+		System.out.println("Addited in last: " + o);
+		Element e = new Element(o);
 		e.setPrev(tail); 
 		
 		if(tail != null) {
@@ -60,7 +60,7 @@ public class Queue {
 			if(head == null) { 
 				tail = null;
 			} else {
-				head.setPrev(null);
+				head.setPrev(null); 
 			}
 			System.out.println("Removed in first: " + o);
 			System.out.println("New head: " + head.getValue());
@@ -72,7 +72,7 @@ public class Queue {
 			throw new Exception ("The Queue is empty!");
 		} else {
 			Object o = tail.getValue();
-			tail = tail.getPrev();
+			tail = tail.getPrev(); 
 			if(tail == null) {
 				head = null;
 			} else {
@@ -99,12 +99,12 @@ public class Queue {
 	public void listing() {
 		Element e = head;
 		System.out.println("");
-		System.out.println("Start list... ");
+		System.out.println("Start listing... ");
 		while (e != null) {
 			System.out.println("Value: " + e.getValue());
 			e = e.getNext();
 		}
-		System.out.println("End list");
+		System.out.println("End listing");
 		System.out.println("");
 	}
 }
