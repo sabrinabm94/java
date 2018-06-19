@@ -1,8 +1,5 @@
-public class EmptyListException extends NullPointerException{
-	public EmptyListException(){
-		super();
-	}
-	public EmptyListException(String error){
-		super(error);
-	}
+public class EmptyListException extends Exception {
+    public EmptyListException(String message) {
+        super(message);
+    }
 }

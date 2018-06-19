@@ -23,10 +23,6 @@ public class Element {
 		this.value = value;
 	}
 	public Object getValue() {
-		if(value != null) {
-			System.out.println("the value is null!");
-			return false;
-		}
 		return value;
 	}
 }
