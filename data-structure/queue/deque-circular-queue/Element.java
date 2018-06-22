@@ -1,28 +1,27 @@
-package deque;
-
-public class Element {
-	private Element next;
-	private Element prev;
-	private Object value;
-	public Element (Object v) {
+package trabalho;
+public class Element<T> {
+	private Element<T> next;
+	private Element<T> prev;
+	private T value;
+	public Element (T v) {
 		value = v;
 	}
-	public void setNext(Element e) {
+	public void setNext(Element<T> e) {
 		this.next = e;
 	}
-	public Element getNext() {
+	public Element<T> getNext() {
 		return next;
 	}
-	public void setPrev(Element e) {
+	public void setPrev(Element<T> e) {
 		this.prev = e;
 	}
-	public Element getPrev() {
+	public Element<T> getPrev() {
 		return prev;
 	}
-	public void setValue(Object value) {
+	public void setValue(T value) {
 		this.value = value;
 	}
-	public Object getValue() {
+	public T getValue() {
 		return value;
 	}
 }

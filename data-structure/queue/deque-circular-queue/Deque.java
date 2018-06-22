@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package trabalho;
 public class Deque<T> {
     private Element<T> head;
     private Element<T> tail;
@@ -11,19 +11,9 @@ public class Deque<T> {
 	public boolean isFull() {
 		return false;
 	}
-	 public List<T> toList() {
-        List<T> list = new ArrayList<>();     
-        Element<T> elementFirst = getFirst();          
-        while (elementFirst != null) {
-            T value = elementFirst.getValue(); 
-            list.add(value);
-            elementFirst = elementFirst.getNext();
-        }
-        return list;     
-    }
 	public void addFirst(T o) {
         System.out.println("Addited in first: " + o);
-        Element<T> e = new Element<>(o);
+        Element<T> e = new Element<T>(o);
         e.setNext(head); 
 
         if (head != null) {
@@ -34,10 +24,9 @@ public class Deque<T> {
             tail = e; 
         }
     }
-
     public void addLast(T o) {
         System.out.println("Addited in last: " + o);
-        Element<T> e = new Element<>(o);
+        Element<T> e = new Element<T>(o);
         e.setPrev(tail); 
 
         if (tail != null) {
@@ -63,7 +52,6 @@ public class Deque<T> {
         System.out.println("New head: " + head.getValue());
         return o;
     }
-
     public T removeLast() throws EmptyListException {
         if (this.isEmpty()) {
             throw new EmptyListException("The deque is empty!");
@@ -79,17 +67,19 @@ public class Deque<T> {
         System.out.println("New tail: " + tail.getValue());
         return o;
     }
-
     public void clear() {
         System.out.println("");
         System.out.println("Start clear... ");
         while (!this.isEmpty()) {
-            this.removeFirst();
+            try {
+				this.removeFirst();
+			} catch (EmptyListException e) {
+				e.printStackTrace();
+			}
         }
         System.out.println("End clear");
         System.out.println("");
     }
-
     public void listing() {
         Element<T> e = head;
         System.out.println("");
