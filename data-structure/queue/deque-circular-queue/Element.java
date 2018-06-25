@@ -1,4 +1,3 @@
-package trabalho;
 public class Element<T> {
 	private Element<T> next;
 	private Element<T> prev;

@@ -1,4 +1,5 @@
-package trabalho;
+import java.util.function.Consumer;
+
 public class Deque<T> {
     private Element<T> head;
     private Element<T> tail;
@@ -12,6 +13,7 @@ public class Deque<T> {
 		return false;
 	}
 	public void addFirst(T o) {
+		System.out.println("");
         System.out.println("Addited in first: " + o);
         Element<T> e = new Element<T>(o);
         e.setNext(head); 
@@ -23,8 +25,11 @@ public class Deque<T> {
         if (tail == null) {
             tail = e; 
         }
+        System.out.println("New head: " + head.getValue());
+        System.out.println("New tail: " + tail.getValue());
     }
     public void addLast(T o) {
+    	System.out.println("");
         System.out.println("Addited in last: " + o);
         Element<T> e = new Element<T>(o);
         e.setPrev(tail); 
@@ -36,6 +41,8 @@ public class Deque<T> {
         if (head == null) {
             head = e;
         }
+        System.out.println("New head: " + head.getValue());
+        System.out.println("New tail: " + tail.getValue());
     }
 	public T removeFirst() throws EmptyListException {
         if (this.isEmpty()) {
@@ -48,8 +55,10 @@ public class Deque<T> {
         } else {
             head.setPrev(null); 
         }
+        System.out.println("");
         System.out.println("Removed in first: " + o);
         System.out.println("New head: " + head.getValue());
+        System.out.println("New tail: " + tail.getValue());
         return o;
     }
     public T removeLast() throws EmptyListException {
@@ -63,7 +72,9 @@ public class Deque<T> {
         } else {
             tail.setNext(null); 
         }
+        System.out.println("");
         System.out.println("Removed in last: " + o);
+        System.out.println("New head: " + head.getValue());
         System.out.println("New tail: " + tail.getValue());
         return o;
     }
@@ -80,12 +91,12 @@ public class Deque<T> {
         System.out.println("End clear");
         System.out.println("");
     }
-    public void listing() {
+    public void listing(Consumer<T> lambda) {
         Element<T> e = head;
         System.out.println("");
         System.out.println("Start listing... ");
         while (e != null) {
-            System.out.println("Value: " + e.getValue());
+            lambda.accept(e.getValue());
             e = e.getNext();
         }
         System.out.println("End listing");

@@ -1,13 +1,12 @@
-package trabalho;
 public class TestDeque {
 	 public static void main(String[] args) { 
-		 Deque<String> deque = new Deque<String>(); 
+		 Deque<Integer> deque = new Deque<Integer>(); 
 		 //declaração do tipo para filtar as entradas e evitar a necessitade de excessivas tratativas de erros
-		 deque.addFirst("zero");
-		 deque.addFirst("first");
-		 deque.addFirst("secound");
-		 deque.addFirst("third");
-		 deque.addLast("fifth");
+		 deque.addFirst(1);
+		 deque.addFirst(2);
+		 deque.addFirst(3);
+		 deque.addFirst(4);
+		 deque.addLast(5);
 		 try {
 			deque.removeLast();
 		} catch (EmptyListException e) {
