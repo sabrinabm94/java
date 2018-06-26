@@ -16,17 +16,16 @@ public class Deque<T> {
 		System.out.println("");
         System.out.println("Addited in first: " + o);
         Element<T> e = new Element<T>(o);
-        //e.setNext(head); 
-
         if (head != null) {
             head.setPrev(e); 
-            e.setNext(head);
         }
-        head = e; 
+        e.setNext(head);
+        head = e;
         if (tail == null) {
-            //tail = e;
-        	tail = head;
+            tail = head;
         }
+        tail.setNext(head);
+        head.setPrev(tail);
         System.out.println("New head: " + head.getValue());
         System.out.println("New tail: " + tail.getValue());
     }
@@ -34,17 +33,16 @@ public class Deque<T> {
     	System.out.println("");
         System.out.println("Addited in last: " + o);
         Element<T> e = new Element<T>(o);
-        e.setPrev(tail); 
-
-        if (tail != null) {
-            tail.setNext(e);
-            e.setPrev(tail); 
+        if (tail !== null) {
+        	tail.setNext(e);
         }
-        tail = e;
-        if (head == null) {
-            //head = e;
-            head = tail;
+        e = setPrev(tail);
+        tail = e; 
+        if(head == null) {
+        	head = tail;
         }
+        tail.setNext(head);
+        head.setPrev(tail);
         System.out.println("New head: " + head.getValue());
         System.out.println("New tail: " + tail.getValue());
     }
