@@ -13,9 +13,8 @@ public class DinamicQueue {
 		return false;
 	}
 	public void add(Object value) throws Exception {
-		Element o = new Element(value);
-		System.out.println("Addited: " + value);
 		Element e = new Element(value);
+		System.out.println("Addited: " + value);
 		if(tail != null) {
 			tail.setNext(e);
 		}
