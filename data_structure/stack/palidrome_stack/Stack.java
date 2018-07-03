@@ -1,5 +1,3 @@
-package Pilha;
-
 public class Stack {
 	private int top;
 	private Object stack[];
@@ -10,7 +8,7 @@ public class Stack {
 	}
 	public void push(Object o) {
 		if(isFull() == false) {
-			System.out.println("Aditing element " + o + " in stack...");
+			System.out.println("Added element " + o + " in stack...");
 			stack[top] = o;
 			top = top + 1;
 			System.out.println("The top is " + top);

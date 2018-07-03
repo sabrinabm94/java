@@ -1,5 +1,4 @@
-package staticstack;
-public class Main {
+public class Main_alt {
 	public static void main(String[] args) {
 		StaticStack staticStack = new StaticStack(5); //instance the stack
 		for(int i = 0; i <= 6; i++) {

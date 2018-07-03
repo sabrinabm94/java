@@ -1,29 +1,29 @@
-package staticstack;
-public class StaticStack {
+public class Stack {
 	private int top;
-	private int capacity = 5;
 	private Object stack[];
-	public StaticStack(int capacity){
-		System.out.println("Static Stack was created.");
+	public Stack(int capacity){
+		System.out.println("The stack was created!");
 		stack = new Object[capacity];
 		top = 0;		
 	}
 	public void push(Object o) {
 		if(isFull() == false) {
-			System.out.println("Adding element to stack...");
+			System.out.println("Added element " + o + " in stack...");
 			stack[top] = o;
 			top = top + 1;
+			System.out.println("The top is " + top);
 		} else {
-			System.out.println("No exist spaces for new elements, the stack has reached its capacity!");
+			System.out.println("The stack is full!");
 		}
 	}
 	public Object pop() {
 		if(isEmpty() == false) {
-			System.out.println("Removing element from stack...");
 			top = top - 1;
 			if(top == 0) {
 				System.out.println("The stack is empty!");
 			}
+			System.out.println("Removing the last element of stack...");
+			System.out.println("The top is " + top);
 			return stack[top];
 		} else {
 			return null;
@@ -48,5 +48,8 @@ public class StaticStack {
 		while(isEmpty() == false){
 			pop();
 		}
+	}
+	public void list() {
+		
 	}
 }

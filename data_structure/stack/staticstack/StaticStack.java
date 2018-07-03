@@ -1,28 +1,30 @@
 package atividade4;
-public class Atendimentos {
+public class StaticStack {
 	private int top;
 	private int capacity;
 	private Object stack[];
-	public Atendimentos(int capacity){
+	public StaticStack(int capacity){
 		System.out.println("Static Stack was created.");
 		stack = new Object[capacity];
 		top = 0;		
 	}
 	public void push(Object o) {
 		if(isFull() == false) {
-			System.out.println("Adding element to stack...");
 			stack[top] = o;
 			top = top + 1;
+			System.out.println("Added element " + o + " to stack in the position " + top);
+			System.out.println("The top value now is: " + top);
 		} else {
-			System.out.println("No exist spaces for new elements, the stack has reached its capacity!");
+			System.out.println("The stack is full!");
 		}
 	}
 	public Object pop() {
 		if(isEmpty() == false) {
-			System.out.println("Removing element from stack...");
 			top = top - 1;
 			if(top == 0) {
 				System.out.println("The stack is empty!");
+			} else {
+				System.out.println("Removed element " + stack[top] + " from stack in the position " + top);
 			}
 			return stack[top];
 		} else {
@@ -45,17 +47,18 @@ public class Atendimentos {
 		}
 	}
 	public void list() {
-		if(!this.isEmpty()) {
-			int i;
-			for() {
-				System.out.println("Value: " + value[i]);
-			}
+		System.out.println("Starting listing... ");
+		for (int i = top - 1; i >= 0; i--) {
+			System.out.println("Value in " + i + " " + stack[i]);
 		}
+		System.out.println("Endend.\n");
 	}
 	public void clear() {
+		System.out.println("");
 		while(isEmpty() == false) {
 			System.out.println(stack[top]);
 			pop();
 		}
+		System.out.println("The stack is clean!");
 	}
 }
