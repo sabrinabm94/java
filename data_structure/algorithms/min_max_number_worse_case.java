@@ -1,4 +1,4 @@
-package algoritmos;
+package algorithm;
 import java.util.Scanner;
 public class min_max_number_worse_case {
 	public static void main(String[] args) {
