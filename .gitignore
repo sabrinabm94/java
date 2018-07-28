@@ -1,0 +1,14 @@
+*.sublime-workspace
+*.sublime-project
+*.png
+*.jpg
+*.gif
+*.rar
+*.zip
+*.tar
+.project
+.classpath
+.settings/
+target/
+.settings/
+java_ee_api_rest/ApiRest/target/

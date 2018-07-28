@@ -6,11 +6,11 @@ public class Clock {
 	    Total: 360 - 360/12 = 30 graus
 		ponteiro das horas: 30 graus em 60 minutos ou seja 40 minutos são 15 graus
 		ponteiro dos minutos: 30 graus em 5 minutos ou seja 6 graus por minuto
-        01:00 possui um ângulo de 360
+        01:00h possui um ângulo de 360
         00:30h possui um ângulo de 180 
         00:15h possui um ângulo de 90 (no e-mail do desafio estava como 45, seria alguma peculiaridade do desafio ou somente erro de digitação? considerei como a segunda opção.
         00:00h possui um ângulo de 0
-		 */	
+		*/	
 		return (6*minutes)+((hours*60)*6);//aplicando formula para descobrir ângulo e convertendo horas em minutos
 	}
 	public long calculeMinuts(long angle) {
