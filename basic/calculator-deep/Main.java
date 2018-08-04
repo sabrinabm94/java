@@ -16,7 +16,7 @@
         double resultMedianEven = median.calculateMedian(listEven);
         System.out.println("Value of median: " + resultMedianEven);
 
-        String resultClassificationEven = classification.ClassificationConcept(resultMedianEven);
+        String resultClassificationEven = classification.classificationConcept(resultMedianEven);
         System.out.println("Classification: " + resultClassificationEven);
         System.out.println("");
 
@@ -30,7 +30,7 @@
         double resultMedianOdd = median.calculateMedian(listOdd);
         System.out.println("Value of median: " + resultMedianOdd);
 
-        String resultClassificationOdd = classification.ClassificationConcept(resultMedianOdd);
+        String resultClassificationOdd = classification.classificationConcept(resultMedianOdd);
         System.out.println("Classification: " + resultClassificationOdd);
         System.out.println("");
     }

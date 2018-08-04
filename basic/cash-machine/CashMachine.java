@@ -18,7 +18,7 @@
         }
     }
 
-    public void BankDraft(double[] moneyBill, double value)
+    public void bankDraft(double[] moneyBill, double value)
     {
         int[] moneyBillQuantity = new int[10];
         double valueBankDraft = value;

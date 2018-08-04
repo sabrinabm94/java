@@ -1,5 +1,5 @@
 ﻿public class Classification {
-	public String ClassificationConcept(double average)
+	public String classificationConcept(double average)
 	{
 		String concept = "";
 

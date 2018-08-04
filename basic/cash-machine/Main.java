@@ -7,9 +7,9 @@
 
         CashMachine cashMachine = new CashMachine();
         cashMachine.sortMoneyBill(moneyBill);
-        cashMachine.BankDraft(moneyBill, 150); //testando notas de maior valor
-        cashMachine.BankDraft(moneyBill, 12.5); //testando decimais
-        cashMachine.BankDraft(moneyBill, 1); //testando BankDraft impossível
+        cashMachine.bankDraft(moneyBill, 150); //testando notas de maior valor
+        cashMachine.bankDraft(moneyBill, 12.5); //testando decimais
+        cashMachine.bankDraft(moneyBill, 1); //testando BankDraft impossível
     }
 }
 
