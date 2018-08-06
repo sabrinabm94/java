@@ -1,11 +1,11 @@
-package ordenacoes;
-
 public class Bubble {
 	public void sort(int[] vetor) {
-		int i, j, min, auxiliar, counter = 0;
+		int i, j, auxiliar, counter = 0;
 		for(i = 0; i < vetor.length; i++) { 
 			for(j = 0; j < vetor.length-1; j++) {
+				counter = counter +1;
 				if(vetor[j] > vetor[j + 1]) {
+					counter = counter +1;
 					auxiliar = vetor[j];
 					vetor[j] = vetor[j + 1];
 					vetor[j + 1] = auxiliar;
