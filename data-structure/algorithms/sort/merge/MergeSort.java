@@ -1,55 +1,55 @@
 package sort;
+
 public class MergeSort {
-	//verifica se os valores passados são válidos
-    public void merge(int[] vetor, int low, int high) {
-        if (low < high) {
-            int middle = (low + high) / 2;
-            //Divide a parte esquerda do vetor
-            merge(vetor, low, middle);
-            //Divide a parte direita do vetor
-            merge(vetor, middle + 1, high);
-            //Une as duas partes
-            mergeParts(vetor, low, middle, high);
-        }
-    }
-    public void mergeParts(int[] vetor, int low, int middle, int high) {
-    	int[] helper = new int[vetor.length];
-		for (int i = low; i <= high; i++) {
-        	helper[i] = vetor[i];
-        }
-        int helperLeft = low;
-        int helperRight = middle + 1;
-        int current = low;
-        while (helperLeft <= middle && helperRight <= high) {
-            if (helper[helperLeft] <= helper[helperRight]) {
-            	vetor[current] = helper[helperLeft];
-            	helperLeft++;
-            } else {
-            	vetor[current] = helper[helperRight];
-            	helperRight++;
-            }
-            current++;
-        }
-        /*
-        while (helperLeft <= middle) {
-        	vetor[current] = helper[helperLeft];
-        	current++;
-            helperLeft++;
-        }
-        */
-        int remaining = middle - helperLeft;
-        for(int i = 0; i <= remaining; i++) {
-        	vetor[current+i] = helper[helperLeft + 1];
-        }
-    }
-    public void print(int[] vetor) {
-		int i = 0;
-		System.out.println("");
-		System.out.println("Starting print...");
-		for(i = 0; i < vetor.length; i++) { 
-			System.out.println("value " + vetor[i] +  " of position: " + i);
+	static int counter = 0;
+	public void merge(int[] vetor, int first, int start, int end) {
+		int[] vetorHelper = new int[start+end];
+		int helper = 0, helperOne = 0, helper2 = 0;
+		
+		while((helperOne < start) && (helper2 < end)) {
+			counter = counter + 1;
+			if (vetor[first + helperOne] < vetor[first + start + helper2]) {
+				vetorHelper[helper++] = vetor[first + helperOne++];
+			}
+			else {
+				vetorHelper[helper++] = vetor[first + start + helper2++];
+			}
 		}
-		System.out.println("End");
+
+		while(helperOne < start) {
+			counter = counter + 1;
+			vetorHelper[helper++] = vetor[first + helperOne++];
+		}
+
+		while(helper2 < end) {
+			counter = counter + 1;
+			vetorHelper[helper++] = vetor[first + start +helper2++];
+		}
+
+		for(int i = 0; i < start+end; i++) {
+			counter = counter + 1;
+			vetor[first + i] = vetorHelper[i];
+		}
+	}
+
+	public void mergeSort(int[] vetor, int first, int last) {
+		int start, end;
+		
+		if (last > 1) {
+			start = last/2;
+			end = last - start;
+
+			mergeSort(vetor, first, start); //método recursivo
+			mergeSort(vetor, first + start, end); //método recursivo
+			merge(vetor, first, start, end);
+		}
+	}
+
+	public void print(int[] vetorOrdened) { //print dos vetores
+		System.out.print("vetor ordened: ");
+		for(int i = 0 ; i < vetorOrdened.length; i++) {
+			System.out.print(vetorOrdened[i] + " ");
+		}
 		System.out.println("");
 	}
 }
