@@ -1,17 +1,16 @@
-package estrutura;
 public class Bubble {
-	public int sort(int[] vetor) {
+	public void sort(int[] vetor) {
 		int i, j, aux, counter = 0;
 		boolean changed = true;
 		int firstChange = -1;
 		while(changed) {
 			changed = false;
-			i = firstChange + 1;
+			int i = firstChange + 1;
 			while(i < vetor.length - 1) {
 				counter = counter + 1;
 				if(vetor[i] > vetor[i+1]) {
 					counter = counter + 1;
-					aux = vetor[i];
+					int aux = vetor[i];
 					vetor[i] = vetor[i+1];
 					vetor[i+1] = aux;
 					changed = true;
@@ -23,8 +22,7 @@ public class Bubble {
 				i++;
 			}
 		}
-		//System.out.println("Number of instructions: " + counter);
-		return counter;
+		System.out.println("Number of instructions: " + counter);
 	}
 	public void print(int[] vetor) {
 		int i = 0;

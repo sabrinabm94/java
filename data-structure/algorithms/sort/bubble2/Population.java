@@ -1,4 +1,3 @@
-package estrutura;
 public class Population {
 	public void crescent(int vetor[]) {
 		for (int i = 0; i < vetor.length; i++) {
