@@ -1,19 +1,25 @@
+package ordenacoes;
+
 public class Bubble {
-	public void sort(int[] vetor) {
+	public int sort(int[] vetor) {
 		int i, j, aux, counter = 0;
 		boolean changed = true;
 		int firstChange = -1;
+		
 		while(changed) {
 			changed = false;
-			int i = firstChange + 1;
+			i = firstChange + 1;
+			
 			while(i < vetor.length - 1) {
 				counter = counter + 1;
+				
 				if(vetor[i] > vetor[i+1]) {
 					counter = counter + 1;
-					int aux = vetor[i];
+					aux = vetor[i];
 					vetor[i] = vetor[i+1];
 					vetor[i+1] = aux;
 					changed = true;
+					
 					if(!changed) {
 						counter = counter + 1;
 						firstChange = i;
@@ -22,7 +28,8 @@ public class Bubble {
 				i++;
 			}
 		}
-		System.out.println("Number of instructions: " + counter);
+		//System.out.println("Number of instructions: " + counter);
+		return counter;
 	}
 	public void print(int[] vetor) {
 		int i = 0;

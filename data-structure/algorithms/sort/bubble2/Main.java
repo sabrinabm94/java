@@ -14,33 +14,15 @@ public class Main extends Population {
 			population.decreasing(decrescent);
 			population.random(random);
 			
-			//minmax1c
-			int op1c = minMax.minMaxWorseCase(crescent);
+			int crescentSort = bubble.sort(crescent);
 			
-			//minmax2c
-			int op2c = minMax.minMaxMediumCase(crescent);
-			
-			//minmax2d
-			int op2d = minMax.minMaxMediumCase(decrescent);
+			int descrescentSort = bubble.sort(decrescent);
 			
 			//minmax2r
-			int op2r = minMax.minMaxMediumCase(random);
-			
-			//minmax3c
-			int op3 = 0;
-			
-			//even - odd error tratament
-			if(n % 2 == 0) {
-				op3 = minMax.minMaxBetterCaseEven(crescent);
-			} else {
-				op3 = minMax.minMaxBetterCaseOdd(crescent);
-			}
+			int randomSort = bubble.sort(random);
 
-			//System.out.println(n + ";" + op1 + ";" + op2c + ";" + op2d + ";" + op2a + ";" + op3);
+			System.out.println(n + ";" + crescentSort + ";" + descrescentSort + ";" + randomSort);
 			//1;0;0;0;0;0
 		}
-
-		bubble.sort(vetor);
-		bubble.print(vetor);
 	}
 }

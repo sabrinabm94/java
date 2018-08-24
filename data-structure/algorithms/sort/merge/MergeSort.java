@@ -1,4 +1,4 @@
-package sort;
+package ordenacoes;
 
 public class MergeSort {
 	static int counter = 0;

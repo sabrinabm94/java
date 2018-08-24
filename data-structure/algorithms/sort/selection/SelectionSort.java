@@ -1,13 +1,10 @@
-package sort;
-//ordenar de forma crescente
-//melhor caso vetor crescente
-//pior caso descrescente
+package ordenacoes;
 public class SelectionSort {
-	public void sort(int[] vetor) {
+	public int sort(int[] vetor) {
 		int i, j, min, aux, counter = 0;
-		for(i = 0; i < vetor.length; i++) { //controla a variável min
+		for(i = 0; i < vetor.length; i++) { //controla a variÃ¡vel min
 			min  = i;
-			for(j = i + 1; j < vetor.length; j++) { //da posição min para frente quem é o menor?, faz a ordenação	
+			for(j = i + 1; j < vetor.length; j++) { //da posiÃ§Ã£o min para frente quem Ã© o menor?, faz a ordenaÃ§Ã£o	
 				counter = counter +1;
 				if(vetor[j] < vetor[min]) {
 					min = j;
@@ -21,7 +18,8 @@ public class SelectionSort {
 				vetor[min] = aux;
 			}
 		}
-		System.out.println("Number of instructions: " + counter);
+		return counter;
+		//System.out.println("Number of instructions: " + counter);
 	}
 	public void print(int[] vetor) {
 		int i = 0;

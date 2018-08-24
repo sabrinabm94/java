@@ -1,6 +1,6 @@
-package sort;
+package ordenacoes;
 public class InsertionSort {
-	public void sort(int[] vetor) {
+	public int sort(int[] vetor) {
 		int i, j, pivo, counter = 0;
 		for(i = 1; i < vetor.length; i++) { //controla o pivo e faz as trocas do menor para esquerda e maior para direita
 			pivo = vetor[i];
@@ -15,7 +15,8 @@ public class InsertionSort {
 			vetor[j + 1] = pivo; //deslocamento
 			counter = counter + 1;
 		}
-		System.out.println("Number of instructions: " + counter);
+		//System.out.println("Number of instructions: " + counter);
+		return counter;
 	}
 	public void print(int[] vetor) {
 		int i = 0;

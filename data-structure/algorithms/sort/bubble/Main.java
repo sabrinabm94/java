@@ -1,4 +1,5 @@
-package estrutura;
+package ordenacoes;
+
 public class Main extends Population {
 	public static void main(String[] args) {
 		Population population = new Population();
@@ -12,15 +13,15 @@ public class Main extends Population {
 			population.crescent(crescent);
 			population.decreasing(decrescent);
 			population.random(random);
-
-			int sortCrescente = bubble.sort(crescent);
 			
-			int sortDescrescente = bubble.sort(decrescent);
+			int crescentSort = bubble.sort(crescent);
+			
+			int descrescentSort = bubble.sort(decrescent);
+			
+			int randomSort = bubble.sort(random);
 
-			int sortRadom = bubble.sort(random);
-		
-			System.out.println(n + ";" + sortCrescente + ";" + sortDescrescente + ";" + sortRadom);
+			System.out.println(n + ";" + crescentSort + ";" + descrescentSort + ";" + randomSort);
 			//1;0;0;0;0;0
-		} 
+		}
 	}
 }
