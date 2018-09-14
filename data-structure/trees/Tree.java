@@ -1,5 +1,3 @@
-package trees;
-
 public class Tree<T> {
 	private Node<T> Root;
 
@@ -11,6 +9,14 @@ public class Tree<T> {
 		Root = root;
 	}
 	
+	public void walkInTree(Node<T> node) {
+		System.out.println(node.getValue());
+		
+		for(Node<T> children: node.getChildren()) {
+			this.walkInTree(children);
+		}
+	}
+	
 	/*
 	adicionar
 	remover
@@ -20,6 +26,12 @@ public class Tree<T> {
 	profundidade x largura: árvores com pouca hierarquia podem se tornar listas, com um nível de largura e muita profundidade.
 	Números baixos de comparações por causa das podas
 	*/
+	
+	//busca em largura (BFS)
+	//começa pela raiz e percorre seus filhos até não tiver mais filhos
+	
+	//busca em profundidade (DFS)
+	
 }
 
 

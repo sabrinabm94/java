@@ -1,5 +1,3 @@
-package trees;
-
 import java.util.List;
 
 public class Node<T> {
@@ -19,7 +17,9 @@ public class Node<T> {
 	public void setChildren(List<Node<T>> children) {
 		Children = children;
 	}
-	public T getValue() {
+	public T getValue() { 
+		//método é indicado para quando tem alteração de valor, o que não é o caso do exemplo
+		//também pode ser utilizado node.value acessando a variável caso estivesse publica.
 		return value;
 	}
 	public void setValue(T value) {
