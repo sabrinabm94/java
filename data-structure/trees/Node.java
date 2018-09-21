@@ -1,9 +1,14 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Node<T> {
 	private Node<T> Parent;
 	private List<Node<T>> Children;
 	private T value;
+	
+	public Node () {
+		Children = new ArrayList<Node<T>>(); //criando um construtor para o Children
+	}
 	
 	public Node<T> getParent() {
 		return Parent;

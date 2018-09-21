@@ -1,4 +1,6 @@
+
 public class Main {
+
 	public static void main(String[] args) {
 		//criação de árvore
 		Tree<Integer> tree = new Tree<Integer>();
@@ -39,8 +41,11 @@ public class Main {
 		node4.setParent(node2);
 		node5.setParent(node1);
 		node6.setParent(node5);
+
+		tree.gothrough();
 		
-		tree.walkInTree(tree.getRoot());
+		tree.gothroughLambda(tree.getRoot(),(node) -> System.out.print(node.getValue()));
+		
+		}
 		
 	}
-}

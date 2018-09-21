@@ -1,3 +1,5 @@
+import java.util.function.Consumer;
+
 public class Tree<T> {
 	private Node<T> Root;
 
@@ -5,7 +7,7 @@ public class Tree<T> {
 		return Root;
 	}
 
-	public void setRoot(Node<T> root) {
+	public void setRoot(Node<T> root) { //alterar os metodos gothrought para passar o lambda
 		Root = root;
 	}
 	
@@ -14,6 +16,39 @@ public class Tree<T> {
 		
 		for(Node<T> children: node.getChildren()) {
 			this.walkInTree(children);
+		}
+	}
+	
+	
+	//busca por largura com recursividade
+	public void gothrough(Node<T> node) {
+		System.out.println(node.getValue());
+		
+		for(Node<T> children: node.getChildren()) {
+			this.gothrough(children);
+		}
+	}
+	
+	public void gothrough() {
+		this.gothrough(this.Root);
+	}
+	
+	//busca por largura com lambda
+	public void gothroughLambda(Node<T> node, Consumer<Node<T>> lamba) {
+		lamba.accept(node);
+		
+		for(Node<T> children: node.getChildren()) {
+			this.gothroughLambda(children, lamba);
+		}
+	}
+
+	
+	//busca por largura sem recursividade (pilha)
+	public void gothroughtStark(Node<T> node) {
+		System.out.println(node.getValue());
+		
+		for(Node<T> children: node.getChildren()) {
+			this.gothrough(children);
 		}
 	}
 	
@@ -33,5 +68,3 @@ public class Tree<T> {
 	//busca em profundidade (DFS)
 	
 }
-
-
