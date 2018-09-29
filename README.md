@@ -1,5 +1,20 @@
-Repository used for development in Java, involving courses and various scripts, with the purpose of saving files and accompanying learning.
+# Repository structure
 
-----
+## basic
+Scripts for testing java features and sintax.
 
-Repositório utilizado para desenvolvimento em java, envolvendo cursos e scripts diversos, com objetivo de guardar arquivos e acompanhar o aprendizado.
+## object-oriented
+Scripts using the object-oriented pattern for designing projects.
+
+## data-structure
+Scripts involving data structure in java such as queues, stacks, sorting methods and binary trees.
+
+## java-ee
+Basic structure for creating a javaee rest apis.
+
+## spring-boot
+Creation of an api rest for car insurance using spring boot.
+
+### sabrinabgbc
+sabrinabgbc@email.com
+noobfrontend.wordpress.com
