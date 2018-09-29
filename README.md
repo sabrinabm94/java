@@ -15,6 +15,9 @@ Basic structure for creating a javaee rest apis.
 ## spring-boot
 Creation of an api rest for car insurance using spring boot.
 
-### sabrinabgbc
+### contacts
+sabrinabgbc
+
 sabrinabgbc@email.com
+
 noobfrontend.wordpress.com
