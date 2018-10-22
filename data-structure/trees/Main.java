@@ -1,3 +1,4 @@
+package tree;
 public class Main {
 	public static void main(String[] args) {
 		/* 
@@ -53,9 +54,17 @@ public class Main {
 		node5.setParent(node1);
 		node6.setParent(node5);
 
-		tree.goThrough();
+		tree.goThrough(tree.getRoot());
 		
 		tree.goThroughLambda(tree.getRoot(),(node) -> System.out.print(node.getValue()));
+		
+		tree.addByValue(7);
+		tree.addByNode(node3, 7);
+		
+		tree.removeWithRoot(7);
+		
+		tree.deepSearch(tree.getRoot());
+		tree.goThroughWithQueue(tree.getRoot());
 		
 		/*
 		Os elementos filhos menores ficam a direita e os maiores a esquerda

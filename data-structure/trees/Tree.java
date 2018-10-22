@@ -1,28 +1,22 @@
+package tree;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 import java.util.function.Consumer;
 
-public class Tree<T> {
-	private Node<T> Root;
+public class Tree<T extends Comparable<T>> {
+	private Node<T> root;
 
 	public Node<T> getRoot() {
-		return Root;
+		return root;
 	}
 
 	public void setRoot(Node<T> root) {
-		Root = root;
+		this.root = root;
 	}
 	
-	public void walkInTree(Node<T> node) {
-		System.out.println(node.getValue());
-		
-		for(Node<T> children: node.getChildren()) {
-			this.walkInTree(children);
-		}
-	}
-	
-	//busca por profundidade com recursividade
+	//percorrer com recursão
 	public void goThrough(Node<T> node) {
 		System.out.println(node.getValue());
 		
@@ -31,26 +25,13 @@ public class Tree<T> {
 		}
 	}
 	
-	//busca por profundidade sem recursão
-		public void deep(Node<T> node) {
-			Stack<Node<T>> stack = new Stack<Node<T>>();
-			stack.push(node);
-			
-			while (!stack.isEmpty()) {
-				node = stack.pop();
-				System.out.println(node.getValue());
-				
-				for(int i = node.getChildren().size() -1; i >= 0; i--) {
-					stack.push(node.getChildren().get(i));
-				}
-			}
-		}
-		
+	/*
 	public void goThrough() {
 		this.goThrough(this.Root);
 	}
+	*/
 	
-	//busca por profundidade com lambda
+	//percorrer com lambda
 	public void goThroughLambda(Node<T> node, Consumer<Node<T>> lamba) {
 		lamba.accept(node);
 		
@@ -59,16 +40,120 @@ public class Tree<T> {
 		}
 	}
 
-	//busca por largura
-	public void width(Node<T> node) {
-		List<Node<T>> list = new ArrayList<Node<T>>();
-		list.add(node);
+	
+	//busca por profundidade sem recursão
+	public void deepSearch(Node<T> node) {
+		Stack<Node<T>> stack = new Stack<Node<T>>();
+		stack.push(node);
 		
-		while(!list.isEmpty()) {
-			node = list.remove(0);
+		while (!stack.isEmpty()) {
+			node = stack.pop();
 			System.out.println(node.getValue());
 			
-			list.addAll(node.getChildren());
+			for(int i = node.getChildren().size() -1; i >= 0; i--) {
+				stack.push(node.getChildren().get(i));
+			}
+		}
+	}
+	
+	//busca por profundidade com lambda e recursão
+	public void deepSearchLambda(Node<T> node, Consumer<Node<T>> lambda) throws Exception{
+		DinamicStack stack = new DinamicStack();
+		for (Node<T> children : node.getChildren()){
+			stack.push(node.getChildren());
+			this.goThroughLambda(children, lambda);
+		}
+	}
+	
+	
+	//busca por largura sem recursão com fila
+	public void goThroughWithQueue(Node<T> node) {
+		List<Node<T>> queue = new ArrayList<Node<T>>();
+		queue.add(node);
+		
+		while(!queue.isEmpty()) {
+			node = queue.remove(0);
+			System.out.println(node.getValue());
+			queue.addAll(node.getChildren());
+		}
+	}
+	
+	//busca por toda profundidade
+	public Node<T> goThroughDeep(Node<T> node, T value){
+		if (node.getValue().equals(value)){
+			return node;
+		}
+		for (Node<T> children : node.getChildren()){
+			Node<T> result = this.goThroughDeep(children, value);	
+			if (result != null ){
+				return result;
+			}
+		}
+		return null;
+	}
+	
+	/*
+	public void remove(T value){
+		Node<T> node = this.search(value);
+		if (node != null ){
+			for(Node<T> children : node.getChildren()){
+				children.setParent(node.getParent());
+				node.getParent().getChildren().add(children);
+			}
+			node.getParent().getChildren().remove(node);
+		}
+	}
+	*/
+	
+	public Node<T> removeWithRoot(T value) {
+		try {
+			Node<T> nodeFounded = this.goThroughDeep(getRoot(), value);
+			
+			//percorre os filhos e atualiza os pais e filhos
+			for (Node<T> children : nodeFounded.getChildren()){
+				children.setParent(nodeFounded.getParent());
+				nodeFounded.getParent().getChildren().add(children);
+			}
+			return nodeFounded = null;
+		} catch (Exception e){
+			System.out.print(e);
+		}
+		return null;
+	}
+	
+	//método que inicia da raiz e percorre até encontrar o local correto para o valor
+	public void addByValue(T value) {
+		root = getRoot();
+		if(this.root == null) {
+			this.root = new Node<T>();
+			this.root.setValue(value);
+		} else {
+			this.addByNode(this.root, value);
+		}
+	}
+	
+	public void addByNode(Node<T> node, T value) {
+		//verifica se o valor que queremos adicionar é maior ou menor que a raiz
+		if(node.getValue().compareTo(value) < 0) {
+			//verifica se existe algum filho a direita
+			if(node.getRight() == null) {
+				Node<T> right = new Node<T>();
+				right.setValue(value);
+				node.setRight(right);
+			} else {
+				//recursão da busca
+				this.addByNode(node.getRight(), value);
+			}
+		} else { //então tem filho a esquerda
+			if(node.getLeft() == null) {
+				//cria node left e seta o valor
+				Node<T> left = new Node<T>();
+				left.setValue(value);
+				//seta o nó como left do node
+				node.setLeft(left);
+			} else {
+				this.addByNode(node.getLeft(), value);
+			}
 		}
 	}
 	

@@ -1,9 +1,14 @@
+package tree;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Node<T> {
-	private Node<T> parent; //referência do nó pai 
+	private Node<T> parent;
+	private Node<T> right;
+	private Node<T> left;
+	
 	private List<Node<T>> children; //lista dos nós filhos
+	
 	private T value; //valor do nó
 	
 	/*
@@ -33,16 +38,32 @@ public class Node<T> {
 	public void setParent(Node<T> p) {
 		parent = p;
 	}
+	
 	public List<Node<T>> getChildren() {
 		return children;
 	}
 	public void setChildren(List<Node<T>> c) {
 		children = c;
 	}
+	
 	public T getValue() { 
 		return value;
 	}
 	public void setValue(T value) {
 		this.value = value;
+	}
+	
+	public Node<T> getRight() { 
+		return right;
+	}
+	public void setRight(Node<T> right) {
+		this.right = right;
+	}
+	
+	public Node<T> getLeft() { 
+		return left;
+	}
+	public void setLeft(Node<T> left) {
+		this.left = left;
 	}
 }
