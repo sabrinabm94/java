@@ -157,6 +157,26 @@ public class Tree<T extends Comparable<T>> {
 		}
 	}
 	
+	public void remove(Node<T> node) {
+		if(node.getLeft() != null) {
+			this.remove(node.getLeft());
+		}
+		
+		if(node.getRight() != null) {
+			this.remove(node.getRight());
+		}
+		
+		if(node.getParent() == null) {
+			this.root = null;
+		} else {
+			if(node.getParent().getLeft() == node) {
+				node.getParent().setLeft(null);
+			} else {
+				node.getParent().setRight(null);
+			}
+		}
+	}
+	
 	/*
 	busca em largura: quantos nós existem?
 	busca profundidade: nó folha com maior distância do nó raiz
