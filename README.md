@@ -17,7 +17,7 @@ Creation of an api rest for car insurance using spring boot.
 
 ---
 
-# contacts
+# Contacts
 sabrinabgbc
 
 sabrinabgbc@email.com
