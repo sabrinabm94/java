@@ -49,7 +49,6 @@ public class Arvore<T extends Comparable<T>> {
 	}
 	
 	//busca por profundidade recursiva : percorre
-	
 	public No<T> localizar(T valor) {
 		return this.localizar(this.raiz, valor);
 	}
@@ -84,6 +83,7 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
+	//percorrerInOrder: primeiro visito o filho da esquerda e depois o nó pai
 	public void percorrerInOrder(No<T> node) {
 		if(node != null) {
 			percorrerPreOrder(node.getEsquerda());
@@ -94,6 +94,7 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
+	//percorrerPosOrder: percorrem os filhos e sobre ao pai ao finalizar
 	public void percorrerPosOrder(No<T> node) {
 		if(node != null) {
 			percorrerPreOrder(node.getEsquerda());
@@ -104,6 +105,56 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
-	//percorrerInOrder: primeiro visito o filho da esquerda e depois o nó pai
-	//percorrerPosOrder: percorrem os filhos e sobre ao pai ao finalizar
+	public int fatorBalanceamento(No<T> node) {
+		int esquerda = 0, direita = 0;
+		
+		if(node.esquerda != null) {
+		//calcula a altura da esquerda
+			esquerda = altura(node.esquerda) + 1;
+		}
+		
+		if(node.direita != null) {
+		//calcula a altura da direita
+			direita = altura(node.direita) + 1;
+		}
+		
+		return esquerda - direita;
+	}
+	
+	private int altura(No<T> node) {
+		int esquerda = 0, direita = 0;
+		
+		if(node.esquerda != null) {
+			esquerda = altura(node.esquerda);
+		}
+		
+		if(node.direita != null) {
+			direita = altura(node.direita) + 1;
+		}
+		
+		//retorna o lado maior, esquerda ou direita
+		return esquerda > direita ? esquerda : direita;
+	}
+		
+		
+	//Rotação simples a esquerda
+		
+	//Rotação simples a direita
+		
+	//Rotação dupla a esquerda
+		
+	//Rotação dupla a direita
+		
+	/* 
+	Árvores AVL
+	
+	Calcular o fator de balanceamento de um nó, percorrendo-a com a busca por profundidade para calcular a altura de um nó em específico
+	
+	Verificar se a árvore está mais pesada para esquerda ou direita, onde tem mais nós filhos, e deve ser removido e jogado para o lado oposto para balancear.
+	Para saber para qual sentido rotacionar: analisar o nó degenerado e verificar o sinal
+	 
+	Dupla ou simples: pega o nó filho para o lado que necessita fazer a rotação, calculo o fator de balanceamento dele, e se os sinais são diferentes faz rotação dupla, e se for igual faz rotação simples.
+	Quando visualmente tem joelho, tem que rotacionar duplamente
+	*/
+
 }
