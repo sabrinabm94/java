@@ -210,7 +210,7 @@ public class Arvore<T extends Comparable<T>> {
 			if (fatorBalanceamento(no.esquerda) > 0) {
 				rsd(no);
 			} else {
-				rse(no);
+				rdd(no);
 			}
 		}
 	}
