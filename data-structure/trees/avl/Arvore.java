@@ -138,16 +138,99 @@ public class Arvore<T extends Comparable<T>> {
 		
 		
 	//Rotação simples a esquerda
+	public No<T> rse(No<T> no) {
+		No<T> pai = no.pai;
+		No<T> direita = no.direita;
+
+		no.direita = direita.esquerda;
+		no.pai = direita;
+
+		direita.esquerda = no;
+		direita.pai = pai;
 		
+		if (pai == null) {
+			raiz = direita;
+		} else {
+			pai.direita = direita;
+		}
+		
+		return direita;
+	}
+
 	//Rotação simples a direita
+	public No<T> rsd(No<T> no) {
+		No<T> pai = no.pai;
+		No<T> esquerda = no.esquerda;
+
+		no.esquerda = esquerda.direita;
+		no.pai = esquerda;
+
+		esquerda.direita = no;
+		esquerda.pai = pai;
+
+		if (pai == null) {
+			raiz = esquerda;
+		} else {
+			pai.esquerda = esquerda;
+		}
 		
+		return esquerda;
+	}
+	
 	//Rotação dupla a esquerda
+	public No<T> rde(No<T> no) {
+		no.direita = rsd(no.direita);
+		return rse(no);
+	}
+
 		
 	//Rotação dupla a direita
+	public No<T> rdd(No<T> no) {
+		no.esquerda = rse(no.esquerda);
+		return rsd(no);
+	}
+	
+	private void verificaFB(No<T> no) {
+		if (no != null) {
+			balancear(no);
+	    		verificaFB(no.pai);
+		}
+	}
+	
+	private void balancear(No<T> no) {
+		int fb = fatorBalanceamento(no);
+	    
+		if (fb < -1) {
+			if (fatorBalanceamento(no.direita) < 0) {
+				rse(no);
+	        	} else {
+				rde(no);
+	        	}
+		} else if (fb > 1) {
+			if (fatorBalanceamento(no.esquerda) > 0) {
+				rsd(no);
+			} else {
+				rse(no);
+			}
+		}
+	}
+
 		
 	/* 
 	Árvores AVL
+	Seu objetivo é ser uma árvore binária balanceada para ter uma melhor performance na busca, que é afetada por uma grande profundidade.
 	
+	O fato de balanceamento é o fator chave pra ver a sua degeneração e necessidade de balanceamento.
+	
+	O fator de balanceamento é calculado perante a altura do filho da esquerda - a altura da direita do nó. A altura é calculada pela soma dos níveis do filho da direita e da esquerda.
+	Todos os nós que tem o valor de balanceamento diferente de 0, -1 ou 1 está desgenerado e faz as rotações nele.
+	O sinal identifica se a rotação será a direita ou esquerda.
+	Se o sinal do nó do pai for positivo analisa o filho da direita, se for igual, rotação simples
+	Se o sinal do nó do pai for negativo, analisa o filho da esquerda, se for diferente, rotação dupla
+	
+	nós visinhos: pai e filhos
+	nós folha: não raiz
+	 
 	Calcular o fator de balanceamento de um nó, percorrendo-a com a busca por profundidade para calcular a altura de um nó em específico
 	
 	Verificar se a árvore está mais pesada para esquerda ou direita, onde tem mais nós filhos, e deve ser removido e jogado para o lado oposto para balancear.
