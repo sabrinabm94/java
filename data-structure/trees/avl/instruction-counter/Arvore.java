@@ -1,6 +1,7 @@
 public class Arvore<T extends Comparable<T>> {
 	public No<T> raiz;
-	public static int contador;
+	public static int contadorAdicionar;
+	public static int contadorLocalizar;
 
 	public void adiciona(T valor) {
 		if (this.raiz == null) {
@@ -11,27 +12,30 @@ public class Arvore<T extends Comparable<T>> {
 	}
 
 	public void adiciona(No<T> no, T valor) {
-		contador++;
+		contadorAdicionar++;
 		if (no.valor.compareTo(valor) < 0) {
+			contadorAdicionar++;
 			if (no.direita == null) {
 				No<T> novo = new No<T>(valor);
 				novo.pai = no;
 				no.direita = novo;
+				verificaFB(novo); //balança a arvore
 			} else {
 				this.adiciona(no.direita, valor);
 			}
 		} else {
+			contadorAdicionar++;
 			if (no.esquerda == null) {
 				No<T> novo = new No<T>(valor);
 				novo.pai = no;
 				no.esquerda = novo;
+				verificaFB(novo); //balança a arvore
 			} else {
 				this.adiciona(no.esquerda, valor);
 			}
 		}
 	}
 	
-	//remove utilizando nó: necessita instanciar
 	public void remove(No<T> node) {
 		if(node.esquerda !=  null) {
 			this.remove(node.esquerda);
@@ -56,21 +60,29 @@ public class Arvore<T extends Comparable<T>> {
 	}
 	
 	public No<T> localizar(No<T> node, T valor) {
-		contador++;
+		contadorLocalizar++;
+		if (node == null) {
+			//System.out.println("Achei");
+			//System.out.println("localizar: " + node.getValor());
+			return null;
+		}
+		
+		contadorLocalizar++;
 		if(node != null) {
-			if(node.getValor().equals(valor)) {
+			contadorLocalizar++;
+			if(node.valor.equals(valor)) {
 				return node;
 			}
 		}
 		
-		No<T> aux = localizar(node.getEsquerda(), valor);
-		contador++;
+		No<T> aux = localizar(node.esquerda, valor);
+		contadorLocalizar++;
 		if(aux != null) {
 			return aux;
 		}
 		
-		aux = localizar(node.getDireita(), valor);
-		contador++;
+		aux = localizar(node.direita, valor);
+		contadorLocalizar++;
 		if(aux != null) {
 			return aux;
 		}
@@ -129,11 +141,9 @@ public class Arvore<T extends Comparable<T>> {
 	private int altura(No<T> node) {
 		int esquerda = 0, direita = 0;
 		
-		contador++;
 		if(node.esquerda != null) {
 			esquerda = altura(node.esquerda);
 		}
-		contador++;
 		if(node.direita != null) {
 			direita = altura(node.direita) + 1;
 		}
