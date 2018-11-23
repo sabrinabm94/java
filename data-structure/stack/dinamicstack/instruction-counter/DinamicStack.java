@@ -9,9 +9,6 @@ public class DinamicStack {
 	public static int contadorAdicionar;
 	public static int contadorLocalizar;
 	
-	public DinamicStack() {
-		//System.out.println("Dinamic Stack was created!");
-	}
 	public void push(Object value) {
 		contadorAdicionar = 1;
 		Node newNode = new Node();
@@ -19,9 +16,8 @@ public class DinamicStack {
 		newNode.setPrevious(top);
 		top = newNode;
 		lenght++;
-		//System.out.println("Additing value " + value);
-	
 	}
+	
 	public Object pop() {
 		if(isEmpty() == false) {
 			if(top == null) {
@@ -36,6 +32,7 @@ public class DinamicStack {
 			return null;
 		}
 	}
+	
 	public void runThrough(int value) { 
 		Node node = top;
 		
@@ -46,7 +43,7 @@ public class DinamicStack {
 			if( nodeValue == value) {
 				break;
 			} else {
-				System.out.println("Value of node: " + node.getValue());
+				//System.out.println("Value of node: " + node.getValue());
 				node = node.getPrevious();
 			}
 		}

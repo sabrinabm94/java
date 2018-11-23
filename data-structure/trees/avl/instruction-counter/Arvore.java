@@ -14,7 +14,6 @@ public class Arvore<T extends Comparable<T>> {
 	public void adiciona(No<T> no, T valor) {
 		contadorAdicionar++;
 		if (no.valor.compareTo(valor) < 0) {
-			contadorAdicionar++;
 			if (no.direita == null) {
 				No<T> novo = new No<T>(valor);
 				novo.pai = no;
@@ -24,12 +23,11 @@ public class Arvore<T extends Comparable<T>> {
 				this.adiciona(no.direita, valor);
 			}
 		} else {
-			contadorAdicionar++;
 			if (no.esquerda == null) {
 				No<T> novo = new No<T>(valor);
 				novo.pai = no;
 				no.esquerda = novo;
-				verificaFB(novo); //balança a arvore
+
 			} else {
 				this.adiciona(no.esquerda, valor);
 			}
@@ -67,24 +65,24 @@ public class Arvore<T extends Comparable<T>> {
 			return null;
 		}
 		
-		contadorLocalizar++;
 		if(node != null) {
-			contadorLocalizar++;
 			if(node.valor.equals(valor)) {
 				return node;
 			}
 		}
 		
-		No<T> aux = localizar(node.esquerda, valor);
-		contadorLocalizar++;
-		if(aux != null) {
-			return aux;
+		if(node.esquerda != null && valor.compareTo(node.esquerda.valor) <= 0) {
+			No<T> aux = localizar(node.esquerda, valor);
+			if(aux != null) {
+				return aux;
+			}
 		}
 		
-		aux = localizar(node.direita, valor);
-		contadorLocalizar++;
-		if(aux != null) {
-			return aux;
+		if(node.direita != null && valor.compareTo(node.direita.valor) >= 0) {
+			No<T> aux = localizar(node.direita, valor);
+			if(aux != null) {
+				return aux;
+			}
 		}
 		
 		return null;
