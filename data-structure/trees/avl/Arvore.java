@@ -1,5 +1,11 @@
 public class Arvore<T extends Comparable<T>> {
 	public No<T> raiz;
+	
+	//√Årvores bin√°rias (ordenadas): n√≥s est√£o em hierarquia, ordenados e balanceado (esquerda: menor, direita: maior)
+	//√Årvores (AVL): seu objetivo √© ser uma √°rvore bin√°ria balanceada
+	
+	//√Årvore degenerada: quando a √°rvore tem uma estrutura linear, com somente uma sub√°rvore, complexidade N.
+	//√Årvore cheia: Todos os n√≥s tem a mesma quantidade de filhos, complexidade Log N.
 
 	public void adiciona(T valor) {
 		if (this.raiz == null) {
@@ -29,7 +35,7 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
-	//remove utilizando nÛ: necessita instanciar
+	//remove utilizando n√≥: necessita instanciar
 	public void remove(No<T> node) {
 		if(node.esquerda !=  null) {
 			this.remove(node.esquerda);
@@ -48,7 +54,14 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
-	//busca por profundidade recursiva : percorre
+	//Dimens√µes: definido pela largura x altura
+	
+	//largura: √â o n√∫mero maior de filhos que tem no mesmo n√≠vel
+	//busca: a busca acontece percorrendo os n√≠veis, ao entrar em um n√≠vel todos os seus elementos s√£o visitados para depois descer ao pr√≥ximo n√≠vel
+	
+	//profundidade: √© o maior comprimento poss√≠vel do n√≥ raiz at√© o n√≥ folha mais profundo, fornece a altura da √°rvore. Sempre da esqueda pra direita.
+	//busca: os elementos s√£o visitados intercalando-se nos n√≠veis da √°rvore, percorrendo diversos caminhos.
+
 	public No<T> localizar(T valor) {
 		return this.localizar(this.raiz, valor);
 	}
@@ -73,17 +86,20 @@ public class Arvore<T extends Comparable<T>> {
 		return null;
 	}
 	
+	//Pre order: raiz, esquerda, direita
+	//Raiz, pr√≥ximo filho a esquerda e todos seus filhos, at√© o √∫ltimo n√≥ folha da direita.
 	public void percorrerPreOrder(No<T> node) {
 		if(node != null) {
 			System.out.println("Valor: " +  node.getValor());
 			
-			//chamo o esquerda atÈ n„o ter mais filhos
+			//chamo o esquerda at√© n√£o ter mais filhos
 			percorrerPreOrder(node.getEsquerda());
 			percorrerPreOrder(node.getDireita());
 		}
 	}
 	
-	//percorrerInOrder: primeiro visito o filho da esquerda e depois o nÛ pai
+	//In order: esquerda, raiz, direita
+	//√öltimo n√≥ folha da esquerda, pai deste, outros filhos, raiz, at√© √∫ltimo no folha da direita
 	public void percorrerInOrder(No<T> node) {
 		if(node != null) {
 			percorrerPreOrder(node.getEsquerda());
@@ -94,7 +110,8 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
-	//percorrerPosOrder: percorrem os filhos e sobre ao pai ao finalizar
+	//Pos order: esquerda, direita, raiz
+	//√öltimo no folha da esquerda, √∫ltimo n√≥ folha da direita at√© raiz
 	public void percorrerPosOrder(No<T> node) {
 		if(node != null) {
 			percorrerPreOrder(node.getEsquerda());
@@ -105,6 +122,10 @@ public class Arvore<T extends Comparable<T>> {
 		}
 	}
 	
+	//O n√≥ a esquerda deste tem que ser menor, o n√≥ a direita deste deve ser maior
+
+	//Verifica se a √°rvore est√° degenerada, ou seja, se o seu valor √© diferente de -1, 0 ou 1. 
+	//FB: altura da sub√°rvore esquerda - altura da sub√°rvore direita.
 	public int fatorBalanceamento(No<T> node) {
 		int esquerda = 0, direita = 0;
 		
@@ -121,6 +142,36 @@ public class Arvore<T extends Comparable<T>> {
 		return esquerda - direita;
 	}
 	
+	//Deve ser chamado para cada adi√ß√£o/exclus√£o
+	private void verificaFB(No<T> no) {
+		if (no != null) {
+			balancear(no);
+	    		verificaFB(no.pai);
+		}
+	}
+	
+	//Verificar se a √°rvore est√° mais pesada para esquerda ou direita, onde tem mais n√≥s filhos, e deve ser removido e jogado para o lado oposto para balancear.
+
+	//Rota√ß√£o dupla ou simples ? Pega o n√≥ filho para o lado que necessita fazer a rota√ß√£o, c√°lculo o fator de balanceamento dele, e se os sinais s√£o diferentes faz rota√ß√£o dupla, e se for igual faz rota√ß√£o simples
+	//Joelho: se visualmente tem um joelho, necessita de rota√ß√£o dupla
+	private void balancear(No<T> no) {
+		int fb = fatorBalanceamento(no);
+	    
+		if (fb < -1) {
+			if (fatorBalanceamento(no.direita) < 0) {
+				rse(no);
+	        	} else {
+				rde(no);
+	        	}
+		} else if (fb > 1) {
+			if (fatorBalanceamento(no.esquerda) > 0) {
+				rsd(no);
+			} else {
+				rdd(no);
+			}
+		}
+	}
+	
 	private int altura(No<T> node) {
 		int esquerda = 0, direita = 0;
 		
@@ -135,9 +186,8 @@ public class Arvore<T extends Comparable<T>> {
 		//retorna o lado maior, esquerda ou direita
 		return esquerda > direita ? esquerda : direita;
 	}
-		
-		
-	//RotaÁ„o simples a esquerda
+
+	//Rota√ß√£o simples a esquerda
 	public No<T> rse(No<T> no) {
 		No<T> pai = no.pai;
 		No<T> direita = no.direita;
@@ -157,7 +207,7 @@ public class Arvore<T extends Comparable<T>> {
 		return direita;
 	}
 
-	//RotaÁ„o simples a direita
+	//Rota√ß√£o simples a direita
 	public No<T> rsd(No<T> no) {
 		No<T> pai = no.pai;
 		No<T> esquerda = no.esquerda;
@@ -177,67 +227,16 @@ public class Arvore<T extends Comparable<T>> {
 		return esquerda;
 	}
 	
-	//RotaÁ„o dupla a esquerda
+	//Rota√ß√£o dupla a esquerda
 	public No<T> rde(No<T> no) {
 		no.direita = rsd(no.direita);
 		return rse(no);
 	}
 
 		
-	//RotaÁ„o dupla a direita
+	//Rota√ß√£o dupla a direita
 	public No<T> rdd(No<T> no) {
 		no.esquerda = rse(no.esquerda);
 		return rsd(no);
 	}
-	
-	private void verificaFB(No<T> no) {
-		if (no != null) {
-			balancear(no);
-	    		verificaFB(no.pai);
-		}
-	}
-	
-	private void balancear(No<T> no) {
-		int fb = fatorBalanceamento(no);
-	    
-		if (fb < -1) {
-			if (fatorBalanceamento(no.direita) < 0) {
-				rse(no);
-	        	} else {
-				rde(no);
-	        	}
-		} else if (fb > 1) {
-			if (fatorBalanceamento(no.esquerda) > 0) {
-				rsd(no);
-			} else {
-				rdd(no);
-			}
-		}
-	}
-
-		
-	/* 
-	¡rvores AVL
-	Seu objetivo È ser uma ·rvore bin·ria balanceada para ter uma melhor performance na busca, que È afetada por uma grande profundidade.
-	
-	O fato de balanceamento È o fator chave pra ver a sua degeneraÁ„o e necessidade de balanceamento.
-	
-	O fator de balanceamento È calculado perante a altura do filho da esquerda - a altura da direita do nÛ. A altura È calculada pela soma dos nÌveis do filho da direita e da esquerda.
-	Todos os nÛs que tem o valor de balanceamento diferente de 0, -1 ou 1 est· desgenerado e faz as rotaÁıes nele.
-	O sinal identifica se a rotaÁ„o ser· a direita ou esquerda.
-	Se o sinal do nÛ do pai for positivo analisa o filho da direita, se for igual, rotaÁ„o simples
-	Se o sinal do nÛ do pai for negativo, analisa o filho da esquerda, se for diferente, rotaÁ„o dupla
-	
-	nÛs visinhos: pai e filhos
-	nÛs folha: n„o raiz
-	 
-	Calcular o fator de balanceamento de um nÛ, percorrendo-a com a busca por profundidade para calcular a altura de um nÛ em especÌfico
-	
-	Verificar se a ·rvore est· mais pesada para esquerda ou direita, onde tem mais nÛs filhos, e deve ser removido e jogado para o lado oposto para balancear.
-	Para saber para qual sentido rotacionar: analisar o nÛ degenerado e verificar o sinal
-	 
-	Dupla ou simples: pega o nÛ filho para o lado que necessita fazer a rotaÁ„o, calculo o fator de balanceamento dele, e se os sinais s„o diferentes faz rotaÁ„o dupla, e se for igual faz rotaÁ„o simples.
-	Quando visualmente tem joelho, tem que rotacionar duplamente
-	*/
-
 }
