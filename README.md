@@ -1,4 +1,4 @@
-# Repository structure
+# repository structure
 
 ## basic
 Scripts for testing java features and sintax.
@@ -17,9 +17,11 @@ Creation of an api rest for car insurance using spring boot.
 
 ---
 
-# Contacts
+# contacts
 sabrinabgbc
 
-sabrinabgbc@email.com
+sabrinabgbc@email.com | sabrinabmoreira@gmail.com
 
 noobfrontend.wordpress.com
+
+www.linkedin.com/in/sabrinabmoreira
