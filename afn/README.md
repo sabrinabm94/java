@@ -88,6 +88,8 @@ is accepted ? true
 
 ![example](https://i.imgur.com/BHU87hQ.png)
 
+* Try on [Repl.it](https://repl.it/@saenyravalyria/afn)
+
 
 ## Versioning
 
