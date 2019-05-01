@@ -28,6 +28,7 @@ This file is the basis for creating AFN, different AFN structure information is 
 * Other lines: The states resulting from the interaction of the existing states of the AFN x the existing symbols in the AFN (each symbol separated by space).
 
 In the example file of "config.txt", the result of the AFN will be:
+![matrix](https://imgur.com/qOno9lO)
 
 
 ## How to use the program
@@ -49,42 +50,41 @@ If you chose option 1, you will go to the second menu.
 
 
 ```
-Examples of use
-```
-Symbols input:
+Example of use
+
+SYMBOLS INPUT:
 1
 0
 1
 1
 end
 
-Symbols executed
+SYMBOLS EXECUTED
 1 1 0 1 1
 
-Result file
+RESULT FILE
 Initial state: q1
 
 Read symbol: 1
 Current states: q1
 
-
 Read symbol: 1
 Current states: q2
-
 
 Read symbol: 0
 Current states: q3
 
-
 Read symbol: 1
 Current states: q4
-
 
 Read symbol: 1
 Current states: q4
 
 is accepted ? true
 
+```
+
+![matrix](https://imgur.com/uKob9Hg)
 
 
 ## Versioning
