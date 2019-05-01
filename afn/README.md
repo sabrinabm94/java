@@ -27,7 +27,9 @@ This file is the basis for creating AFN, different AFN structure information is 
 * Last line: Final state of AFN.
 * Other lines: The states resulting from the interaction of the existing states of the AFN x the existing symbols in the AFN (each symbol separated by space).
 
+
 In the example file of "config.txt", the result of the AFN will be:
+
 ![matrix](https://i.imgur.com/qOno9lO.png)
 
 
@@ -84,7 +86,7 @@ is accepted ? true
 
 ```
 
-![example](https://i.imgur.com/uKob9Hg.png)
+![example](https://i.imgur.com/BHU87hQ.png)
 
 
 ## Versioning
