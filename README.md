@@ -1,4 +1,4 @@
-# Repository structure
+# repository structure
 
 ## basic
 Scripts for testing java features and sintax.
