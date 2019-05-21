@@ -49,6 +49,11 @@ public class Teste {
 		funcionarioTeste.setSalario(2000);
 		controle.registra(funcionarioTeste);
 		System.out.println(controle.getSoma());
+		
+		/*
+		func.autentica();
+		não funciona pois autentica está no gerente, e não em funcionário.
+		*/
 	}
 
 }
