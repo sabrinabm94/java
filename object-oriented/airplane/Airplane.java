@@ -1,5 +1,3 @@
-package java;
-
 public class Airplane {
 	private int code;
 	private String model;
@@ -16,7 +14,7 @@ public class Airplane {
 		return model;
 	}
 	
-	public void setModel(long model) {
+	public void setModel(String model) {
 		this.model = model;
 	}
 	

@@ -1,9 +1,9 @@
 import java.util.function.Consumer;
 
-public class Deque<T> {
+public class DequeRemove<T> {
     private DequeCircularElement<T> head;
     private DequeCircularElement<T> tail;
-	public Deque() {
+	public DequeRemove() {
 		head = tail = null;
 	}
 	public boolean isEmpty() {
@@ -82,6 +82,26 @@ public class Deque<T> {
             return o;
            //evitar o loop remove do circular
         }
+    }
+    public void remove(T value) throws Exception {
+        DequeCircularElement<T> element = head;
+        while (element != null) {
+            if (element.getValue().equals(value)) {
+                if (element == head) {
+                    this.remove(value);
+                } else if (element == tail) {
+                    this.removeLast();
+                } else {
+                    DequeCircularElement<T> prev = element.getPrev();
+                    DequeCircularElement<T> next  = element.getNext();
+                    prev.setNext(next);
+                    next.setPrev(prev);
+                }
+                return;
+            }
+            element = element.getNext();
+        }
+        throw new Exception("value not found!");
     }
     public void clear() {
         System.out.println("");

@@ -1,9 +1,8 @@
 import java.util.function.Consumer;
-
-public class Deque<T> {
+public class DequeCircular<T> {
     private DequeCircularElement<T> head;
     private DequeCircularElement<T> tail;
-	public Deque() {
+	public DequeCircular() {
 		head = tail = null;
 	}
 	public boolean isEmpty() {
@@ -46,7 +45,7 @@ public class Deque<T> {
         System.out.println("New head: " + head.getValue());
         System.out.println("New tail: " + tail.getValue());
     }
-	public T removeFirst() throws DequeRemoveEmptyListException {
+    public T removeFirst() throws DequeRemoveEmptyListException {
         if (this.isEmpty()) {
             throw new DequeRemoveEmptyListException("The deque is empty!");
         } else {
@@ -80,7 +79,7 @@ public class Deque<T> {
             System.out.println("New head: " + head.getValue());
             System.out.println("New tail: " + tail.getValue());
             return o;
-           //evitar o loop remove do circular
+          //evitar o loop remove do circular
         }
     }
     public void clear() {
@@ -105,5 +104,34 @@ public class Deque<T> {
             }
         }
         System.out.println("Endend.\n");
-    } 
+    }
+    public void split(T lambda, DequeRemove<?> d1, DequeRemove<T> d2, DequeRemove<T> d3) {
+    	DequeCircularElement<T> e = head;
+        System.out.println("");
+        System.out.println("Searching for " + lambda);
+        while (e != null) {
+        	if(e.getValue().equals(lambda)) { //se o elemento da lista for igual ao elemento passado como parametro
+        		System.out.println("Found!\n");
+        		DequeCircularElement<T> el = head;
+        		while(el != e) { 
+        			d3.addLast(el.getValue()); //adiciona no d1 os valores pr�ximos do elemento
+        			el = el.getNext();
+        		}
+        		d2.addLast(e.getValue());
+        		el = e.getNext(); 
+        		while(el != null) {
+        			d2.addLast(el.getValue());
+        			el = el.getNext();
+        			if(el == head) {
+        				break;
+        			}
+        		}
+        		break;
+        	}
+        	e = e.getNext();
+        }
+        System.out.println("Endend.");
+        System.out.println("New deques with splited elements created\n");
+    }
+    
 }

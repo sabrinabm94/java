@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
-		Deque<Integer> deque = new Deque<Integer>(); //declaração do tipo para filtar as entradas e evitar a necessitade de excessivas tratativas de erros
+		DequeRemove<Integer> deque = new DequeRemove<Integer>(); //declaração do tipo para filtar as entradas e evitar a necessitade de excessivas tratativas de erros
 		Scanner keyboard = new Scanner(System.in); 
 		int option = 0;
 		while (option != 7) {	
@@ -27,13 +27,13 @@ public class Main {
             } else if (option == 3) {
             	try {
                 	deque.removeFirst();
-            	} catch (EmptyListException e) {
+            	} catch (DequeRemoveEmptyListException e) {
                 	System.out.println(e.getMessage());
             	}
             } else if (option == 4) {
             	try {
                 	deque.removeLast();
-            	} catch (EmptyListException e) {
+            	} catch (DequeRemoveEmptyListException e) {
                 	System.out.println(e.getMessage());
             	}
             } else if (option == 5) {

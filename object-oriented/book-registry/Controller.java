@@ -1,10 +1,10 @@
-package bookRegistry;
-
+import bookRegistry.Author;
+import bookRegistry.Book;
+import bookRegistry.Client;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class Controller {
 	private String userClientLogin;
@@ -41,11 +41,11 @@ public class Controller {
 	
 	private View view;
 	private DAO dao;
-	private Author author;
-	private Book book;
-	private Client client;
-	private Collection collection;
-	private Publisher publisher;
+	private bookRegistry.Author author;
+	private bookRegistry.Book book;
+	private bookRegistry.Client client;
+	private bookRegistry.Collection collection;
+	private bookRegistry.Publisher publisher;
 	
 	public Controller() {
 		view = new View();
@@ -53,12 +53,12 @@ public class Controller {
 		author = new Author();
 		book = new Book();
 		client = new Client();
-		collection = new Collection();
-		publisher = new Publisher();
+		collection = new bookRegistry.Collection();
+		publisher = new bookRegistry.Publisher();
 	}
 	public void initController(){
-		view.getLoginButton().addActionListener(e -> doLogin()); //tá estorando um erro aqui
-		//adicionar os botões relacionados as outras ações como doRegistryClient
+		view.getLoginButton().addActionListener(e -> doLogin()); //tï¿½ estorando um erro aqui
+		//adicionar os botï¿½es relacionados as outras aï¿½ï¿½es como doRegistryClient
 	}
 	
 	private void doLogin(){
@@ -79,7 +79,7 @@ public class Controller {
 		}
 	}
 	
-	//CADASTRO DAS INFORMAÇÕES NO BANCO
+	//CADASTRO DAS INFORMAï¿½ï¿½ES NO BANCO
 	
 	private void doRegisterAuthor(){
 		nameAuthorRegistry = view.getNameAuthorRegistry();
@@ -90,15 +90,17 @@ public class Controller {
 	}
 	
 	private void doRegisterBook(){
+		/*
 		isbnBookRegistry = view.getIsbnBookRegistry();
 		nameBookRegistry = view.getNameBookRegistry();
 		yearBookRegistry = view.getYearBookRegistry();
 		descriptonBookRegistry = view.getDescriptionBookRegistry();
 		idAuthorBookRegistry = view.getIdAuthorBookRegistry();
 		startsRankingBookRegistry = view.getStartsRankingBookRegistry();
-		releaseDataBookRegistry = view.getReleaseDateBookRegistry();
+		//releaseDataBookRegistry = view.getReleaseDateBookRegistry();
 		editionBookRegistry = view.getEditionBookRegistry();
 		idCollectionBookRegistry = view.getIdCollectionBookRegistry();
+		 */
 		
 		book = new Book();
 		book.setIsbn(isbnBookRegistry);
@@ -118,9 +120,9 @@ public class Controller {
 		passwordClientRegistry = view.getPasswordClientRegistry();
 		nameClientRegistry = view.getNameClientRegistry();
 		descriptionClientRegistry = view.getDescriptionClientRegistry();
-		birtDateRegistry = view.getBirtDateRegistry();
+		//birtDateRegistry = view.getBirtDateRegistry();
 		
-		//validação para cadastro de senha e user		
+		//validaï¿½ï¿½o para cadastro de senha e user		
 		if(userClientRegistry.length() < 1){
 			view.setErrorMessage("Favor informar o usuÃ¡rio.");
 		} else if(passwordClientRegistry.length() < 1){
@@ -146,9 +148,9 @@ public class Controller {
 	private void doRegisterCollection(){
 		nameCollectionRegistry = view.getNameCollectionRegistry();
 		descriptionCollectionRegistry = view.getDescriptionCollectionRegistry();
-		sizeCollectionRegistry = view.getSizeCollectionRegistry();
+		//sizeCollectionRegistry = view.getSizeCollectionRegistry();
 		
-		collection = new Collection();
+		collection = new bookRegistry.Collection();
 		collection.setName(nameCollectionRegistry);
 		collection.setDescription(descriptionCollectionRegistry);
 		collection.setSize(sizeCollectionRegistry);
@@ -158,18 +160,18 @@ public class Controller {
 	private void doRegisterPublisher(){
 		namePublisherRegistry = view.getnamePublisherRegistry();
 		
-		publisher = new Publisher();
+		publisher = new bookRegistry.Publisher();
 		publisher.setName(namePublisherRegistry);
 		dao.addDataPublisher(publisher);
 	}
 	
 	
 	
-	//SELECTS DAS INFORMAÇÕES CADASTRADAS
+	//SELECTS DAS INFORMAï¿½ï¿½ES CADASTRADAS
 
 	public void returInfoClient(String userClient) {
 		
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 
 		String sql = "SELECT nameClient, userClient, descriptionClient, passwordClient, birtDate FROM Client WHERE userClient LIKE '" + userClient + "%';";
 

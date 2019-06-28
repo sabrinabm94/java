@@ -1,7 +1,7 @@
 package ordenacoes;
 
 public class MergeSort {
-	static int counter = 0;
+	public static int counter = 0;
 	public void merge(int[] vetor, int first, int start, int end) {
 		int[] vetorHelper = new int[start+end];
 		int helper = 0, helperOne = 0, helper2 = 0;
@@ -39,8 +39,8 @@ public class MergeSort {
 			start = last/2;
 			end = last - start;
 
-			mergeSort(vetor, first, start); //método recursivo
-			mergeSort(vetor, first + start, end); //método recursivo
+			mergeSort(vetor, first, start); //mï¿½todo recursivo
+			mergeSort(vetor, first + start, end); //mï¿½todo recursivo
 			merge(vetor, first, start, end);
 		}
 	}

@@ -1,18 +1,32 @@
 package br.univille.spring.boot.api.rest.model;
 
-import javax.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Embeddable
 public class Vehicle {
-	private int assemblyYear;
 	private String plate;
 	private float price;
+
+	private int assemblyYear;
+
+	public int getAssemblyYear() {
+		return assemblyYear;
+	}
+
+	public void setAssemblyYear(int assemblyYear) {
+		this.assemblyYear = assemblyYear;
+	}
+
+	public String getPlate() {
+		return plate;
+	}
+
+	public void setPlate(String plate) {
+		this.plate = plate;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
 }

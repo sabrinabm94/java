@@ -77,9 +77,9 @@ org.eclipse.swt.SWTException: Widget is disposed
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+	at org.eclipse.equinox.launcher.MergeSortMain.invokeFramework(MergeSortMain.java:673)
+	at org.eclipse.equinox.launcher.MergeSortMain.basicRun(MergeSortMain.java:610)
+	at org.eclipse.equinox.launcher.MergeSortMain.run(MergeSortMain.java:1519)
 
 !ENTRY org.eclipse.egit.ui 2 0 2018-07-19 19:39:26.099
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git

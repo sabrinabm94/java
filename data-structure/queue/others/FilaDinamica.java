@@ -64,7 +64,7 @@ class FilaDinamica<T> {
 		}
 		
 		if(!(cabeca.valor instanceof Integer)) {
-			throw new RuntimeException("O Deque precisa ser do tipo Integer.");
+			throw new RuntimeException("O DequeRemove precisa ser do tipo Integer.");
 		}
 		
 		ElementoFila<T> atual = cabeca;

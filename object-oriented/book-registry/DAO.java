@@ -1,16 +1,14 @@
-package bookRegistry;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DAO implements Register {	
+public class DAO implements Register {
 	private Connection connection;
 
 	@Override
-	public void addDataAuthor(Author author) {
+	public void addDataAuthor(bookRegistry.Author author) {
 		
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 
 		String sql = "insert into Author(nameAuthor) "
 			    + "values(?);";
@@ -28,9 +26,9 @@ public class DAO implements Register {
 	}
 	
 	@Override
-	public void addDataBook(Book book) {
+	public void addDataBook(bookRegistry.Book book) {
 		
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 
 		String sql = "insert into Book(isbn, nameBook, yearBook, descriptonBook, idAuthorBook, startsRanking, releaseDataBook, editionBook, idCollection) "
 			    + "values(?,?,?,?,?,?,?);";
@@ -43,7 +41,7 @@ public class DAO implements Register {
 			stmt.setString(4, book.getDescription());
 			stmt.setInt(5, book.getAuthor());
 			stmt.setInt(6, book.getStartsRanking());
-			stmt.setDate(7, book.getReleaseDate());  //erro
+			//stmt.setDate(7, book.getReleaseDate());  //erro
 			stmt.setInt(8, book.getEdition());
 			stmt.setInt(9, book.getCollection());
 			System.out.println("Gravado book");
@@ -54,9 +52,9 @@ public class DAO implements Register {
 	}
 	
 	@Override
-	public void addDataClient(Client client) {
+	public void addDataClient(bookRegistry.Client client) {
 
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 		
 		String sql = "insert into Client(nameClient, userClient, descriptionClient, passwordClient, birtDate) "
 			    + "values(?,?,?,?,?);";
@@ -78,9 +76,9 @@ public class DAO implements Register {
 	}
 	
 	@Override
-	public void addDataCollection(Collection collection) {
+	public void addDataCollection(bookRegistry.Collection collection) {
 		
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 		
 		String sql = "insert into Collection(nameCollection, descriptionCollection, sizeCollection) "
 			    + "values(?,?,?);";
@@ -100,9 +98,9 @@ public class DAO implements Register {
 	}
 
 	@Override
-	public void addDataPublisher(Publisher publisher) {
+	public void addDataPublisher(bookRegistry.Publisher publisher) {
 		
-		Connection mConn = (new ConnectionFactory()).getConnection();
+		Connection mConn = (new bookRegistry.ConnectionFactory()).getConnection();
 
 		String sql = "insert into Publisher(namePublisher) "
 			    + "values(?);";

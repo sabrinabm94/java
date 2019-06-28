@@ -1,4 +1,3 @@
-package java;
 import java.util.Date;
 import java.util.List;
 
@@ -6,9 +5,9 @@ public class Flight {
 	private int number;
 	private String status;
 	private Date date;
-	private List<Passenger> passengers;
+	private List<java.Passenger> passengers;
 	
-	private Airplane airplane = new Airplane();
+	private java.Airplane airplane = new java.Airplane();
 	
 	public int getNumber() {
 		return number;
@@ -34,12 +33,12 @@ public class Flight {
 		this.date = date;
 	}
 	
-	public List<Passenger> getPassenger() {
+	public List<java.Passenger> getPassenger() {
 		return null;
 	}
 	
 	//verificar
-	public List<Passenger> setPassenger() {
+	public List<java.Passenger> setPassenger() {
 		return null;
 	}
 }

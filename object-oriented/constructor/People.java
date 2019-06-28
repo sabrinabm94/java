@@ -1,4 +1,4 @@
-public class people {
+class people {
 	public String name;
 	private int age;
 	
@@ -32,7 +32,7 @@ public class people {
 	}
 	
 	/*
-	Caso para a construção 2 dados sejam obrigatórios, pode fazer o seguinte:
+	Caso para a construï¿½ï¿½o 2 dados sejam obrigatï¿½rios, pode fazer o seguinte:
 	public people(String name, int age) {
 		this.name = name;
 		this.age = age;

@@ -1,15 +1,5 @@
-package bookRegistry;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.LayoutManager;
-import java.util.Date;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -80,8 +70,8 @@ public class View {
 		statusLabel.setForeground(Color.BLUE);
 	}
 	
-	//VERIFICAR TODOS OS getDate e getInt O PORQUE ESTÁ DANDO ERRO!!!!
-	//APÓS FAZER AS TELAS TROCAR O RETURN PARA O CAMPO DA TELA
+	//VERIFICAR TODOS OS getDate e getInt O PORQUE ESTï¿½ DANDO ERRO!!!!
+	//APï¿½S FAZER AS TELAS TROCAR O RETURN PARA O CAMPO DA TELA
 	
 	//cadastro author
 	public String getNameAuthorRegistry(){
@@ -89,40 +79,40 @@ public class View {
 	}
 	
 	//cadastro book
-	public int getIsbnBookRegistry(){
-		return userTextField.getInt(); 
+	public JTextField getIsbnBookRegistry(){
+		return userTextField;
 	}
 	
 	public String getNameBookRegistry(){
 		return userTextField.getText(); 
 	}
 	
-	public int getYearBookRegistry(){
-		return userTextField.getInt(); 
+	public JTextField getYearBookRegistry(){
+		return userTextField;
 	}
 	
 	public String getDescriptionBookRegistry(){
 		return userTextField.getText(); 
 	}
 	
-	public int getIdAuthorBookRegistry(){
-		return userTextField.getInt(); 
+	public JTextField getIdAuthorBookRegistry(){
+		return userTextField;
 	}
 	
-	public int getStartsRankingBookRegistry(){
-		return userTextField.getInt();
+	public JTextField getStartsRankingBookRegistry(){
+		return userTextField;
 	}
 	
-	public Date getReleaseDateBookRegistry(){
-		return userTextField.getDate(); 
+	public JTextField getReleaseDateBookRegistry(){
+		return userTextField;
 	}
 	
-	public int getEditionBookRegistry(){
-		return userTextField.getInt();
+	public JTextField getEditionBookRegistry(){
+		return userTextField;
 	}
 	
-	public int getIdCollectionBookRegistry(){
-		return userTextField.getInt(); 
+	public JTextField getIdCollectionBookRegistry(){
+		return userTextField;
 	}
 	
 	//cadastro client
@@ -142,8 +132,8 @@ public class View {
 		return userTextField.getText(); 
 	}
 	
-	public Date getBirtDateRegistry(){
-		return userTextField.getDate(); 
+	public JTextField getBirtDateRegistry(){
+		return userTextField;
 	}
 	
 	//cadastro collection
@@ -155,8 +145,8 @@ public class View {
 		return userTextField.getText(); 
 	}
 	
-	public int getSizeCollectionRegistry(){
-		return userTextField.getInt(); 
+	public JTextField getSizeCollectionRegistry(){
+		return userTextField;
 	}
 	
 	//cadastro publisher

@@ -1,4 +1,4 @@
-package java;
+import java.City;
 
 public class Airport {
 	private String name;
@@ -10,7 +10,7 @@ public class Airport {
 		return name;
 	}
 	
-	public void setName(long name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	

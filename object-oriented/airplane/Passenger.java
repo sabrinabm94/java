@@ -1,5 +1,3 @@
-package java;
-
 public class Passenger {
 	private String firstname;
 	private String lastname;
@@ -9,7 +7,7 @@ public class Passenger {
 		return firstname;
 	}
 	
-	public void setFirstName(long firstname) {
+	public void setFirstName(String firstname) {
 		this.firstname = firstname;
 	}
 	
@@ -21,15 +19,15 @@ public class Passenger {
 		return lastname;
 	}
 	
-	public void setLastName(long lastname) {
-		this.lastname = lasttname;
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
 	}
 	
 	public int getAge() {
 		return age;
 	}
 	
-	public void setAge(long age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 }

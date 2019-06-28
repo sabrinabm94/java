@@ -1,8 +1,8 @@
-public class Element<T> {
+public class DequeCircularElement<T> {
 	private DequeCircularElement<T> next;
 	private DequeCircularElement<T> prev;
 	private T value;
-	public Element (T v) {
+	public DequeCircularElement(T v) {
 		value = v;
 	}
 	public void setNext(DequeCircularElement<T> e) {
