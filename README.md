@@ -18,8 +18,8 @@ Creation of an api rest for car insurance using spring boot.
 ---
 
 # Contacts
-Saenyra
+Sivy
 
-saenyra@gmail.com
+sivyboing@gmail.com
 
 newcoderslab.wordpress.com
