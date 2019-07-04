@@ -1,23 +1,23 @@
 # repository structure
 
-## Basic
+## basic
 Scripts for testing java features and sintax.
 
-## Object oriented
+## object oriented
 Scripts using the object-oriented pattern for designing projects.
 
-## Data structure
+## data structure
 Scripts involving data structure in java such as queues, stacks, sorting methods and binary trees.
 
 ## Java ee
 Basic structure for creating a javaee rest apis.
 
-## Spring-boot
+## spring boot
 Creation of an api rest for car insurance using spring boot.
 
 ---
 
-# Contacts
+# contacts
 Sivy
 
 sivyboing@gmail.com
