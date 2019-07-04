@@ -1,5 +1,5 @@
-//Rodar o cliente quantas vezes quiser (suporte a multiclientes)
-//alunos: Anne S., Sabrina B. e Rayssa S. engenharia de software - 3º ano - estrutura de dados
+package chat;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -21,8 +21,8 @@ public class Client implements Runnable {
 
     public void run() {
         try {
-            System.out.println("You are connect.");
-            System.out.println("Start to write your message: ");
+            Print.print("You are connect.");
+            Print.print("Start to write your message: ");
             Thread read = new Thread(chat::readFromServer);
             Thread write = new Thread(chat::writeToServer);
             read.start();
@@ -30,7 +30,7 @@ public class Client implements Runnable {
             read.join();
             write.join();
             client.close();
-            System.out.println("You are disconnected.");
+            Print.print("You are disconnected.");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

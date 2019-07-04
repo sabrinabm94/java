@@ -1,10 +1,12 @@
+package calculator;
+
 public class Multiply {
 	public float multiplication(float numberA, float numberB) {
 		float result = 0;
 		boolean negA = false;
 		boolean negB = false;
 
-		summation Sum = new somar();
+		Sum Sum = new Sum();
 		
 		if(numberA < 0) {
 			numberA = -numberA;

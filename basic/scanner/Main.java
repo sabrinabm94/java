@@ -4,19 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         String data;
-        data = receiveData();
-        printData(data);
+        data = receiveData(scanner);
+        print(data);
     }
 
-    public static String receiveData() {
-        Scanner scanner = new Scanner(System.in);
+    public static String receiveData(Scanner scanner) {
+        print("Enter with data: \n");
         String setence = scanner.nextLine();
         scanner.close();
         return setence;
     }
 
-    public static void printData(String data) {
+    public static void print(String data) {
         System.out.println(data);
     }
 }

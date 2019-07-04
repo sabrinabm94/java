@@ -1,6 +1,8 @@
+package calculator;
+
 public class Divide {
 	public float division(float numberA, float numberB){
-		subtraction Subtract = new subtraction();
+		Subtract Subtract = new Subtract();
 		float answer = 0;
 		float i = 0;
 		float resto;
@@ -19,7 +21,7 @@ public class Divide {
 		}
 
 		if (numberB == 0) {
-			System.out.print("Number B is invalid... ");
+			Print.print("Number B is invalid... ");
 			answer = Float.NaN;
 		}
 		
@@ -39,9 +41,7 @@ public class Divide {
 					
 					answer = i;
 				}
-
 			}
-			
 		}
 		
 		if(negA == true && negB == true) {

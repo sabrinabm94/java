@@ -1,4 +1,5 @@
-//alunos: Anne S., Sabrina B. e Rayssa S. engenharia de software - 3º ano - estrutura de dados
+package chat;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -27,7 +28,7 @@ public class Chat {
         try {
             Scanner scanner = new Scanner(this.client.getInputStream());
             while (scanner.hasNextLine()) {
-                System.out.println(scanner.nextLine());
+               Print.print(scanner.nextLine());
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,5 +1,5 @@
-//Rodar esse arquivo somente uma vez pois s� tem um servidor
-//alunos: Anne S., Sabrina B. e Rayssa S. engenharia de software - 3º ano - estrutura de dados
+package chat;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,7 +9,6 @@ public class Server implements Runnable {
     public static Socket client;
 
     public Server(Socket client) {
-        //construtor do servidor
         this.client = client;
     }
 
@@ -17,8 +16,8 @@ public class Server implements Runnable {
         //porta que ser� liberada para conex�o
         int port = 12345;
         ServerSocket server = new ServerSocket(port);
-        System.out.println("Server started and port " + port + " opened!");
-        System.out.println("Waiting for connection of clients...");
+        Print.print("Server started and port " + port + " opened!");
+        Print.print("Waiting for connection of clients...");
 
         while (true) {
             Socket client = server.accept();
@@ -29,7 +28,7 @@ public class Server implements Runnable {
     }
 
     public void run() {
-        System.out.println("New connection from ip: " + client.getInetAddress().getHostAddress());
+        Print.print("New connection from ip: " + client.getInetAddress().getHostAddress());
         Chat chat = new Chat(client);
         Thread read = new Thread(chat::readFromServer);
         Thread write = new Thread(chat::writeToServer);

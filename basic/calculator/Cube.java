@@ -1,7 +1,9 @@
+package calculator;
+
 public class Cube {
 	float result = 0;
 	public float cubed(float numberA, float numberB){
-		multiplication Multiply = new multiplication();
+		Multiply Multiply = new Multiply();
 		result = numberA;
 		
 		if(numberB == 0) {
@@ -18,5 +20,4 @@ public class Cube {
 		
 		return result;
 	}
-
 }

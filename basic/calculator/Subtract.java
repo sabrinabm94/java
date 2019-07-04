@@ -1,6 +1,8 @@
+package calculator;
+
 public class Subtract {
 	public float subtraction(float numberA, float numberB) {
-		summation Sum = new summation();
+		Sum sum = new Sum();
 		float result = 0;
 		boolean negA = false;
 		boolean negB = false;
@@ -16,21 +18,21 @@ public class Subtract {
 		}
 		
 		if(negA == true && negB == true) {
-			return Sum.summation(numberA, -numberB);
+			return sum.summation(numberA, -numberB);
 		}
 		
 		if(negA == false && negB == false) {
-			return Sum.summation(numberA, -numberB);
+			return sum.summation(numberA, -numberB);
 		}
 		
 		if(negA == true && negB == false) {
-			return Sum.summation(numberA, numberB);
+			return sum.summation(numberA, numberB);
 		}
 		
 		if(negA == false && negB == true) {
-			return Sum.summation(numberA, numberB);
+			return sum.summation(numberA, numberB);
 		}
 
-		return Sum.summation(numberA, -numberB);
+		return sum.summation(numberA, -numberB);
 	}
 }
