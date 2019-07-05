@@ -1,5 +1,6 @@
 package discount;
 
+import javaRepositories.Print;
 import java.util.Scanner;
 
 public class Discount {

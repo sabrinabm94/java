@@ -1,5 +1,7 @@
 package clock;
 
+import javaRepositories.Print;
+
 public class Clock {
 	private long angle;
 

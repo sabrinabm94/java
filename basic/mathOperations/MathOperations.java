@@ -1,5 +1,7 @@
 package mathOperations;
 
+import javaRepositories.Print;
+
 public class MathOperations {
 	public static void main(String[] args) {
 		double a = 8.7;
