@@ -1,42 +1,50 @@
-package tree;
-import java.util.EmptyStackException;
+package trees.tree;
 
-public class DinamicStack {
-	Node2 top = null;
+import stack.Node;
+import javaRepositories.Print;
+
+public class Stack {
+	Node top = null;
 	int lenght = 0;
-	public DinamicStack() {
-		System.out.println("Queue Stack was created!");
+	public Stack() {
+		Print.print("Queue Stack was created!");
 	}
+
 	public void push(Object value) {
-		Node2 newNode = new Node2();
+		Node newNode = new Node();
 		newNode.setValue(value);
 		newNode.setPrevious(top);
 		top = newNode;
 		lenght++;
-		System.out.println("Additing value " + value);
+		Print.print("Additing value " + value);
 	
 	}
+
 	public Object pop() {
 		if(isEmpty() == false) {
 			if(top == null) {
 				throw new RuntimeException("The stack is empty!");
 			}
+
 			Object value = top.getValue();
 			top = top.getPrevious();
 			lenght--;
-			System.out.println("Removing value: " + value);
+
+			Print.print("Removing value: " + value);
 			return value;
 		} else {
 			return null;
 		}
 	}
-	public void runThrough(){ 
-		Node2 node = top;
+
+	public void runThrough(){
+		Node node = top;
 		while(node != null){
-			System.out.println("Value of node: " + node.getValue());
+			Print.print("Value of node: " + node.getValue());
 			node = node.getPrevious();
 		}
 	}
+
 	public boolean isEmpty() {
 		if(top == null){
 			return true;
@@ -44,13 +52,14 @@ public class DinamicStack {
 			return false;
 		}
 	}
+
 	public void clear() {
-		System.out.println("Starting stack clean...");
+		Print.print("Starting stack clean...");
 		while(isEmpty() == false){
 			pop();
 		}
 		if(isEmpty() != false) {
-			System.out.println("The stack is empty.");
+			Print.print("The stack is empty.");
 		}
 	}
 }

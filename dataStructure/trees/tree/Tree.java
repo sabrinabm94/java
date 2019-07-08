@@ -16,7 +16,7 @@ public class Tree<T extends Comparable<T>> {
 		this.root = root;
 	}
 	
-	//percorrer com recurs�o
+	//goThrough recursion
 	public void goThrough(Node<T> node) {
 		System.out.println(node.getValue());
 		
@@ -31,7 +31,7 @@ public class Tree<T extends Comparable<T>> {
 	}
 	*/
 	
-	//percorrer com lambda
+	//goThrough with lambda
 	public void goThroughLambda(Node<T> node, Consumer<Node<T>> lamba) {
 		lamba.accept(node);
 		
@@ -58,7 +58,7 @@ public class Tree<T extends Comparable<T>> {
 	
 	//busca por profundidade com lambda e recurs�o
 	public void deepSearchLambda(Node<T> node, Consumer<Node<T>> lambda) throws Exception{
-		DinamicStack stack = new DinamicStack();
+		Stack stack = new Stack();
 		for (Node<T> children : node.getChildren()){
 			stack.push(node.getChildren());
 			this.goThroughLambda(children, lambda);
@@ -121,7 +121,6 @@ public class Tree<T extends Comparable<T>> {
 		return null;
 	}
 	
-	//m�todo que inicia da raiz e percorre at� encontrar o local correto para o valor
 	public void addByValue(T value) {
 		root = getRoot();
 		if(this.root == null) {
@@ -178,16 +177,16 @@ public class Tree<T extends Comparable<T>> {
 	}
 	
 	/*
-	busca em largura: quantos n�s existem?
-	busca profundidade: n� folha com maior dist�ncia do n� raiz
-	profundidade x largura: �rvores com pouca hierarquia podem se tornar listas, com um n�vel de largura e muita profundidade.
-	N�meros baixos de compara��es por causa das podas
+	busca em largura: quantos não existem?
+	busca profundidade: nó folha com maior distáncia do nó da raiz
+	profundidade x largura: árvores com pouca hierarquia podem se tornar listas, com um nível de largura e muita profundidade.
+	Números baixos de comparações por causa das podas
 	
 	busca em largura (BFS)
-	Desce um n�vel hier�rquico, vai por todos os filhos nesse n�vel, depois desse ao n�vel abaixo desce e continua.
+	Desce um nível hierárquico, vai por todos os filhos nesse nível, depois desse ao nível abaixo desce e continua.
 	
 	busca em profundidade (DFS)
-	Busca entre os os n�veis da �rvore.
-	Come�a pela raiz entrando por um filho desta e percorrento todos os seus filhos at� encontrar o n� folha, depois sobre um n�vel e vai ao seu par e visita todos os seus filhos, e continua. 
+	Busca entre os os níveis da árvore.
+	Começa pela raiz entrando por um filho desta e percorrento todos os seus filhos até encontrar o nó folha, depois sobre um nível e vai ao seu par e visita todos os seus filhos, e continua.
 	*/
 }

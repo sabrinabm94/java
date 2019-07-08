@@ -1,4 +1,5 @@
-package tree;
+package trees.tree;
+
 public class Node2 {
 	private Object value;
 	private Node2 previous;

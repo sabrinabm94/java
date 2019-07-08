@@ -1,3 +1,5 @@
+package theoreticalComputer.afn;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javaRepositories.Print;
 
 public class Main {
     public static void main(String[] args) {
@@ -94,8 +97,8 @@ public class Main {
                     Thread.sleep(1000);
                 } else {
                     //organização dos caminhos dos estados em matriz
-                    for (int matrixLine = 0; matrixLine < matrixLineSize; matrixLine++) {
-                        for (int matrixColumn = 0; matrixColumn < matrixColumnSize; matrixColumn++) {
+                    for(int matrixLine = 0; matrixLine < matrixLineSize; matrixLine++) {
+                        for(int matrixColumn = 0; matrixColumn < matrixColumnSize; matrixColumn++) {
                             /*
                             if(line.split("\\s+").length > 1) {
                                 for(String result: splitResults) {
@@ -124,13 +127,13 @@ public class Main {
 
             Scanner enterData = new Scanner(System.in);
             do {
-                System.out.println("|============================|");
-                System.out.println("|             AFN            |");
-                System.out.println("|============================|");
-                System.out.println("| 1 ----> Enter symbols      |");
-                System.out.println("| 2 ----> Exit               |");
-                System.out.println("|============================|");
-                System.out.print("Enter with the option number (1 or 2): ");
+                Print.print("|============================|");
+                Print.print("|             AFN            |");
+                Print.print("|============================|");
+                Print.print("| 1 ----> Enter symbols      |");
+                Print.print("| 2 ----> Exit               |");
+                Print.print("|============================|");
+                Print.print("Enter with the option number (1 or 2): ");
                 option = enterData.nextInt();
 
                 switch (option){
@@ -149,14 +152,15 @@ public class Main {
 
                         //solicitação de entrada de simbolos
                         Scanner scanner = new Scanner(System.in);
-                        System.out.printf("Enter a symbol (0 or 1) per line. \nWhen you finish the entrees, enter the word 'end' and press enter to continue.\n");
+                        Print.print("Enter a symbol (0 or 1) per line. \nWhen you finish the entrees, enter the word 'end' and press enter to continue.\n");
+
                         while(scanner.hasNext()){
                             symbol = scanner.next();
                             if(symbol.equals("end")){
                                 break;
                             } else {
                                 if(!alphabet.contains(symbol)) {
-                                    System.out.printf("The program will be terminated because an invalid symbol has been found: "  + symbol + "\n");
+                                    Print.print("The program will be terminated because an invalid symbol has been found: "  + symbol + "\n");
                                     option = 2;
                                     break;
                                 } else {
@@ -166,7 +170,7 @@ public class Main {
                         }
 
                         if(option == 1) {
-                            System.out.println("\nThe symbols given are: " + symbols);
+                            Print.print("\nThe symbols given are: " + symbols);
                         }
 
                         //execução dos simbolos
@@ -242,7 +246,7 @@ public class Main {
 
                         //criando arquivo de resultados
                         Date date = new Date();
-                        System.out.println(date.toString());
+                        Print.print(date.toString());
                         File file = new File("result.txt");
 
                         try (Writer writer = new BufferedWriter(new FileWriter(file))) {
@@ -261,10 +265,10 @@ public class Main {
                             writer.flush();
                         }
 
-                        System.out.println("The results file was generated, check in the project root for: " + file.getName());
+                        Print.print("The results file was generated, check in the project root for: " + file.getName());
                         break;
                     case 2:
-                        System.out.println("Nos vemos na próxima, S.V.");
+                        Print.print("Nos vemos na próxima, S.V.");
                         break;
                 }
             } while(option != 2);
