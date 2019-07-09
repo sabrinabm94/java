@@ -20,12 +20,8 @@ public class Cylinder extends Geometric {
         this.diameter = diameter;
     }
 
-    public double calculateRay() {
-        return diameter / 2;
-    }
-
     @Override
     public double calculateVolume() {
-        return Math.PI * height * (calculateRay() * calculateRay());
+        return PI * height * (calculateRay() * calculateRay());
     }
 }

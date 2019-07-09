@@ -1,15 +1,15 @@
 package objectOriented.heritage;
 
 public class Pyramid extends Geometric {
-    private double lado;
+    private double face;
     private double height;
 
-    public double getLado() {
-        return lado;
+    public double getFace() {
+        return face;
     }
 
-    public void setLado(double lado) {
-        this.lado = lado;
+    public void setFace(double face) {
+        this.face = face;
     }
 
     public double getHeight() {
@@ -22,6 +22,6 @@ public class Pyramid extends Geometric {
 
     @Override
     public double calculateVolume() {
-        return ((lado * lado) * height) / 3;
+        return ((face * face) * height) / 3;
     }
 }

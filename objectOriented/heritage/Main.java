@@ -3,29 +3,27 @@ package objectOriented.heritage;
 public class Main {
     public static void main(String[] args) {
         Geometric geometric = new Geometric();
-        GeometricView view = new GeometricView();
+        View view = new View();
         Cube cube = new Cube();
         Cylinder cylinder = new Cylinder();
         Pyramid pyramid = new Pyramid();
 
         geometric.setName("Geometric form");
-
         cube.setName("Cube");
-        cube.setHeight(2);
-        cube.setLenght(2);
-        cube.setWidth(2);
+        cube.setHeight(2.0);
+        cube.setLenght(2.0);
+        cube.setWidth(2.0);
+        view.print(cube);
 
         cylinder.setName("Cylinder");
-        cylinder.setHeight(2);
-        cylinder.setDiameter(4);
+        cylinder.setHeight(2.0);
+        geometric.setDiameter(4.0);
+        cylinder.setDiameter(4.0);
+        view.print(cylinder);
 
         pyramid.setName("Pyramid");
-        pyramid.setHeight(2);
-        pyramid.setLado(2);
-
-        view.showValue(geometric);
-        view.showValue(cube);
-        view.showValue(cylinder);
-        view.showValue(pyramid);
+        pyramid.setHeight(2.0);
+        pyramid.setFace(2.0);
+        view.print(pyramid);
     }
 }
