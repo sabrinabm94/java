@@ -17,8 +17,8 @@ public class Main {
         Product product = new Product(productData[0], Double.valueOf(productData[1]), Integer.valueOf(productData[2]));
         printProduct(product);
 
+        int quantity = enterProductQuantity(scanner);
         //add
-        Double quantity = enterProductQuantity(scanner, product);
         addProductQuantity(product, quantity);
         printProduct(product);
 
@@ -42,25 +42,27 @@ public class Main {
     }
 
     public static void printProduct(Product product) {
-        Print.print("\nName: " + product.name + "\nPrice: $" + product.price + "\nQuantity: " + product.quantity + " units");
+        Print.print("\nName: " + product.getName() + "\nPrice: $" + product.getPrice() + "\nQuantity: " + product.getQuantity() + " units");
     }
 
-    public static Double enterProductQuantity(Scanner scanner, Product product) {
+    public static int enterProductQuantity(Scanner scanner) {
         Print.print("\nEnter with the quantity value: ");
-        Double quantity = scanner.nextDouble();
 
-        return quantity;
+        return scanner.nextInt();
     }
 
-    public static Product addProductQuantity(Product product, Double quantity) {
-        Print.print("\nRemoved " + quantity + " units from product");
-        product.quantity += quantity;
+    public static Product addProductQuantity(Product product, int quantity) {
+        Print.print("\nAdditing " + quantity + " units from product");
+        quantity = product.getQuantity() + quantity;
+        product.setQuantity(quantity);
 
         return product;
     }
 
-    public static Product removeProductQuantity(Product product, Double quantity) {
-        product.quantity -= quantity;
+    public static Product removeProductQuantity(Product product, int quantity) {
+        Print.print("\nRemoving " + quantity + " units from product");
+        quantity = product.getQuantity() - quantity;
+        product.setQuantity(quantity);
 
         return product;
     }
