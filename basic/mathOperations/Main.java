@@ -2,7 +2,7 @@ package mathOperations;
 
 import javaRepositories.Print;
 
-public class MathOperations {
+public class Main {
 	public static void main(String[] args) {
 		double a = 8.7;
 		double b = 7.3;

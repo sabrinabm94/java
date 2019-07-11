@@ -2,7 +2,7 @@ package daysOfWeek;
 
 import java.util.Scanner;
 
-public class DayOfWeek {
+public class Main {
 	public static int dayNumber;
 	public static String dayName;
 	public static String [] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};

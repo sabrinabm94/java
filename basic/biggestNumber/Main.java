@@ -1,9 +1,9 @@
-package mathOperations;
+package biggestNumber;
 
 import javaRepositories.Print;
 import java.util.Scanner;
 
-public class biggestNumber {
+public class Main {
 	public static float number1;
 	public static float number2;
 	public static float number3;

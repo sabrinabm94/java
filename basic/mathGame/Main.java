@@ -3,7 +3,7 @@ package mathGame;
 import javaRepositories.Print;
 import java.util.Scanner;
 
-public class MathGame {
+public class Main {
 	public static int points = 0;
 	public static int[] pointsPassStageLevel1 = {85, 85, 85};
 	public static int[] pointsPassStageLevel2 = {180, 180, 180};

@@ -30,7 +30,7 @@ This file is the basis for creating AFN, different AFN structure information is 
 
 In the example file of "config.txt", the result of the AFN will be:
 
-![matrix](https://i.imgur.com/qOno9lO.png)
+![matrixWithRandomValue](https://i.imgur.com/qOno9lO.png)
 
 
 ## How to use the program

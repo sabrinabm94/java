@@ -3,7 +3,7 @@ package discount;
 import javaRepositories.Print;
 import java.util.Scanner;
 
-public class Discount {
+public class Main {
 	public static int option;
 	public static float value;
 	public static float discount;

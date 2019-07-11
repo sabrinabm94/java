@@ -1,8 +1,8 @@
 package threads;
 
-public class PingPong extends Thread {
+public class Main extends Thread {
 	private String myWord;
-	public PingPong(String myWord) {
+	public Main(String myWord) {
 		this.myWord = myWord;
 	}
 
@@ -18,8 +18,8 @@ public class PingPong extends Thread {
 	}
 
 	public static void main(String [] args) throws InterruptedException {
-		Thread thread1 = new PingPong("ping");
-		Thread thread2 = new PingPong("pong");
+		Thread thread1 = new Main("ping");
+		Thread thread2 = new Main("pong");
 		thread1.start();
 		thread2.start();
 

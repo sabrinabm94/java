@@ -103,12 +103,12 @@ public class Main {
                             if(line.split("\\s+").length > 1) {
                                 for(String result: splitResults) {
                                     //caso cada linha tenha mais de um resultado, adiciona na proxima coluna
-                                    matrix[matrixLine][matrixColumn] = result;
+                                    matrixWithRandomValue[matrixLine][matrixColumn] = result;
                                     matrixColumn = matrixColumn + 1;
                                 }
                             } else {
                                 //caso a linha só tenha um resultado
-                                matrix[matrixLine][matrixColumn] = line;
+                                matrixWithRandomValue[matrixLine][matrixColumn] = line;
                             }*/
 
                             //adiciona os valores na matriz por linha x coluna

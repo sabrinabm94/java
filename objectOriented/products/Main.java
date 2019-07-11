@@ -15,16 +15,16 @@ public class Main {
         //create product
         productData = enterProductData(scanner, productData);
         Product product = new Product(productData[0], Double.valueOf(productData[1]), Integer.valueOf(productData[2]));
-        printProduct(product);
+        print(product);
 
         int quantity = enterProductQuantity(scanner);
         //add
         addProductQuantity(product, quantity);
-        printProduct(product);
+        print(product);
 
         //remove
         removeProductQuantity(product, quantity);
-        printProduct(product);
+        print(product);
     }
 
     public static String[] enterProductData(Scanner scanner, String[] productData) {
@@ -41,7 +41,7 @@ public class Main {
         return productData;
     }
 
-    public static void printProduct(Product product) {
+    public static void print(Product product) {
         Print.print("\nName: " + product.getName() + "\nPrice: $" + product.getPrice() + "\nQuantity: " + product.getQuantity() + " units");
     }
 

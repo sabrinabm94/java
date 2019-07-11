@@ -1,4 +1,6 @@
-public class ErrorHandler {
+package ErrorHandle;
+
+public class Main {
 	public static void main(String[] args) {
 		int i = 4;
 		int j = 0;
@@ -13,7 +15,7 @@ public class ErrorHandler {
 		}
 		
 		catch (Exception e) {
-			System.out.println("ErrorHandler: " + e.getMessage());
+			System.out.println("ErrorHandle.Main: " + e.getMessage());
 		}
 		
 		finally {

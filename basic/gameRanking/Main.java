@@ -1,9 +1,9 @@
 package gameRanking;
 
-public class GameRanking {
+public class Main {
 	private GameEntry[] Ranking; //array without limit
 	
-	public GameRanking() {
+	public Main() {
 		Ranking = new GameEntry[10]; //set 10 positions in array
 		Ranking[0] = new GameEntry("Sabrina", 10);
 	}
@@ -15,6 +15,6 @@ public class GameRanking {
 	}
 	
 	public static void main(String[] args) {
-		new GameRanking().list();
+		new Main().list();
 	}
 }

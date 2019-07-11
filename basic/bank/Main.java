@@ -3,7 +3,7 @@ package bank;
 import javaRepositories.Print;
 import java.util.Scanner;
 
-public class BankMenu {
+public class Main {
     public static float balance;
     public static int option;
 

@@ -1,6 +1,6 @@
 package constructor;
 
-public class People {
+public class Main {
     class people {
         public String name;
         private int age;

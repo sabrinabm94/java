@@ -1,9 +1,7 @@
 package cashMachine;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
         //double[] notas = {100, 50, 20, 10, 5, 2}; //lista organizada
         double[] moneyBill = { 2, 5, 10, 20, 50, 100 }; //lista desorganizada
 
