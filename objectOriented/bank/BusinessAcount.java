@@ -22,7 +22,7 @@ public final class BusinessAcount extends Account {
     }
 
     @Override
-    public void deposit(double amount) {
+    public final void deposit(double amount) {
         if(amount <= loadLimit) {
             deposit(amount);
         }

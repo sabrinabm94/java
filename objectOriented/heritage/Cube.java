@@ -30,7 +30,12 @@ public class Cube extends Geometric {
     }
 
     @Override
+    public double calculateArea() {
+        return width * height;
+    }
+
+    @Override
     public double calculateVolume() {
-        return length * width * height;
+        return width * height * length;
     }
 }

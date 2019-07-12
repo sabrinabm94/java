@@ -1,9 +1,8 @@
 package objectOriented.heritage;
 
-public class Geometric {
-    public final double PI = 3.14159;
+public abstract class Geometric {
     private String name;
-    public Double diameter;
+    private Color color;
 
     public String getName() {
         return name;
@@ -13,23 +12,28 @@ public class Geometric {
         this.name = name;
     }
 
-    public double getDiameter() {
-        return diameter;
+    public Color getColor() {
+        return color;
     }
 
-    public void setDiameter(Double diameter) {
-        this.diameter = diameter;
+    public void setColor(Color color) {
+        this.color = color;
     }
+
+    public Geometric() {
+        super();
+    }
+
+    public Geometric(String name, Color color) {
+        super();
+        this.name = name;
+        this.color = color;
+    }
+
+    //método abstrato
+    public abstract double calculateArea();
 
     public double calculateVolume() {
         return 0;
-    }
-
-    public double calculateRay() {
-        return getDiameter() / 2;
-    }
-
-    public double calculateCircumference() {
-        return 2.0 * PI * calculateRay();
     }
 }
