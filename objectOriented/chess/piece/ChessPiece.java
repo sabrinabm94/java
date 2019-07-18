@@ -4,7 +4,7 @@ import objectOriented.chess.piece.attribute.Color;
 import objectOriented.chess.piece.attribute.Position;
 
 public abstract class ChessPiece extends Piece {
-    //a classe é abstrata pois não queremos implementar o método possiblePieceMoves aqui, e sim nas classes das peças específicas como por exemplo King
+    //a classe é abstrata pois não queremos implementar o método createPossiblePieceMoves aqui, e sim nas classes das peças específicas como por exemplo King
     private Color color;
 
     public Color getColor() {

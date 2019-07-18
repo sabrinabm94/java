@@ -57,7 +57,7 @@ public class ChessMatch {
         createPiece('b', 2, new Pawn(board, Color.WHITE, this));
         createPiece('c', 2, new Pawn(board, Color.WHITE, this));
         createPiece('d', 2, new Pawn(board, Color.WHITE, this));
-        createPiece('e', 2, new Pawn(board, Color.WHITE, this));
+        //createPiece('e', 2, new Pawn(board, Color.WHITE, this));
         createPiece('f', 2, new Pawn(board, Color.WHITE, this));
         createPiece('g', 2, new Pawn(board, Color.WHITE, this));
         createPiece('h', 2, new Pawn(board, Color.WHITE, this));
@@ -103,7 +103,7 @@ public class ChessMatch {
         Position position = originPosition.toPosition();
         validateOriginPosition(position);
 
-        return board.piece(position).possiblePieceMoves();
+        return board.piece(position).createPossiblePieceMoves();
     }
 
     private void validateOriginPosition(Position position) {
@@ -117,7 +117,7 @@ public class ChessMatch {
     }
 
     private void validateTargetPosition(Position origin, Position target) {
-        if(!board.piece(origin).possiblePieceMoves(target)) {
+        if(!board.piece(origin).createPossiblePieceMoves(target)) {
             throw new ChessException("The chosen piece can't move to the target position");
         }
     }
