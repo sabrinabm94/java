@@ -12,12 +12,11 @@ public class Controller {
         view = new View();
     }
 
-    public void initController(){
+    public void init(){
         view.getLoginButton().addActionListener(e -> doLogin());
     }
 
     private void doLogin(){
-
         if(view.getUser().length() < 1){
             view.setErrorMessage("Favor informar o usu�rio.");
         }else if(view.getPassword().length() < 1){

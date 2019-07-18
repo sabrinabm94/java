@@ -7,13 +7,14 @@ public class Main {
 		cathError();
 	}
 
-	public static void cathError() {
+	public static String cathError() {
 		int i = 4;
 		int j = 0;
 		int x;
 
 		try {
 			x = i / j;
+			return  "The result is: " + x;
 		}
 
 		catch (ArithmeticException exception){
@@ -31,6 +32,8 @@ public class Main {
 		finally {
 			System.out.println("Finally block: always run");
 		}
+
+		return null;
 	}
 
 	public static void throwErrorException() throws ErrorException {

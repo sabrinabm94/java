@@ -1,10 +1,8 @@
-package objectOriented.MVC.login;
-
-import objectOriented.MVC.login.controller.Controller;
+package objectOriented.bookDatabase;
 
 public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        controller.init();
+        controller.initController();
     }
 }

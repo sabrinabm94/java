@@ -1,6 +1,6 @@
-package objectOriented.MVC.login;
+package objectOriented.MVC.product;
 
-import objectOriented.MVC.login.controller.Controller;
+import objectOriented.MVC.product.controller.Controller;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,3 +8,5 @@ public class Main {
         controller.init();
     }
 }
+
+

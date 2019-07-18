@@ -1,7 +1,7 @@
 package objectOriented.bank;
 
 import javaRepositories.Print;
-import objectOriented.products.Product;
+
 import java.util.Locale;
 import java.util.Scanner;
 
