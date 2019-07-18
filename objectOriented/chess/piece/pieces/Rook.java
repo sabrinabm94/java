@@ -17,60 +17,50 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public boolean[][] possiblePieceMoves() {
-        boolean[][] possibleMovesMatrix = new boolean[getBoard().getRows()][getBoard().getColumns()];
+    public boolean[][] createPossiblePieceMoves() {
+        boolean[][] possiblePieceMovesMatrix = new boolean[getBoard().getRows()][getBoard().getColumns()];
         Position position = new Position(0,0);
 
-        //andará as posições da peça e adicionará true nas que poderá ser movida
-        //acima da peça (linhas)
+        //acima(linhas)
         position.setRow(position.getRow() - 1);
         position.setColumn(position.getColumn());
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, position.getRow() - 1, -1, possiblePieceMovesMatrix);
 
-        while (getBoard().positionExists(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-            position.setRow(position.getRow() - 1);
-        }
-        if (getBoard().positionExists(position) && isOpponentPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-        }
-
-        //abaixo
+        //abaixo(linhas)
         position.setRow(position.getRow() + 1);
         position.setColumn(position.getColumn());
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, position.getRow() + 1, -1, possiblePieceMovesMatrix);
 
-        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-            position.setRow(position.getRow() + 1);
-        }
-        //se a posição existe, se a peça que existe na posição e inimiga
-        if (getBoard().positionExists(position) && isOpponentPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-        }
-
-        //direita
+        //direita(coluna)
         position.setRow(position.getRow());
         position.setColumn(position.getColumn() + 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, -1, position.getColumn() + 1, possiblePieceMovesMatrix);
 
-        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-            position.setColumn(position.getColumn() + 1);
-        }
-        if (getBoard().positionExists(position) && isOpponentPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-        }
-
-        //esquerda
+        //esquerda(coluna)
         position.setRow(position.getRow());
         position.setColumn(position.getColumn() - 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, -1, position.getColumn() - 1, possiblePieceMovesMatrix);
 
-        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
-            position.setColumn(position.getColumn() - 1);
+        return possiblePieceMovesMatrix;
+    }
+
+    private boolean[][] createPossiblePieceMovePossition(Position position, int row, int column, boolean[][] possiblePieceMovesMatrix) {
+        //enquanto a posição existir e não tiver uma peça na posição, é valido
+        while(getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
+            possiblePieceMovesMatrix[position.getRow()][position.getColumn()] = true;
+
+            //o -1 é usado para indicar se o parâmetro é a linha ou coluna, anulando o que receber -1
+            if(row != -1) {
+                position.setRow(row);
+            } else if(column != -1) {
+                position.setColumn(column);
+            }
         }
-        if (getBoard().positionExists(position) && isOpponentPiece(position)) {
-            possibleMovesMatrix[position.getRow()][position.getColumn()] = true;
+        //se a posição exite e se a peça que existe na posição é inimiga, é valido
+        if(getBoard().positionExists(position) && isOpponentPiece(position)) {
+            possiblePieceMovesMatrix[position.getRow()][position.getColumn()] = true;
         }
 
-        return possibleMovesMatrix;
+        return possiblePieceMovesMatrix;
     }
 }

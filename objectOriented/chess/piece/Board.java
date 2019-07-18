@@ -35,6 +35,7 @@ public class Board {
         if(!positionExists(row, column)) {
             throw new BoardException(positionDoesNotExistErrorMessage + "\nRow: " + row + " Column: " + column);
         }
+
         return piecesInBoard[row][column];
     }
 
@@ -43,6 +44,7 @@ public class Board {
         if(!positionExists(position)) {
             throw new BoardException(positionDoesNotExistErrorMessage);
         }
+
         return piecesInBoard[position.getRow()][position.getColumn()];
     }
 
@@ -82,6 +84,7 @@ public class Board {
         if(!positionExists(position)) {
             throw new BoardException(positionDoesNotExistErrorMessage + "\nRow: " + position.getRow() + " Column: " + position.getColumn());
         }
+
         return piece(position) != null;
     }
 }
