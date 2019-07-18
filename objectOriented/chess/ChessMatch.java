@@ -1,9 +1,10 @@
 package objectOriented.chess;
 
+import objectOriented.chess.Board;
 import objectOriented.chess.exception.ChessException;
-import objectOriented.chess.piece.Board;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.piece.Piece;
+import objectOriented.chess.piece.attribute.ChessPosition;
 import objectOriented.chess.piece.attribute.Color;
 import objectOriented.chess.piece.attribute.Position;
 import objectOriented.chess.piece.pieces.*;
@@ -86,9 +87,9 @@ public class ChessMatch {
 
         validateOriginPosition(origin);
         validateTargetPosition(origin, target);
-        Piece movedPiece = movePiece(origin, target);
+        Piece removedPiece = movePiece(origin, target);
 
-        return (ChessPiece)movedPiece;
+        return (ChessPiece)removedPiece;
     }
 
     private Piece movePiece(Position origin, Position target) {
@@ -111,7 +112,7 @@ public class ChessMatch {
             throw new ChessException("There is no piece on origin position");
         }
 
-        if(!board.piece(position).isThereAnyPossibleMove()) {
+        if(!board.piece(position).isAnyPossibleMove()) {
             throw new ChessException("There is no possible moves for the chosen piece");
         }
     }

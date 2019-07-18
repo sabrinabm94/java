@@ -1,9 +1,8 @@
-package objectOriented.chess.piece;
+package objectOriented.chess;
 
-import javafx.geometry.Pos;
+import objectOriented.chess.piece.attribute.Position;
 import objectOriented.chess.exception.BoardException;
 import objectOriented.chess.piece.Piece;
-import objectOriented.chess.piece.attribute.Position;
 
 public class Board {
     private int rows;
@@ -23,7 +22,7 @@ public class Board {
     }
 
     public Board(int rows, int columns) {
-        if(rows < 1 && columns < 1) {
+        if(rows < 1 || columns < 1) {
             new BoardException(minimumNumberOfRowsAndColumnsErrorMessage);
         }
         this.rows = rows;
@@ -59,21 +58,21 @@ public class Board {
     public Piece removePiece(Position position) {
         if(!positionExists(position)) {
             throw new BoardException(positionDoesNotExistErrorMessage + "\nRow: " + position.getRow() + " Column: " + position.getColumn());
-        } else {
-            if(piece(position) == null) {
-                return null;
-            } else {
-                Piece helper = piece(position);
-                helper.position = null;
-                piecesInBoard[position.getRow()][position.getColumn()] = null;
-
-                return helper;
-            }
         }
+
+        if(piece(position) == null) {
+            return null;
+        }
+
+        Piece helper = piece(position);
+        helper.position = null;
+        piecesInBoard[position.getRow()][position.getColumn()] = null;
+
+        return helper;
     }
 
     private boolean positionExists(int row, int column) {
-        return((row >= 0 && row < rows) && column >= 0 && column < columns);
+        return((row >= 0 && row < rows) && (column >= 0 && column < columns));
     }
 
     public boolean positionExists(Position position) {

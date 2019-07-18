@@ -1,9 +1,10 @@
 package objectOriented.chess.piece;
 
+import objectOriented.chess.Board;
 import objectOriented.chess.piece.attribute.Position;
 
 public abstract class Piece {
-    protected Position position; //posição da matriz e não da peça
+    public Position position; //posição da matriz e não da peça
     private Board board;
 
     public Piece(Board board) {
@@ -22,7 +23,7 @@ public abstract class Piece {
         return createPossiblePieceMoves()[position.getRow()][position.getColumn()];
     }
 
-    public boolean isThereAnyPossibleMove() {
+    public boolean isAnyPossibleMove() {
         boolean[][] possiblePieceMovesMatrix = createPossiblePieceMoves();
         for(int i = 0; i < possiblePieceMovesMatrix.length; i++) {
             for(int j = 0; j < possiblePieceMovesMatrix.length; j++) {

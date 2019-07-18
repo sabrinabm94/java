@@ -1,5 +1,6 @@
 package objectOriented.chess.piece;
 
+import objectOriented.chess.Board;
 import objectOriented.chess.piece.attribute.Color;
 import objectOriented.chess.piece.attribute.Position;
 

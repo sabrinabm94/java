@@ -1,7 +1,6 @@
-package objectOriented.chess;
+package objectOriented.chess.piece.attribute;
 
 import objectOriented.chess.exception.ChessException;
-import objectOriented.chess.piece.attribute.Position;
 
 public class ChessPosition {
     private char column;
@@ -23,12 +22,12 @@ public class ChessPosition {
         this.row = row;
     }
 
-    protected Position toPosition() {
+    public Position toPosition() {
         return new Position(8 - row, column - 'a');
     }
 
     protected static ChessPosition fromPosition(Position position) {
-        return new ChessPosition((char)('a' - position.getColumn()), 8 - position.getRow());
+        return new ChessPosition((char)('a' + position.getColumn()), 8 - position.getRow());
     }
 
     public String print() {

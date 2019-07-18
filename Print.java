@@ -12,4 +12,8 @@ public class Print {
     public static void printf(String text) {
         System.out.printf(text);
     }
+
+    public static void clear() {
+        System.out.flush();
+    }
 }

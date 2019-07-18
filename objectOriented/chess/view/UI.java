@@ -1,8 +1,7 @@
 package objectOriented.chess.view;
 
 import javaRepositories.Print;
-import objectOriented.chess.ChessPosition;
-import objectOriented.chess.exception.ChessException;
+import objectOriented.chess.piece.attribute.ChessPosition;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.piece.attribute.Color;
 
@@ -66,6 +65,11 @@ public class UI {
             }
         }
         Print.print(" ");
+    }
+
+    public static void clear() {
+        Print.print("\033[H\033[2J");
+        Print.clear();
     }
 
     public static ChessPosition readChessPosition(Scanner scanner) {

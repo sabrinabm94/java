@@ -1,5 +1,6 @@
 package objectOriented.chess;
 
+import objectOriented.chess.piece.attribute.ChessPosition;
 import objectOriented.chess.exception.ChessException;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.view.UI;
@@ -23,9 +24,12 @@ public class Main {
 
         while(true) {
             try {
+                UI.clear();
                 UI.printBoard(chessMatch.getPieces());
+
                 ChessPosition origin = getOriginChessPosition(scanner);
                 showPiecePossibleMoves(chessMatch, origin);
+
                 ChessPosition target = getTargetChessPosition(scanner);
                 performeChessMove(chessMatch, origin, target);
             } catch(ChessException error) {
