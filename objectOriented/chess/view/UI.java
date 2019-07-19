@@ -1,12 +1,16 @@
 package objectOriented.chess.view;
 
 import javaRepositories.Print;
+import objectOriented.chess.ChessMatch;
 import objectOriented.chess.piece.attribute.ChessPosition;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.piece.attribute.Color;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class UI {
     //https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
@@ -41,6 +45,7 @@ public class UI {
     }
 
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possiblePieceMoves) {
+        Print.printf("\n");
         for(int i = 0; i < pieces.length; i++) {
             Print.printf((8 - i) + " ");
             for(int j = 0; j < pieces.length; j++) {
@@ -65,6 +70,45 @@ public class UI {
             }
         }
         Print.print(" ");
+    }
+
+    public static void printMatch(ChessMatch chessMatch, List<ChessPiece> capturedPieces) {
+        Print.println("\n");
+        printBoard(chessMatch.getPieces());
+        printCapituredPieces(capturedPieces);
+
+        Print.println("\nTurn: " + chessMatch.getTurn());
+
+        if(!chessMatch.getCheck()) {
+            Print.println("Waiting player: " + chessMatch.getCurrentPlayer());
+
+            if(chessMatch.getCheck()) {
+                Print.print("You are in check risk!");
+            }
+        } else {
+            Print.println("Checkmate!");
+            Print.println("Winner: " + chessMatch.getCurrentPlayer());
+        }
+    }
+
+    private static void printCapituredPieces(List<ChessPiece> capturedPieces) {
+        List<ChessPiece> whiteCapturedPieces = capturedPieces.stream().filter(piece -> piece.getColor() == Color.WHITE).collect(Collectors.toList()); //adicionando a lista somente as peças brancas
+        List<ChessPiece> blackCapturedPieces = capturedPieces.stream().filter(piece -> piece.getColor() == Color.BLACK).collect(Collectors.toList());
+
+        Print.print("\nCaptured pieces");
+        Print.println(ANSI_WHITE);
+        Print.println("White: ");
+        for(ChessPiece piece: whiteCapturedPieces) {
+            Print.println(piece.getInitial());
+        }
+        Print.print(ANSI_RESET);
+
+        Print.print(ANSI_YELLOW);
+        Print.println("Black: ");
+        for(ChessPiece piece: blackCapturedPieces) {
+            Print.println(piece.getInitial());
+        }
+        Print.print(ANSI_RESET);
     }
 
     public static void clear() {

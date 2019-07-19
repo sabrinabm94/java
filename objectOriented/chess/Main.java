@@ -5,7 +5,10 @@ import objectOriented.chess.exception.ChessException;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.view.UI;
 import javaRepositories.Print;
+
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -21,17 +24,21 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
+        List<ChessPiece> capturedPieces = new ArrayList<>();
 
-        while(true) {
+        while(!chessMatch.getCheck()) {
             try {
                 UI.clear();
-                UI.printBoard(chessMatch.getPieces());
+                UI.printMatch(chessMatch, capturedPieces);
 
                 ChessPosition origin = getOriginChessPosition(scanner);
                 showPiecePossibleMoves(chessMatch, origin);
-
                 ChessPosition target = getTargetChessPosition(scanner);
-                performeChessMove(chessMatch, origin, target);
+
+                ChessPiece capturedPiece = performeChessMove(chessMatch, origin, target);
+                if(capturedPiece != null) {
+                    capturedPieces.add(capturedPiece);
+                }
             } catch(ChessException error) {
                 showExceptionErrorMessage(error.getMessage());
                 pressEnterToContinue(scanner);
@@ -40,6 +47,9 @@ public class Main {
                 pressEnterToContinue(scanner);
             }
         }
+
+        UI.clear();
+        UI.printMatch(chessMatch, capturedPieces);
     }
 
     public static ChessPosition getOriginChessPosition(Scanner scanner) {
