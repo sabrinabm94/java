@@ -24,9 +24,9 @@ public class King extends ChessPiece {
     }
 
     @Override
-    public boolean[][] createPossiblePieceMoves() {
+    public boolean[][] createPossiblePieceMoves(Position position) {
         boolean[][] possiblePieceMovesMatrix = new boolean[getBoard().getRows()][getBoard().getColumns()];
-        Position position = new Position(0,0);
+        Position positionOfPiece = new Position(position.getRow(), position.getColumn());
 
         //andará as posições da peça e adicionará true nas que poderá ser movida
         //acima(linhas)

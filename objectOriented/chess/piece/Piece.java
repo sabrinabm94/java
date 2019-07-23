@@ -16,15 +16,15 @@ public abstract class Piece {
         return board;
     }
 
-    public abstract boolean[][] createPossiblePieceMoves();
-
-    //método concreto utilizando um método abstrato
-    public boolean createPossiblePieceMoves(Position position) {
-        return createPossiblePieceMoves()[position.getRow()][position.getColumn()];
+    public boolean PiecePossibleMoveToPosition(Position origin, Position target) {
+        boolean[][] possiblePieceMovesMatrix = createPossiblePieceMoves(origin);
+        return possiblePieceMovesMatrix[target.getRow()][target.getColumn()];
     }
 
-    public boolean isAnyPossibleMove() {
-        boolean[][] possiblePieceMovesMatrix = createPossiblePieceMoves();
+    public abstract boolean[][] createPossiblePieceMoves(Position position);
+
+    public boolean isAnyPossibleMove(Position position) {
+        boolean[][] possiblePieceMovesMatrix = createPossiblePieceMoves(position);
         for(int i = 0; i < possiblePieceMovesMatrix.length; i++) {
             for(int j = 0; j < possiblePieceMovesMatrix.length; j++) {
                 if(possiblePieceMovesMatrix[i][j]) {

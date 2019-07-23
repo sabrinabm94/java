@@ -3,6 +3,7 @@ package objectOriented.chess.piece.pieces;
 import objectOriented.chess.Board;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.piece.attribute.Color;
+import objectOriented.chess.piece.attribute.Position;
 
 public class Queen extends ChessPiece {
 
@@ -16,7 +17,7 @@ public class Queen extends ChessPiece {
     }
 
     @Override
-    public boolean[][] createPossiblePieceMoves() {
+    public boolean[][] createPossiblePieceMoves(Position position) {
         boolean[][] possibleMovesMatrix = new boolean[getBoard().getRows()][getBoard().getColumns()];
         return possibleMovesMatrix;
     }

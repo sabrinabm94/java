@@ -33,8 +33,8 @@ public class ChessMatch {
         board = new Board(8,8);
         turn = 1;
         currentPlayer = Color.WHITE;
-        //createAllPieces();
-        createPiecesToTestCheck();
+        createAllPieces();
+        //createPiecesToTestCheck();
     }
 
     public int getTurn() {
@@ -173,7 +173,7 @@ public class ChessMatch {
         Position position = originPosition.toPosition();
         validateOriginPosition(position);
 
-        return board.piece(position).createPossiblePieceMoves();
+        return board.piece(position).createPossiblePieceMoves(position);
     }
 
     private void validateOriginPosition(Position position) {
@@ -184,13 +184,13 @@ public class ChessMatch {
         if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()) {
             throw new ChessException("The chosen piece is not yours");
         }
-        if(!board.piece(position).isAnyPossibleMove()) {
+        if(!board.piece(position).isAnyPossibleMove(position)) {
             throw new ChessException("There is no possible moves for the chosen piece");
         }
     }
 
     private void validateTargetPosition(Position origin, Position target) {
-        if(!board.piece(origin).createPossiblePieceMoves(target)) {
+        if(!board.piece(origin).PiecePossibleMoveToPosition(origin, target)) {
             throw new ChessException("The chosen piece can't move to the target position");
         }
     }
@@ -219,7 +219,7 @@ public class ChessMatch {
         Position kingPosition = searchForKing(color).getChessPosition().toPosition(); //pega a posição do rei em forma de matriz
         List<Piece> opponentPieces = piecesOnTheBoard.stream().filter(piece -> ((ChessPiece)piece).getColor() == opponent(color)).collect(Collectors.toList());
         for(Piece piece: opponentPieces) {
-            boolean[][] piecePossibleMovesMatrix = piece.createPossiblePieceMoves();
+            boolean[][] piecePossibleMovesMatrix = piece.createPossiblePieceMoves(new Position(0, 0));
             if(piecePossibleMovesMatrix[kingPosition.getRow()][kingPosition.getColumn()]) {
                 return true;
             }
@@ -235,7 +235,7 @@ public class ChessMatch {
 
         List<Piece> yourPieces = piecesOnTheBoard.stream().filter(piece -> ((ChessPiece)piece).getColor() == color).collect(Collectors.toList());
         for(Piece piece: yourPieces) {
-            boolean[][] piecePossibleMovesMatrix = piece.createPossiblePieceMoves();
+            boolean[][] piecePossibleMovesMatrix = piece.createPossiblePieceMoves(new Position(0,0));
             for(int i = 0; i < board.getRows(); i++) {
                 for(int j = 0; j < board.getRows(); j++) {
                     if(piecePossibleMovesMatrix[i][j]) {
