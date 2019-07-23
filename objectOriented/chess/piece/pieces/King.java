@@ -24,57 +24,57 @@ public class King extends ChessPiece {
     }
 
     @Override
-    public boolean[][] createPossiblePieceMoves(Position position) {
+    public boolean[][] createPossiblePieceMoves(Position origion) {
         boolean[][] possiblePieceMovesMatrix = new boolean[getBoard().getRows()][getBoard().getColumns()];
-        Position positionOfPiece = new Position(position.getRow(), position.getColumn());
+        Position positionOfPiece = new Position(origion.getRow(), origion.getColumn());
 
         //andará as posições da peça e adicionará true nas que poderá ser movida
         //acima(linhas)
-        position.setRow(position.getRow() - 1);
-        position.setColumn(position.getColumn());
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() - 1);
+        positionOfPiece.setColumn(origion.getColumn());
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //abaixo
-        position.setRow(position.getRow() + 1);
-        position.setColumn(position.getColumn());
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() + 1);
+        positionOfPiece.setColumn(origion.getColumn());
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //esquerda
-        position.setRow(position.getRow());
-        position.setColumn(position.getColumn() - 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow());
+        positionOfPiece.setColumn(origion.getColumn() - 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //direita
-        position.setRow(position.getRow());
-        position.setColumn(position.getColumn() + 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow());
+        positionOfPiece.setColumn(origion.getColumn() + 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //noroeste
-        position.setRow(position.getRow() - 1);
-        position.setColumn(position.getColumn() - 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() - 1);
+        positionOfPiece.setColumn(origion.getColumn() - 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //nordeste
-        position.setRow(position.getRow() - 1);
-        position.setColumn(position.getColumn() + 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() - 1);
+        positionOfPiece.setColumn(origion.getColumn() + 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //suldoeste
-        position.setRow(position.getRow() + 1);
-        position.setColumn(position.getColumn() - 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() + 1);
+        positionOfPiece.setColumn(origion.getColumn() - 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         //suldeste
-        position.setRow(position.getRow() + 1);
-        position.setColumn(position.getColumn() + 1);
-        possiblePieceMovesMatrix = createPossiblePieceMovePossition(position, possiblePieceMovesMatrix);
+        positionOfPiece.setRow(origion.getRow() + 1);
+        positionOfPiece.setColumn(origion.getColumn() + 1);
+        possiblePieceMovesMatrix = createPossiblePieceMovePossition(positionOfPiece, possiblePieceMovesMatrix);
 
         return possiblePieceMovesMatrix;
     }
 
-    private boolean[][] createPossiblePieceMovePossition(Position position, boolean[][] possiblePieceMovesMatrix) {
-        if(getBoard().positionExists(position) && canMove(position)) {
-            possiblePieceMovesMatrix[position.getRow()][position.getColumn()] = true;
+    private boolean[][] createPossiblePieceMovePossition(Position positionOfPiece, boolean[][] possiblePieceMovesMatrix) {
+        if(getBoard().positionExists(positionOfPiece) && canMove(positionOfPiece)) {
+            possiblePieceMovesMatrix[positionOfPiece.getRow()][positionOfPiece.getColumn()] = true;
         }
 
         return possiblePieceMovesMatrix;
