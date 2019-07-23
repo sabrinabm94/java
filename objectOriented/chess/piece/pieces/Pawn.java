@@ -48,7 +48,7 @@ public class Pawn extends ChessPiece {
 
             positionOfPiece.setRow(origion.getRow() + 2);
             positionOfPiece.setColumn(origion.getColumn());
-            Position positionInFrontOfPiece = new Position(positionOfPiece.getRow() - 1, positionOfPiece.getColumn());
+            Position positionInFrontOfPiece = new Position(positionOfPiece.getRow() + 1, positionOfPiece.getColumn());
             possiblePieceMovesMatrix = createPossiblePieceMovePosition(positionOfPiece, positionInFrontOfPiece, possiblePieceMovesMatrix);
 
             positionOfPiece.setRow(origion.getRow() + 1);

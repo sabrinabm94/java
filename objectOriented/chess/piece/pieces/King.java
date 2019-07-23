@@ -82,6 +82,10 @@ public class King extends ChessPiece {
 
     private boolean canMove(Position target) {
         ChessPiece piece = (ChessPiece)getBoard().piece(target);
-        return piece != null || piece.getColor() != getColor(); //pode mover: a casa está vazia ou tem uma peça adversária
+        if(piece != null || piece.getColor() != getColor()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
