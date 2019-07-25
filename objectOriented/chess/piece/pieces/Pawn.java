@@ -7,6 +7,7 @@ import objectOriented.chess.piece.attribute.Color;
 import objectOriented.chess.piece.attribute.Position;
 
 public class Pawn extends ChessPiece {
+    //associação dos objetos
     private ChessMatch chessMatch;
 
     public Pawn(Board board, Color color, ChessMatch chessMatch) {
@@ -41,6 +42,8 @@ public class Pawn extends ChessPiece {
             positionOfPiece.setRow(origion.getRow() - 1);
             positionOfPiece.setColumn(origion.getColumn() + 1);
             possiblePieceMovesMatrix = createPossiblePieceMovePositionToGetOpponentPiece(positionOfPiece, possiblePieceMovesMatrix);
+
+            //possiblePieceMovesMatrix = verifyEnPassant(possiblePieceMovesMatrix, origion, "white");
         } else {
             positionOfPiece.setRow(origion.getRow() + 1);
             positionOfPiece.setColumn(origion.getColumn());
@@ -58,6 +61,8 @@ public class Pawn extends ChessPiece {
             positionOfPiece.setRow(origion.getRow() + 1);
             positionOfPiece.setColumn(origion.getColumn() + 1);
             possiblePieceMovesMatrix = createPossiblePieceMovePositionToGetOpponentPiece(positionOfPiece, possiblePieceMovesMatrix);
+
+            possiblePieceMovesMatrix = verifyEnPassant(possiblePieceMovesMatrix, origion, "black");
         }
 
         return possiblePieceMovesMatrix;
@@ -86,6 +91,38 @@ public class Pawn extends ChessPiece {
     private boolean[][] createPossiblePieceMovePositionToGetOpponentPiece(Position position, boolean[][] possiblePieceMovesMatrix) {
         if(getBoard().positionExists(position) && isOpponentPiece(position)) {
             possiblePieceMovesMatrix[position.getRow()][position.getColumn()] = true;
+        }
+
+        return possiblePieceMovesMatrix;
+    }
+
+    private boolean[][] verifyEnPassant(boolean[][] possiblePieceMovesMatrix, Position position, String color) {
+        //enPassant
+        //Esse movimento só pode acontecer quando o pião estiver na minha 5 do tabuleiro (3 da matriz)
+        if(color == "WHITE") {
+            if(position.getRow() == 3) {
+                Position pieceLeft =  new Position(position.getRow(), position.getColumn() - 1);
+                if(getBoard().positionExists(pieceLeft) && isOpponentPiece(pieceLeft) && getBoard().piece(pieceLeft) == chessMatch.getEnPassantVulnerablePiece()) {
+                    possiblePieceMovesMatrix[pieceLeft.getRow() - 1][pieceLeft.getColumn()] = true;
+                }
+
+                Position pieceright =  new Position(position.getRow(), position.getColumn() + 1);
+                if(getBoard().positionExists(pieceright) && isOpponentPiece(pieceright) && getBoard().piece(pieceright) == chessMatch.getEnPassantVulnerablePiece()) {
+                    possiblePieceMovesMatrix[pieceright.getRow() - 1][pieceright.getColumn()] = true;
+                }
+            }
+        } else {
+            if(position.getRow() == 4) {
+                Position pieceLeft =  new Position(position.getRow(), position.getColumn() - 1);
+                if(getBoard().positionExists(pieceLeft) && isOpponentPiece(pieceLeft) && getBoard().piece(pieceLeft) == chessMatch.getEnPassantVulnerablePiece()) {
+                    possiblePieceMovesMatrix[pieceLeft.getRow() + 1][pieceLeft.getColumn()] = true;
+                }
+
+                Position pieceright =  new Position(position.getRow(), position.getColumn() + 1);
+                if(getBoard().positionExists(pieceright) && isOpponentPiece(pieceright) && getBoard().piece(pieceright) == chessMatch.getEnPassantVulnerablePiece()) {
+                    possiblePieceMovesMatrix[pieceright.getRow() + 1][pieceright.getColumn()] = true;
+                }
+            }
         }
 
         return possiblePieceMovesMatrix;

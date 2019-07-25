@@ -6,7 +6,6 @@ import objectOriented.chess.piece.attribute.ChessPosition;
 import objectOriented.chess.piece.ChessPiece;
 import objectOriented.chess.piece.attribute.Color;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -80,14 +79,14 @@ public class UI {
         Print.println("\nTurn: " + chessMatch.getTurn());
 
         if(!chessMatch.getCheck()) {
-            Print.println("Waiting player: " + chessMatch.getCurrentPlayer());
+            Print.println("Waiting player: " + chessMatch.getCurrentPlayerColor());
 
             if(chessMatch.getCheck()) {
                 Print.print("You are in check risk!");
             }
         } else {
             Print.println("Checkmate!");
-            Print.println("Winner: " + chessMatch.getCurrentPlayer());
+            Print.println("Winner: " + chessMatch.getCurrentPlayerColor());
         }
     }
 
