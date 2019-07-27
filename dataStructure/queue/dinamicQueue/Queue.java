@@ -18,7 +18,7 @@ public class Queue {
 	}
 	public void add(Object value) throws Exception {
 		Element e = new Element(value);
-		Print.print(("Addited: " + value);
+		Print.print("Addited: " + value);
 
 		if(tail != null) {
 			tail.setNext(e);
@@ -39,7 +39,7 @@ public class Queue {
 			tail = null;
 		}
 
-		Print.print(("Removed: " + o);
+		Print.print("Removed: " + o);
 		return o;
 	}
 

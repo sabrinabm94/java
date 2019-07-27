@@ -1,6 +1,6 @@
-package funcionario_v2;
+package aluraCarreer.funcionario_v2;
 
-//gerente herda de funcion·rio seus mÈtodos e atributos
+//gerente herda de funcion√°rio seus m√©todos e atributos
 public class Gerente extends Funcionario {
 	private int senha;
 	
@@ -12,12 +12,12 @@ public class Gerente extends Funcionario {
 		}
 	}
 	
-	//reescrita do mÈtodo getBonificaÁ„o que tem na classe pai funcion·rio
+	//reescrita do m√©todo getBonifica√ß√£o que tem na classe pai funcion√©rio
 	public double getBonificacao() {
-		//o super indica que o atributo n„o est· definido nesta classe e sim na super classe (a classe pai), que no caso È a Funcion·rio
-		//foi chamado um mÈtodo da classe funcion·rio para concatenar com outro valor
+		//o super indica que o atributo n√£o est√© definido nesta classe e sim na super classe (a classe pai), que no caso √© a Funcion√°rio
+		//foi chamado um m√©todo da classe funcion√°rio para concatenar com outro valor
 		return super.getBonificacao() +  super.getSalario();
-		//se fosse utilizado o this.getBonificacao em vez de usar super.getBonificacao, o mÈtodo seria chamado recursivamente ele mesmo, causando erros nessa situaÁ„o.
+		//se fosse utilizado o this.getBonificacao em vez de usar super.getBonificacao, o m√©todo seria chamado recursivamente ele mesmo, causando erros nessa situa√ß√£o.
 	}
 
 	public void setSenha(int senha) {

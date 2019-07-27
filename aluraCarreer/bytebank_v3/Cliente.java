@@ -1,4 +1,4 @@
-package bytebank_v3;
+package aluraCarreer.bytebank_v3;
 
 public class Cliente {
 	private String nome;

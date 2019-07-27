@@ -1,6 +1,8 @@
-package queue.staticQueue;
+package dataStructure.queue.staticQueue;
 
-public class StaticQueueMain {
+import queue.staticQueue.Queue;
+
+class StaticQueueMain {
 	public static void main(String[] args) {
 		Queue queue = new Queue(6);
 		queue.add(20.0); 

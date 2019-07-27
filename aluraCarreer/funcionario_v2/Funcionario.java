@@ -1,12 +1,11 @@
-package funcionario_v2;
+package aluraCarreer.funcionario_v2;
 
 public class Funcionario {
-	
-	//private: os atributos s„o visÌveis somente dentro desta classe
+	//private: os atributos s√£o vis√≠veis somente dentro desta classe
 	private String nome;
 	private String cpf;
 	
-	//protected: È privado para todos, menos para os filhos desta classe, sendo visÌvel para gerente
+	//protected: √© privado para todos, menos para os filhos desta classe, sendo vis√≠vel para gerente
 	//protected double salario;
 	private double salario;
 	

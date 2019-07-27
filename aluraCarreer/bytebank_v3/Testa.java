@@ -1,28 +1,29 @@
-package bytebank_v3;
+package aluraCarreer.bytebank_v3;
+
+import javaRepositories.Print;
 
 public class Testa {
 	public static void main(String[] args) {
 		//cliente
-		Cliente sabrina = new Cliente();
-		sabrina.setNome("Sabrina Boing M.");
-		sabrina.setCpf("222.222.222.222");
-		sabrina.setProfissao("Desenvolvedora");
+		Cliente sivy = new Cliente();
+		sivy.setNome("Sivy Boing");
+		sivy.setCpf("222.222.222.222");
+		sivy.setProfissao("Desenvolvedora");
 		
 		//conta
-		//Conta contaSabrina = new Conta();
-		Conta contaSabrina = new Conta(1,1);
-		contaSabrina.setAgencia(0);
-		contaSabrina.setAgencia(1);
-		contaSabrina.deposita(500);
+		//Conta contaSivy = new Conta();
+		Conta contaSivy = new Conta(1,1);
+		contaSivy.setAgencia(0);
+		contaSivy.setAgencia(1);
+		contaSivy.deposita(500);
 		
 		Conta contaAlexander = new Conta(2,2);
 		
-		//atribui a referência do objeto cliente ao titular da conta
-		contaSabrina.setTitular(sabrina);
-		System.out.println("A conta do(a) titular " + contaSabrina.getTitular().getNome() + " tem o saldo de: " + contaSabrina.getSaldo());
-		
-		
-		//chamando método estático da classe
-		System.out.println("O total de contas é: " + Conta.getTotal());
+		//atribui a referÃªncia do objeto cliente ao titular da conta
+		contaSivy.setTitular(sivy);
+		Print.print("A conta do(a) titular " + contaSivy.getTitular().getNome() + " tem o saldo de: " + contaSivy.getSaldo());
+
+		//chamando mÃ©todo estÃ¡tico da classe
+		Print.print("O total de contas: " + Conta.getTotal());
 	}
 }

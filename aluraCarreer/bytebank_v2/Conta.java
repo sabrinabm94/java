@@ -1,4 +1,4 @@
-package bytebank_v2;
+package aluraCarreer.bytebank_v2;
 
 public class Conta {
 	public int agencia;

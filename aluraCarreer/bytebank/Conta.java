@@ -1,19 +1,19 @@
-package bytebank;
+package aluraCarreer.bytebank;
 
-//classe: especificação de um tipo (neste caso o conta) que define seus atributos e comportamentos
+//classe: especificaÃ§Ã£o de um tipo (neste caso o conta) que define seus atributos e comportamentos
 public class Conta {
 	//atributos ou propriedades, iniciam com 0/false/vazio
-	//alterações feita na classe serão replicada aos objetos ao ser instanciado, depois disso podem ser alterados
+	//alteraÃ§Ãµes feita na classe serÃ£o replicada aos objetos ao ser instanciado, depois disso podem ser alterados
 	double saldo;
 	int agencia;
 	int numero;
 	String titular;
 	
-	//função sem retorno
+	//funï¿½ï¿½o sem retorno
 	public void deposita(double valor) {
 		this.saldo = this.saldo + valor;
-		//this para referenciar o saldo (atribuito da classe) da conta na qual o método foi invocado
-		//o valor não utiliza this por ser uma varável temporário que só existe neste escopo e desaparecerá ao ser terminado de executar essa função
+		//this para referenciar o saldo (atribuito da classe) da conta na qual o mÃ©todo foi invocado
+		//o valor nÃ£o utiliza this por ser uma varÃ¡vel temporÃ¡rio que sÃ³ existe neste escopo e desaparecerÃ£o ao ser terminado de executar essa funÃ§Ã£o
 	}
 	
 	public boolean saca(double valor) {
