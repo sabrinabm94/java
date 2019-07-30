@@ -39,6 +39,11 @@ public class Main {
                 if(capturedPiece != null) {
                     capturedPieces.add(capturedPiece);
                 }
+
+                if(chessMatch.getPromoted() != null) {
+                    String type = getTypeToPromotion(scanner);
+                    chessMatch.replacePromotedPiece(type, chessMatch.getPromoted());
+                }
             } catch(ChessException error) {
                 showExceptionErrorMessage(error.getMessage());
                 pressEnterToContinue(scanner);
@@ -52,31 +57,36 @@ public class Main {
         UI.printMatch(chessMatch, capturedPieces);
     }
 
-    public static ChessPosition getOriginChessPosition(Scanner scanner) {
+    private static ChessPosition getOriginChessPosition(Scanner scanner) {
         Print.print("\nEnter with piece origin position: ");
         return UI.readChessPosition(scanner);
     }
 
-    public static ChessPosition getTargetChessPosition(Scanner scanner) {
+    private static ChessPosition getTargetChessPosition(Scanner scanner) {
         Print.print("\nEnter with piece target position: ");
         return UI.readChessPosition(scanner);
     }
 
-    public static void showPiecePossibleMoves(ChessMatch chessMatch, ChessPosition origin) {
+    private static void showPiecePossibleMoves(ChessMatch chessMatch, ChessPosition origin) {
         boolean[][] possiblePieceMoves = chessMatch.possiblePieceMoves(origin);
         UI.printBoard(chessMatch.getPieces(), possiblePieceMoves);
     }
 
-    public static ChessPiece performeChessMove(ChessMatch chessMatch, ChessPosition origin, ChessPosition target) {
+    private static ChessPiece performeChessMove(ChessMatch chessMatch, ChessPosition origin, ChessPosition target) {
         return chessMatch.performeChessMove(origin, target);
     }
 
-    public static void showExceptionErrorMessage(String errorMessage) {
+    private static void showExceptionErrorMessage(String errorMessage) {
         Print.println("\n" + errorMessage);
     }
 
-    public static void pressEnterToContinue(Scanner scanner) {
+    private static void pressEnterToContinue(Scanner scanner) {
         Print.println("Press enter to continue");
         scanner.nextLine();
+    }
+
+    private static String getTypeToPromotion(Scanner scanner) {
+        Print.println("Enter with the piece to promotion (B/N/R/Q)");
+        return scanner.nextLine();
     }
 }
