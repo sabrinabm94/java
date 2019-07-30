@@ -1,41 +1,42 @@
-package funcionario_v2;
+package aluraCarreer.funcionario_v2;
+
+import javaRepositories.Print;
 
 public class Teste {
-	
 	public static void main(String[] args) {
-		Funcionario sabrina = new Funcionario();
-		sabrina.setNome("Sabrina B. Moreira");
-		sabrina.setCpf("000000000000");
-		sabrina.setSalario(2500);
-		
-		System.out.println("Nome: " + sabrina.getNome());
-		System.out.println("Sal·rio: " + sabrina.getSalario());
-		System.out.println("Valor da bonificaÁ„o: " + sabrina.getBonificacao());
+		Funcionario sivy = new Funcionario();
+		sivy.setNome("Sivy Boing");
+		sivy.setCpf("000000000000");
+		sivy.setSalario(2500);
+
+		Print.print("Nome: " + sivy.getNome());
+		Print.print("Sal√°rio: " + sivy.getSalario());
+		Print.print("Valor da bonifica√ß√£o: " + sivy.getBonificacao());
 		
 		Funcionario alexander = new Funcionario();
 		alexander.setNome("Alexander C. Becker");
 		alexander.setCpf("111111111111");
 		alexander.setSalario(3000);
-		
-		System.out.println("");
-		System.out.println("Nome: " + alexander.getNome());
-		System.out.println("Sal·rio: " + alexander.getSalario());
-		System.out.println("Valor da bonificaÁ„o: " + alexander.getBonificacao());
-		
+
+		Print.print("");
+		Print.print("Nome: " + alexander.getNome());
+		Print.print("Sal√°rio: " + alexander.getSalario());
+		Print.print("Valor da bonifica√ß√£o: " + alexander.getBonificacao());
+
 		Gerente liv = new Gerente();
 		liv.setNome("Liv B. Becker");
 		liv.setCpf("111111111111");
 		liv.setSalario(5000);
 		liv.setSenha(12345);
-		
-		System.out.println("");
-		System.out.println("Nome: " + liv.getNome());
-		System.out.println("Sal·rio: " + liv.getSalario());
-		System.out.println("Valor da bonificaÁ„o: " + liv.getBonificacao());
-		System.out.println("Autenticado: " + liv.autentica(12345));
+
+		Print.print("");
+		Print.print("Nome: " + liv.getNome());
+		Print.print("Sal√°rio: " + liv.getSalario());
+		Print.print("Valor da bonificac√£o: " + liv.getBonificacao());
+		Print.print("Autenticado: " + liv.autentica(12345));
 		
 		//Polimorfismo
-		//UtilizaÁ„o de uma referÍncia mais genÈrica: funciona pois o gerente È um tipo de funcion·rio, as funÁıes ser„o somente as que existem em funcion·rio
+		//Utiliza√ß√£o de uma refer√™ncia mais gen√©rica: funciona pois o gerente √© um tipo de funcion√°rio, as fun√ß√µes ser√£o somente as que existem em funcion√°rio
 		Funcionario func = new Gerente();
 		
 		Gerente gerenteTeste = new Gerente();
@@ -43,17 +44,16 @@ public class Teste {
 		gerenteTeste.setSalario(1500);
 		ControleBonificacao controle = new ControleBonificacao();
 		controle.registra(gerenteTeste);
-		System.out.println(controle.getSoma());
+		Print.print(controle.getSoma() + "");
 		
 		Funcionario funcionarioTeste = new Funcionario();
 		funcionarioTeste.setSalario(2000);
 		controle.registra(funcionarioTeste);
-		System.out.println(controle.getSoma());
+		Print.print(controle.getSoma() + "");
 		
 		/*
 		func.autentica();
-		n„o funciona pois autentica est· no gerente, e n„o em funcion·rio.
+		n√£o funciona pois autentica est√° no gerente, e n√£o em funcion√°rio.
 		*/
 	}
-
 }

@@ -1,11 +1,11 @@
-package funcionario_v1;
+package aluraCarreer.funcionario_v1;
 
 public class Funcionario {
 	private String nome;
 	private String cpf;
 	private double salario;
 	private int tipo = 0; 
-	//funcion·rio = 0 gerente = 1 diretor = 2
+	//funcion√°rio = 0 gerente = 1 diretor = 2
 	
 	public double getBonificacao() {
 		if(this.tipo == 0) { //funcionario comum

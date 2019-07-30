@@ -1,5 +1,7 @@
-package calculatorAdvanced;
+package basic.calculatorAdvanced;
 
+import calculatorAdvanced.Average;
+import calculatorAdvanced.Classification;
 import javaRepositories.Print;
 
 public class Main

@@ -1,21 +1,23 @@
-package bytebank;
+package aluraCarreer.bytebank;
+
+import javaRepositories.Print;
 
 public class CriaConta {
 	public static void main(String[] args) {
-		//instanciando a classe conta, criando um objeto do tipo conta.
+		//instanciando a classe conta, criando um objeto do tipo conta
 		Conta primeiraConta = new Conta();
-		//um objeto nunca está dentro de uma variável, e sim somente a sua referência
+		//um objeto nunca estÃ£o dentro de uma variÃ¡vel, e sim somente a sua referÃªncia
 		
-		//modificando valor do saldo do objeto primeira conta.
-		System.out.println("Saldos");
+		//modificando valor do saldo do objeto primeira conta
+		Print.print("Saldos");
 		primeiraConta.saldo = 200;
-		System.out.println("Primeira conta: " + primeiraConta.saldo);
+		Print.print("Primeira conta: " + primeiraConta.saldo);
 		
 		primeiraConta.saldo += 100;
-		System.out.println("Primeira conta: " + primeiraConta.saldo);
+		Print.print("Primeira conta: " + primeiraConta.saldo);
 		
 		Conta segundaConta = new Conta();
 		segundaConta.saldo = 50;
-		System.out.println("Segunda conta: " + segundaConta.saldo);
+		Print.print("Segunda conta: " + segundaConta.saldo);
 	}
 }

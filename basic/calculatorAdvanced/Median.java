@@ -1,4 +1,4 @@
-package calculatorAdvanced;
+package basic.calculatorAdvanced;
 
 public class Median
 {

@@ -1,17 +1,19 @@
-package bytebank_v3;
+package aluraCarreer.bytebank_v3;
+
+import javaRepositories.Print;
 
 public class Conta {
-	//private para evitar que as vari·veis sejam acessadas diretamente, queremos que sejam alteradas somente pelos mÈtodos deposita, saca e transfere.
-	//atributos da inst‚ncia
+	//private para evitar que as vari√°veis sejam acessadas diretamente, queremos que sejam alteradas somente pelos m√©todos deposita, saca e transfere
+	//atributos da inst√¢ncia
 	private double saldo;
 	private int agencia;
 	private int numero;
 	private Cliente titular;
 	
-	//static: atributo da classe (compartilhado por todas as inst‚ncias)
+	//static: atributo da classe (compartilhado por todas as inst√¢ncias)
 	private static int total;
 	
-	//A principal responsabilidade do construtor È iniciar atributos
+	//A principal responsabilidade do construtor √© iniciar atributos
 	public Conta(int agencia, int numero) {
 		//total++;
 		Conta.total++;
@@ -19,8 +21,8 @@ public class Conta {
 		this.agencia = agencia;
 		this.numero = numero;
 		
-		//O construtor pode ser usada para fazer restriÁıes, ser obrigado a informar a agencia e n˙mero para instanicar uma conta
-		System.out.println("Criando uma conta via construtor");
+		//O construtor pode ser usada para fazer restri√ß√µes, ser obrigado a informar a agencia e n√©mero para instanciar uma conta
+		Print.print("Criando uma conta via construtor");
 	}
 	
 	public void deposita(double valor) {
@@ -46,9 +48,9 @@ public class Conta {
 		return false;
 	}
 	
-	//quando as vari·veis s„o privadas, È necess·rio utilizar os get/set para poder alterar essas vari·veis por outras classes
-	//neste caso n„o È necess·rio um setSaldo por ue o saca/deposita/transfere j· faz esse papel de alterar o valor do saldo
-	//o ideal È que todos os atributos da classe sejam privados, com raras excessıes.
+	//quando as vari√°veis s√£o privadas, √© necess√°rio utilizar os get/set para poder alterar essas vari√°veis por outras classes
+	//neste caso n√£o √© necess√°rio um setSaldo porque o saca/deposita/transfere j√° faz esse papel de alterar o valor do saldo
+	//o ideal √© que todos os atributos da classe sejam privados, com raras excess√µes
 	public double getSaldo() {
 		return this.saldo;
 	}
@@ -59,7 +61,7 @@ public class Conta {
 
 	public void setAgencia(int agencia) {
 		if(agencia <= 0) {
-			System.out.println("O valor informado n„o È permitido");
+			Print.print("O valor informado nÔøΩo ÔøΩ permitido");
 		} else {
 			this.agencia = agencia;
 		}
@@ -71,7 +73,7 @@ public class Conta {
 
 	public void setNumero(int numero) {
 		if(agencia <= 0) {
-			System.out.println("O valor informado n„o È permitido");
+			Print.print("O valor informado n√£o √© permitido");
 		} else {
 			this.numero = numero;
 		}
@@ -85,7 +87,7 @@ public class Conta {
 		this.titular = titular;
 	}
 	
-	//mÈtodo da classe (compartilhado por todas as inst‚ncias)
+	//m√©todo da classe (compartilhado por todas as inst√¢ncias)
 	public static int getTotal() {
 		return Conta.total;
 	}

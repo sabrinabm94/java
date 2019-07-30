@@ -1,33 +1,33 @@
-package bytebank;
+package aluraCarreer.bytebank;
+
+import javaRepositories.Print;
 
 public class TestaMetodos {
 	public static void main(String[] args) {
-		Conta contaSabrina = new Conta();
-		contaSabrina.titular = "Sabrina Boing M.";
-		contaSabrina.saldo = 10;
+		Conta contaSivy = new Conta();
+		contaSivy.titular = "Sivy Boing";
+		contaSivy.saldo = 10;
 		
 		//Deposita
-		contaSabrina.deposita(100);
-		System.out.println("Conta do(a) " + contaSabrina.titular + " com saldo de: " + contaSabrina.saldo);
-		
+		contaSivy.deposita(100);
+		Print.print("Conta do(a) " + contaSivy.titular + " com saldo de: " + contaSivy.saldo);
 		
 		//Saca
-		boolean conseguiuSacar = contaSabrina.saca(100);
-		System.out.println("Conseguiu sacar? " + conseguiuSacar + ", conta do(a)" + contaSabrina.titular + " com saldo de: " + contaSabrina.saldo);
+		boolean conseguiuSacar = contaSivy.saca(100);
+		Print.print("Conseguiu sacar? " + conseguiuSacar + ", conta do(a)" + contaSivy.titular + " com saldo de: " + contaSivy.saldo);
 		
 		Conta contaAlexander = new Conta();
-		contaAlexander.titular = "Alexander C. Becker";
+		contaAlexander.titular = "Alexander Becker";
 		contaAlexander.deposita(1000);
-		System.out.println("Conta do(a) " + contaAlexander.titular + " com saldo de: " + contaAlexander.saldo);
+		Print.print("Conta do(a) " + contaAlexander.titular + " com saldo de: " + contaAlexander.saldo);
 		
 		//transfere
-		boolean conseguiuTransfere = contaSabrina.transfere(3, contaAlexander);
+		boolean conseguiuTransfere = contaSivy.transfere(3, contaAlexander);
 		if(conseguiuTransfere) {
-			System.out.println("Conta do(a) " + contaAlexander.titular + " com saldo de: " + contaAlexander.saldo);
-			System.out.println("Conta do(a) " + contaSabrina.titular + " com saldo de: " + contaSabrina.saldo);
+			Print.print("Conta do(a) " + contaAlexander.titular + " com saldo de: " + contaAlexander.saldo);
+			Print.print("Conta do(a) " + contaSivy.titular + " com saldo de: " + contaSivy.saldo);
 		} else {
-			System.out.println("Faltou dinheiro");
+			Print.print("Faltou dinheiro");
 		}
-		
 	}
 }

@@ -1,7 +1,6 @@
-package queue;
+package dataStructure.queue;
 
 import javaRepositories.Print;
-import java.util.function.Consumer;
 
 public class Deque {
     private ElementGenerics<T> head;
