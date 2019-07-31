@@ -8,15 +8,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner fileScanner = null;
         String filePath = "C:\\Users\\smoreira\\Documents\\Documentos\\Trilhas e cursos\\Cursos\\java\\basic\\fileManipulation\\file.txt";
+        File file = new File(filePath);
 
-        file(filePath, fileScanner);
+        file(file, fileScanner);
         bufferedReader(filePath, fileScanner);
+        fileWriter(filePath, fileScanner);
+        buffedWriter(file, fileScanner);
     }
 
-    private static void file(String filePath, Scanner fileScanner) throws IOException {
+    private static void file(File file, Scanner fileScanner) throws IOException {
         try {
             //instancia um scanner a partir de um arquivo
-            File file = new File(filePath);
             fileScanner = new Scanner(file);
             printFile(fileScanner, null, file);
 
@@ -41,6 +43,26 @@ public class Main {
             error.printStackTrace();
             showErrorMessage(error.getMessage());
         }
+    }
+
+    private static void fileWriter(String filePath, Scanner fileScanner) {
+        //stream de escrita de caracteres num arquivo
+        String[] lines = new String[] {"", "Good morning", "Good afternoon", "Good night"};
+
+        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true))) {
+            for(String line: lines) {
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
+            }
+        } catch (IOException error) {
+            error.printStackTrace();
+        }
+
+    }
+
+    private static void buffedWriter(File file, Scanner fileScanner) {
+        //stream de escrita de caracteres num arquivo mais rápido
+
     }
 
     private static void showErrorMessage(String error) {
