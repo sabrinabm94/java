@@ -1,4 +1,6 @@
-package aluraCarreer.funcionario_v2;
+package funcionario_v2;
+
+import aluraCarreer.funcionario_v2.Funcionario;
 
 //gerente herda de funcionário seus métodos e atributos
 public class Gerente extends Funcionario {

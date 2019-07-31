@@ -1,6 +1,8 @@
-package aluraCarreer.funcionario_v2;
+package funcionario_v2;
 
 import javaRepositories.Print;
+
+import aluraCarreer.funcionario_v2.Funcionario;
 
 public class Teste {
 	public static void main(String[] args) {

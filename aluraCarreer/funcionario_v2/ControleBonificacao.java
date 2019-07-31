@@ -1,6 +1,6 @@
-package aluraCarreer.funcionario_v2;
+package funcionario_v2;
 
-import funcionario_v2.Funcionario;
+import aluraCarreer.funcionario_v2.Funcionario;
 
 public class ControleBonificacao {
 	private double soma;
