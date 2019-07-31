@@ -11,17 +11,16 @@ public class Main {
         File file = new File(filePath);
 
         file(file, fileScanner);
-        bufferedReader(filePath, fileScanner);
-        fileWriter(filePath, fileScanner);
-        buffedWriter(file, fileScanner);
+        bufferedReader(filePath);
+        buffedWriter(filePath);
+        bufferedReader(filePath);
     }
 
     private static void file(File file, Scanner fileScanner) throws IOException {
         try {
             //instancia um scanner a partir de um arquivo
             fileScanner = new Scanner(file);
-            printFile(fileScanner, null, file);
-
+            printFile(fileScanner, null);
 
         } catch (FileNotFoundException error) {
             error.printStackTrace();
@@ -33,11 +32,10 @@ public class Main {
         }
     }
 
-    private static void bufferedReader(String filePath, Scanner fileScanner) {
-        //instanciado a partir do file reader com melhorias e mais rapides
+    private static void bufferedReader(String filePath) {
+        //BufferedReader: instanciado a partir do file reader com melhorias e mais rapidez
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))){
-            String line = bufferedReader.readLine();
-            printFile(fileScanner, bufferedReader, null);
+            printFile(null,  bufferedReader);
         }
         catch (IOException error) {
             error.printStackTrace();
@@ -45,8 +43,9 @@ public class Main {
         }
     }
 
-    private static void fileWriter(String filePath, Scanner fileScanner) {
-        //stream de escrita de caracteres num arquivo
+    private static void buffedWriter(String filePath) {
+        //FileWriter: stream de escrita de caracteres num arquivo
+        //BufferedWriter: stream de escrita de caracteres num arquivo mais rápido
         String[] lines = new String[] {"", "Good morning", "Good afternoon", "Good night"};
 
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true))) {
@@ -57,34 +56,28 @@ public class Main {
         } catch (IOException error) {
             error.printStackTrace();
         }
-
-    }
-
-    private static void buffedWriter(File file, Scanner fileScanner) {
-        //stream de escrita de caracteres num arquivo mais rápido
-
     }
 
     private static void showErrorMessage(String error) {
         Print.println("Error: " + error);
     }
 
-    private static void printFile(Scanner fileScanner, BufferedReader bufferedReader, File file) throws IOException {
-        if(file != null) {
-            Print.println("\nFileReader --------------------------------");
+    private static void printFile(Scanner fileScanner, BufferedReader bufferedReader) throws IOException {
+        if(bufferedReader != null) {
+            String line = bufferedReader.readLine();
+
+            Print.println("\nBufferedReader ----------------------------");
+            while (line != null) {
+                Print.println("\n" + line + "\n");
+                line = bufferedReader.readLine();
+            }
+            Print.println("-------------------------------------------\n");
+        } else if(fileScanner != null){
+            Print.println("\nFile --------------------------------");
             //enquando haver conteúdo no arquivo
             while(fileScanner.hasNextLine()) {
                 //são printadas as linhas do conteúdo
                 Print.println("\n" + fileScanner.nextLine() + "\n");
-            }
-            Print.println("-------------------------------------------\n");
-        } else if(bufferedReader != null) {
-            String line = bufferedReader.readLine();
-
-            Print.println("\nBufferedReader ----------------------------");
-            while(line != null) {
-                Print.println("\n" + line + "\n");
-                line = bufferedReader.readLine();
             }
             Print.println("-------------------------------------------\n");
         }
