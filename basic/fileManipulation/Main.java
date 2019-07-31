@@ -32,34 +32,15 @@ public class Main {
     }
 
     private static void bufferedReader(String filePath, Scanner fileScanner) {
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-
         //instanciado a partir do file reader com melhorias e mais rapides
-        try {
-            fileReader = new FileReader(filePath);
-            bufferedReader = new BufferedReader(fileReader);
-
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))){
             String line = bufferedReader.readLine();
             printFile(fileScanner, bufferedReader, null);
-
         }
         catch (IOException error) {
             error.printStackTrace();
             showErrorMessage(error.getMessage());
-        }/*
-        finally {
-            try {
-                if (bufferedReader != null) {
-                    fileScanner.close();
-                }
-                if (fileReader != null) {
-                    fileScanner.close();
-                }
-            } catch (Exception error) {
-                error.printStackTrace();
-            }
-        }*/
+        }
     }
 
     private static void showErrorMessage(String error) {
