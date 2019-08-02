@@ -9,8 +9,8 @@ import java.util.List;
 import org.json.JSONObject;
 import org.json.XML;
 
-public class ProcessXml {
-	public static String processFile(String filePath) throws IOException {
+public class ProcessorXml {
+	public static String processorFile(String filePath) throws IOException {
 		byte[] fileContent = Files.readAllBytes(Paths.get(filePath));
 		
 		return new String(fileContent, "ISO-8859-1");

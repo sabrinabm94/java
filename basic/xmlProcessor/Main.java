@@ -10,22 +10,22 @@ public class Main {
 		String filePath = "C:\\Users\\jvealuno\\eclipse-workspace\\xmlProcessador\\src\\xml.xml";
         File file = new File(filePath);
         
-        String fileContent = ProcessXml.processFile(filePath);
+        String fileContent = ProcessorXml.processorFile(filePath);
 		Print.println("File");
 		Print.println(fileContent);
 		
-        String json = ProcessXml.convertXmlToJsonHard(fileContent);
+        String json = ProcessorXml.convertXmlToJsonHard(fileContent);
 		
         /*
-		String json = ProcessXml.convertXmlToJson(fileContent);
+		String json = ProcessorXml.convertXmlToJson(fileContent);
 		Print.println("\nJson");
 		Print.println(json);
 		
-		String xml = ProcessXml.convertJsonToXml(json.toString());
+		String xml = ProcessorXml.convertJsonToXml(json.toString());
 		Print.println("\nXml");
 		Print.println(xml);
 		
-		String html = processXml.convertXmlToHtml(filePath);
+		String html = ProcessorXml.convertXmlToHtml(filePath);
 		Print.println("\nHtml");
 		Print.println(html);
 		*/
