@@ -1,4 +1,4 @@
-package sabrina.bootcamp;
+package xmlProcessor;
 
 import java.util.List;
 
