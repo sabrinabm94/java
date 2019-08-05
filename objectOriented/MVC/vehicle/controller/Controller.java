@@ -20,7 +20,7 @@ public class Controller {
 
         int licenseNumber;
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Inform the licence number from vehicle to search: ");
+        System.out.print("Inform the licence number from Vehicle to search: ");
         licenseNumber = scanner.nextInt();
 
         if(licenseNumber == vehicle.getByLicenseNumber()) {
