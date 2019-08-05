@@ -21,7 +21,6 @@ public class Main {
 
         CarRental carRental = getRentalDate(scanner, dateFormat);
         RentalService rentalService = getInvoiceDate(scanner, carRental);
-
     }
 
     public static CarRental getRentalDate(Scanner scanner, SimpleDateFormat dateFormat) throws ParseException {
@@ -39,7 +38,6 @@ public class Main {
         CarRental carRental = new CarRental(startData, finishData, new Vehicle(carModel));
 
         return carRental;
-
     }
 
     public static RentalService getInvoiceDate(Scanner scanner, CarRental carRental) {
