@@ -7,7 +7,8 @@ public class RentalService {
     private Double pricePerDay;
     private Double pricePerHour;
 
-    private BrazilTaxService taxService;
+    //Não é uma boa prática chamar direto o BrazilTaxService, pelo alto acoplamento, por isso usamos a interface
+    private TaxService taxService;
 
     public Double getPricePerDay() {
         return pricePerDay;
@@ -25,15 +26,15 @@ public class RentalService {
         this.pricePerHour = pricePerHour;
     }
 
-    public BrazilTaxService getTaxService() {
+    public TaxService getTaxService() {
         return taxService;
     }
 
-    public void setTaxService(BrazilTaxService taxService) {
+    public void setTaxService(TaxService taxService) {
         this.taxService = taxService;
     }
 
-    public RentalService(Double pricePerHour, Double pricePerDay, BrazilTaxService taxService) {
+    public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
         super();
         this.pricePerDay = pricePerDay;
         this.pricePerHour = pricePerHour;

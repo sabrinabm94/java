@@ -1,6 +1,6 @@
 package objectOriented.carRental.service;
 
-public class BrazilTaxService {
+public class BrazilTaxService implements TaxService{
     //double primitivo
     public double tax(double amount) {
         if(amount <= 100.0) {
