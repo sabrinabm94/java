@@ -38,4 +38,5 @@ target/
 /nbdist/
 /.nb-gradle/
 /bin/
-
+lib/
+out/
