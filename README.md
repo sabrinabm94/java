@@ -3,11 +3,11 @@
 ## basic
 Scripts for testing java features and sintax.
 
-## object oriented
-Scripts using the object-oriented pattern for designing projects.
-
 ## data structure
 Scripts involving data structure in java such as queues, stacks, sorting methods and binary trees.
+
+## object oriented
+Scripts using the object-oriented pattern for designing projects.
 
 ## Java ee
 Basic structure for creating a javaee rest apis.
@@ -22,4 +22,4 @@ Sivy
 
 sivyboing@gmail.com
 
-newcoderslab.wordpress.com
+www.thedevblog.com.br
