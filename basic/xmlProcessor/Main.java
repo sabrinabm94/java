@@ -1,4 +1,4 @@
-package xmlProcessor;
+package basic.xmlProcessor;
 
 import java.io.File;
 import java.io.IOException;

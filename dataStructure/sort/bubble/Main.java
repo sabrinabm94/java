@@ -1,7 +1,8 @@
-package sort.bubble;
+package dataStructure.sort.bubble;
 
 import javaRepositories.Print;
 import javaRepositories.Populate;
+import sort.bubble.Sort;
 
 public class Main {
     public static void main(String[] args) {

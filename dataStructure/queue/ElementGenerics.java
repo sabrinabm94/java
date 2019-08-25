@@ -1,6 +1,6 @@
-package queue;
+package dataStructure.queue;
 
-public class ElementGenerics {
+public class ElementGenerics<T> {
     private ElementGenerics<T> next;
     private ElementGenerics<T> prev;
     private T value;

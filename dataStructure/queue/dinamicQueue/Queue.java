@@ -1,6 +1,6 @@
-package queue.dinamicQueue;
+package dataStructure.queue.dinamicQueue;
 
-import queue.Element;
+import dataStructure.queue.Element;
 import javaRepositories.Print;
 
 public class Queue {
@@ -18,7 +18,7 @@ public class Queue {
 	}
 	public void add(Object value) throws Exception {
 		Element e = new Element(value);
-		Print.print("Addited: " + value);
+		Print.println("Addited: " + value);
 
 		if(tail != null) {
 			tail.setNext(e);
@@ -31,7 +31,7 @@ public class Queue {
 
 	public Object remove() throws Exception {
 		if(this.isEmpty()) {
-			throw new Exception ("The Queue is empty!");
+			throw new Exception("The Queue is empty!");
 		}
 		Object o = head.getValue();
 		head = head.getNext();
@@ -39,7 +39,7 @@ public class Queue {
 			tail = null;
 		}
 
-		Print.print("Removed: " + o);
+		Print.println("Removed: " + o);
 		return o;
 	}
 
@@ -56,7 +56,7 @@ public class Queue {
 	public void list() {
 		Element e = head;
 		while (e != null) {
-			Print.print("Value: " + e.getValue());
+			Print.println("Value: " + e.getValue());
 			e = e.getNext();
 		}
 	}

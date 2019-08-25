@@ -1,6 +1,6 @@
-package queue.DequeRemovePerIndice;
+package dataStructure.queue.DequeRemovePerIndice;
 
-import queue.Deque;
+import dataStructure.queue.Deque;
 
 public class Main {
      public static void main(String[] args) { 

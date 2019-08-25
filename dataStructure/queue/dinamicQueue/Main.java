@@ -1,4 +1,4 @@
-package queue.dinamicQueue;
+package dataStructure.queue.dinamicQueue;
 
 public class Main {
 	public static void main(String[] args) throws Exception { //concentrar os exceptions

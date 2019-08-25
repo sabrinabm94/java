@@ -1,19 +1,19 @@
-package queue.CircularDequeGenericsLambdaCallback;
+package dataStructure.queue.CircularDequeGenericsLambdaCallback;
 
 import java.util.Scanner;
+import dataStructure.queue.Deque;
+import dataStructure.queue.EmptyListException;
 import javaRepositories.Print;
-import queue.Deque;
-import queue.EmptyListException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EmptyListException {
         Deque<Integer> deque = new Deque<Integer>(); //declaração do tipo para filtar as entradas e evitar a necessitade de excessivas tratativas de erros
         Scanner keyboard = new Scanner(System.in);
         int option = 0;
 
         while (option != 7) {
-            Print.print("\n1- Add Fist\n2- Add Last\n3- Remove First\n4- Remove Last\n5 - Listing\n6 - clear\n7 - Exit");
-            Print.print("Enter with the option: \n");
+            Print.print("\n1- Add Fist\n2- Add Last\n3- Remove First\n4- Remove Last\n5- Listing\n6- clear\n7- Exit");
+            Print.print("\nEnter with the option: \n");
             option = keyboard.nextInt();
 
             if (option == 1) {
@@ -33,24 +33,16 @@ public class Main {
                     Print.print("The deque is full!");
                 }
             } else if (option == 3) {
-                try {
-                    deque.removeFirst();
-                } catch (EmptyListException e) {
-                    Print.print(e.getMessage());
-                }
+                deque.removeFirst();
             } else if (option == 4) {
-                try {
-                    deque.removeLast();
-                } catch (EmptyListException e) {
-                    Print.print(e.getMessage());
-                }
+                deque.removeLast();
             } else if (option == 5) {
-                deque.listing((e)-> System.out.println(e));
+                deque.listing((e)-> Print.println(e + ""));
             } else if (option == 6) {
                 deque.clear();
             } else if (option == 7) {
                 option = 7;
-                Print.print("Exiting aplication.");
+                Print.print("Exiting aplication.\n");
                 break;
             } else {
                 Print.print("Invalid option");

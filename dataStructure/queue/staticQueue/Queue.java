@@ -1,4 +1,4 @@
-package queue.staticQueue;
+package dataStructure.queue.staticQueue;
 
 import javaRepositories.Print;
 
@@ -31,7 +31,7 @@ public class Queue {
 			} else {
 				head = (head + 1) % queue.length; //incremento normal
 			}
-			Print.print("Removing the element: " + o);
+			Print.println("Removing the element: " + o);
 			return o;
 		} else {
 			return null;
@@ -42,9 +42,9 @@ public class Queue {
 		if(!this.isEmpty()) {
 			int i = head;
 			for(i = head; i!= tail; i = (i+1) % queue.length) {
-				Print.print("Value " + queue[i]);
+				Print.println("Value " + queue[i]);
 			}
-			Print.print("Value " + queue[i]);
+			Print.println("Value " + queue[i]);
 		}
 	}
 

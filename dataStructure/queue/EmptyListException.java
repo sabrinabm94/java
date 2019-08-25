@@ -1,4 +1,4 @@
-package queue;
+package dataStructure.queue;
 
 public class EmptyListException extends Exception {
     public EmptyListException(String message) {

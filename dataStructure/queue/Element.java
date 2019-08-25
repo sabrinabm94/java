@@ -1,4 +1,4 @@
-package queue;
+package dataStructure.queue;
 
 public class Element {
 	private Element next;
