@@ -17,9 +17,6 @@ Creation of an api rest for car insurance using spring boot.
 
 ---
 
-# Contacts
+# Contact
 Sabrina B.
-
-sabrinabmoreira@gmail.com
-
-https://www.thedevblog.com.br/
+sabrinabm94@gmail.com
