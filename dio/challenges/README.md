@@ -1,8 +1,18 @@
 # Desafios
 
-1: Converter temperatura em Celsius para Fahrenheit: [Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
+1: Converção temperatura de Celsius para Fahrenheit: [Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
 
 # Artigos
+
+## Inteligência Artificial
+
+[O Python saiu de cena 🐍... Agora é a hora de usar IA com Java ☕](https://web.dio.me/articles/o-python-saiu-de-cena-agora-e-a-hora-de-usar-ia-com-java-bbd807c3e3ca)
+
+[Por que Java com IA é o combo mais subestimado do momento? ☕🤖](https://web.dio.me/articles/por-que-java-com-ia-e-o-combo-mais-subestimado-do-momento-34edf30c99da)
+
+[🤖 Se você ainda escreve código sozinho em 2025... tá atrasado](https://web.dio.me/articles/se-voce-ainda-escreve-codigo-sozinho-em-2025-ta-atrasado-4c6c0c17e13f)
+
+[Como ganhei 1h por dia automatizando tarefas com IA 🤖 ☕](https://web.dio.me/articles/como-ganhei-1h-por-dia-automatizando-tarefas-com-ia-369bb256ebdd)
 
 ## Fundamentos
 
