@@ -1,6 +1,6 @@
 # Desafios
 
-1: Converção temperatura de Celsius para Fahrenheit: [Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
+1: Conversão temperatura de Celsius para Fahrenheit: [Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
 
 # Artigos
 
