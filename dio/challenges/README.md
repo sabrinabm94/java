@@ -1,6 +1,16 @@
 # Desafios
 
-1: Conversão temperatura de Celsius para Fahrenheit: [Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
+Repositório de desafios da DIO feitos.
+
+## Desafios 1 - criação de ebook com IA
+
+[Ebook durma naturalmente](https://github.com/sabrinabm94/chalenges/blob/main/durma-naturalmente.pdf)
+
+[Prompts usados](https://github.com/sabrinabm94/chalenges/blob/main/prompts.md)
+
+## Desafios 2 - conversão temperatura de Celsius para Fahrenheit
+
+[Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
 
 # Artigos
 
@@ -14,10 +24,22 @@
 
 [Como ganhei 1h por dia automatizando tarefas com IA 🤖 ☕](https://web.dio.me/articles/como-ganhei-1h-por-dia-automatizando-tarefas-com-ia-369bb256ebdd)
 
-## Fundamentos
+## Fundamentos do Java
 
 [Tipos primitivos e operadores](https://web.dio.me/articles/fundamentos-do-java-tipos-primitivos-e-operadores-23477d0c710a)
 
 [Estruturas condicionais e de repetição](https://web.dio.me/articles/fundamentos-do-java-estruturas-condicionais-e-de-repeticao-em-java-24ce1b67b926)
 
 [Orientação a objetos](https://web.dio.me/articles/fundamentos-do-java-orientacao-a-objetos-6334f797e30a)
+
+## Conecte-se comigo
+
+- Conheça meu PortFólio!
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://bit.ly/3Q7O3Z7)
+
+- Se conecte comigo!
+
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sabrinabm94/)
+
+---
