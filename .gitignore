@@ -40,3 +40,4 @@ target/
 /bin/
 lib/
 out/
+.vscode/

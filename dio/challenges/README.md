@@ -10,7 +10,13 @@ Repositório de desafios da DIO feitos.
 
 ## Desafios 2 - conversão temperatura de Celsius para Fahrenheit
 
-[Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/CelsiusToFahrenheit.java)
+[Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/scripts/CelsiusToFahrenheit.java)
+
+## Desafios 3 - Hierarquia de cargos usando polimorfismo por herança
+
+Aplicabilidade dos conceitos de programação orientada a objetos como Herança, Polimorfismo... e propriedades de classes como abstract, sealed e final.
+
+[Link](https://github.com/sabrinabm94/java/blob/master/dio/challenges/scripts/CelsiusToFahrenheit.java)
 
 # Artigos
 
