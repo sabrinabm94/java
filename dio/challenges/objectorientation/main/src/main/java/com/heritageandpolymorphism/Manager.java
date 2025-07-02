@@ -1,4 +1,4 @@
-package com.objectorientation.heritageandpolymorphism;
+package com.heritageandpolymorphism;
 
 public final class Manager extends Lead {
     // Manager herda as propriedades de Employee
@@ -7,27 +7,27 @@ public final class Manager extends Lead {
     private String password;
     private double commission;
 
-    public String getLogin() {
+    protected String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
+    protected void setLogin(String login) {
         this.login = login;
     }
 
-    public String getPassword() {
+    protected String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    protected void setPassword(String password) {
         this.password = password;
     }
 
-    public double getCommission() {
+    protected double getCommission() {
         return commission;
     }
 
-    public void setCommission(double commission) {
+    protected void setCommission(double commission) {
         this.commission = commission;
     }
 }

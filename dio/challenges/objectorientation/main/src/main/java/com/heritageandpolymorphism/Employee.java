@@ -1,6 +1,7 @@
-package com.objectorientation.heritageandpolymorphism;
+package com.heritageandpolymorphism;
+
 public abstract class Employee {
-  //classe abstrada que não pode ser instanciada
+  // classe abstrada que não pode ser instanciada
 
   private String code;
   private String name;
@@ -8,43 +9,43 @@ public abstract class Employee {
   private int age;
   private int salary;
 
-  public String getCode() {
+  protected String getCode() {
     return code;
   }
 
-  public void setCode(String code) {
+  protected void setCode(String code) {
     this.code = code;
   }
 
-  public String getName() {
+  protected String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  protected void setName(String name) {
     this.name = name;
   }
 
-  public String getAddress() {
+  protected String getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  protected void setAddress(String address) {
     this.address = address;
   }
 
-  public int getAge() {
+  protected int getAge() {
     return age;
   }
 
-  public void setAge(int age) {
+  protected void setAge(int age) {
     this.age = age;
   }
 
-  public int getSalary() {
+  protected int getSalary() {
     return salary;
   }
 
-  public void setSalary(int salary) {
+  protected void setSalary(int salary) {
     this.salary = salary;
   }
 }

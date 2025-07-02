@@ -1,15 +1,15 @@
-package com.objectorientation.heritageandpolymorphism;
+package com.heritageandpolymorphism;
 
 public final class Gestor extends Employee {
-    // Gestor herda as propriedades de Employee
+    // Gestor herda as propriedades de Employee, no java não temos suporte a herança multipla
 
     private String squadName;
 
-    public String getSquadName() {
+    protected String getSquadName() {
         return squadName;
     }
 
-    public void setSquadName(String squadName) {
+    protected void setSquadName(String squadName) {
         this.squadName = squadName;
     }
 }

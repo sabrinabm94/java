@@ -1,13 +1,14 @@
-package com.objectorientation.heritageandpolymorphism;
+package com.heritageandpolymorphism;
+
 public class Salesman extends Employee {
 
-  private double salesGoal;
+    private double salesGoal;
 
-    public double getSalesGoal() {
+    protected double getSalesGoal() {
         return salesGoal;
     }
 
-    public void setSalesGoal(double salesGoal) {
+    protected void setSalesGoal(double salesGoal) {
         this.salesGoal = salesGoal;
     }
 }

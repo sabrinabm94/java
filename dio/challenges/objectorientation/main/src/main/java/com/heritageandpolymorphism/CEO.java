@@ -1,4 +1,4 @@
-package com.objectorientation.heritageandpolymorphism;
+package com.heritageandpolymorphism;
 
 /*
  * public class CEO extends Manager {
