@@ -1,4 +1,4 @@
-package com.objectorientation.record;
+package com.record;
 
 public class Main {
   public static void main(String[] args) {
